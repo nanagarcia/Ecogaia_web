@@ -1,4 +1,4 @@
 package com.example.EcogaiaWeb.Entidades;
 
-public class Comprador {
+public class Usuario {
 }
