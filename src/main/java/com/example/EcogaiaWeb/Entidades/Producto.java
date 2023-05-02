@@ -1,7 +1,8 @@
 package com.example.EcogaiaWeb.Entidades;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+    import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "Producto")
@@ -21,30 +22,17 @@ public class Producto {
     @Column(nullable = false, length = 100)
     private String Prod_Categoria;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Codigo", referencedColumnName = "Codigo", nullable = false)
-    @JsonIgnore
-    private Orden_pedido orden_pedido;
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Orden_pedido> orden_pedido;
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Exportar> exportar;
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Cotizacion> cotizacion;
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Favoritos> favoritos;
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Venta> venta;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Codigo", referencedColumnName = "Codigo", nullable = false)
-    @JsonIgnore
-    private Exportar exportar;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Codigo", referencedColumnName = "Codigo", nullable = false)
-    @JsonIgnore
-    private Cotizacion cotizacion;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Codigo", referencedColumnName = "Codigo", nullable = false)
-    @JsonIgnore
-    private Favoritos favoritos;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Venta_Codigo", referencedColumnName = "Venta_Codigo", nullable = false)
-    @JsonIgnore
-    private Venta venta;
 
     public Producto(Integer prod_Codigo, Integer prod_Precio, String prod_Nombre, String prod_Imagen, Integer prod_Cantidad, String prod_Categoria) {
 
