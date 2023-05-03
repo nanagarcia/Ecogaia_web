@@ -28,8 +28,10 @@ public class Producto {
     private Set<Exportar> exportar;
     @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Cotizacion> cotizacion;
+
     @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
+
     @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Venta> venta;
 
