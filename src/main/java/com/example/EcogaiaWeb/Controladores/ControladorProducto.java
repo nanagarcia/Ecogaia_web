@@ -3,6 +3,7 @@ package com.example.EcogaiaWeb.Controladores;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 
 @RestController
@@ -17,12 +18,16 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
-    @GetMapping(path = "/listarProductos", consumes = "application/x-www-form-urlenconded")
+<<<<<<< HEAD
+    @GetMapping(path = "/listarProductos")
+=======
+    @GetMapping(path = "/listarProducto")
+>>>>>>> c5ac092c1c24dafc629a85315eb45c4dff14580d
     public ArrayList<Producto> listar() {
         return SP.listar();
     }
 
-    @DeleteMapping("/eliminarProductos/{id}")
+    @DeleteMapping("/eliminarProducto/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SP.eliminar(codigo);
     }
