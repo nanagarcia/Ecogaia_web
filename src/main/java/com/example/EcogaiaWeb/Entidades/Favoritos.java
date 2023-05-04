@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Favoritos")
+@Table(name = "favoritos")
 public class Favoritos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Codigo_favoritos;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Codigo_prod", nullable = false)
+    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
     @JsonIgnore
     private Producto producto;
 

@@ -6,9 +6,10 @@ import org.springframework.data.repository.cdi.Eager;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.Set;
 
 @Entity
-@Table(name = "Distribuir")
+@Table(name = "distribuir")
 public class Distribuir {
 
     @Id
@@ -16,7 +17,7 @@ public class Distribuir {
     private Integer codigo_dis;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_Repartidor", referencedColumnName = "id_Repartidor", nullable = false)
+    @JoinColumn(name = "id_Repartidor", referencedColumnName = "id_Rep", nullable = false)
     @JsonIgnore
     private Repartidor repartidor;
 
@@ -26,6 +27,9 @@ public class Distribuir {
     private String dis_estado;
     @Temporal(TemporalType.DATE)
     private Date dis_fecha;
+
+    @OneToMany(mappedBy = "distribuir", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Venta> venta;
 
     public Distribuir(Integer codigo_dis, Time dis_tiempo, String dis_estado, Date dis_fecha) {
         this.codigo_dis = codigo_dis;
@@ -43,6 +47,14 @@ public class Distribuir {
 
     public void setCodigo_dis(Integer codigo_dis) {
         this.codigo_dis = codigo_dis;
+    }
+
+    public Repartidor getRepartidor() {
+        return repartidor;
+    }
+
+    public void setRepartidor(Repartidor repartidor) {
+        this.repartidor = repartidor;
     }
 
     public Time getDis_tiempo() {
@@ -67,6 +79,14 @@ public class Distribuir {
 
     public void setDis_fecha(Date dis_fecha) {
         this.dis_fecha = dis_fecha;
+    }
+
+    public Set<Venta> getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Set<Venta> venta) {
+        this.venta = venta;
     }
 
     @Override

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Repartidor")
+@Table(name = "repartidor")
 public class Repartidor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Repartidor {
     @Column(nullable = false,length = 20)
     private String Rep_Disponibilidad;
 
-    @OneToMany(mappedBy = "Repartidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "repartidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Distribuir> Distribuir;
 
     public Repartidor(Integer id_Rep, String rep_Nombre, String telefono, String direccion, String rep_Disponibilidad) {
@@ -72,6 +72,14 @@ public class Repartidor {
 
     public void setRep_Disponibilidad(String rep_Disponibilidad) {
         Rep_Disponibilidad = rep_Disponibilidad;
+    }
+
+    public Set<com.example.EcogaiaWeb.Entidades.Distribuir> getDistribuir() {
+        return Distribuir;
+    }
+
+    public void setDistribuir(Set<com.example.EcogaiaWeb.Entidades.Distribuir> distribuir) {
+        Distribuir = distribuir;
     }
 
     @Override

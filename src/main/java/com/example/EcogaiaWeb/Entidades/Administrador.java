@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Administrador")
+@Table(name = "administrador")
 public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,8 @@ public class Administrador {
     private String admin_telefono;
 
 
-    @OneToMany(mappedBy = "Administrador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Orden_pedido> orden_pedido;
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Orden_pedido> orden_pedido; /// Faltaban get and setter de este
 
     public Administrador(Integer id_admin, String admin_nombre, String admin_correo, String admin_telefono) {
         this.id_admin = id_admin;
@@ -62,6 +62,14 @@ public class Administrador {
 
     public void setAdmin_telefono(String admin_telefono) {
         this.admin_telefono = admin_telefono;
+    }
+
+    public Set<Orden_pedido> getOrden_pedido() {
+        return orden_pedido;
+    }
+
+    public void setOrden_pedido(Set<Orden_pedido> orden_pedido) {
+        this.orden_pedido = orden_pedido;
     }
 
     @Override

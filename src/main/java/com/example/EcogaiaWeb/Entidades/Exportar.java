@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Exportar")
+@Table(name = "exportar")
 public class Exportar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Codigo;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "RUC_Prov", referencedColumnName = "RUC_Prov", nullable = false)
+    @JoinColumn(name = "RUC_Prov", referencedColumnName = "RUC", nullable = false)
     @JsonIgnore
     private Proveedor proveedor;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Codigo_Prod", nullable = false)
+    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
     @JsonIgnore
     private Producto producto;
     @Column(nullable = false)

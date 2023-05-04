@@ -2,18 +2,17 @@ package com.example.EcogaiaWeb.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
-@Table(name = "Cotizacion")
+@Table(name = "cotizacion")
 public class Cotizacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Codigo_cotizacion;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Codigo_Prod", nullable = false)
+    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false) /// Estaba mal referenciado estaban como Codigo_Prod
     @JsonIgnore
     private Producto producto;
 

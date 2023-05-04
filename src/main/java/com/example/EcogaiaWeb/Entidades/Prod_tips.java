@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Prod_tips")
+@Table(name = "prod_tips")
 public class Prod_tips {
 
     @Id
@@ -14,7 +14,7 @@ public class Prod_tips {
     private Integer codigo_tip;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_Usuario", nullable = false)
     @JsonIgnore
     private Usuario usuario;
 

@@ -5,7 +5,7 @@ package com.example.EcogaiaWeb.Entidades;
 import java.util.Set;
 
 @Entity
-@Table(name = "Producto")
+@Table(name = "producto")
 public class Producto {
 
     @Id
@@ -21,18 +21,15 @@ public class Producto {
     private Integer Prod_Cantidad;
     @Column(nullable = false, length = 100)
     private String Prod_Categoria;
-
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Orden_pedido> orden_pedido;
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Exportar> exportar;
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Cotizacion> cotizacion;
-
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
-
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Venta> venta;
 
 
@@ -96,6 +93,46 @@ public class Producto {
 
     public void setProd_Categoria(String prod_Categoria) {
         Prod_Categoria = prod_Categoria;
+    }
+
+    public Set<Orden_pedido> getOrden_pedido() {
+        return orden_pedido;
+    }
+
+    public void setOrden_pedido(Set<Orden_pedido> orden_pedido) {
+        this.orden_pedido = orden_pedido;
+    }
+
+    public Set<Exportar> getExportar() {
+        return exportar;
+    }
+
+    public void setExportar(Set<Exportar> exportar) {
+        this.exportar = exportar;
+    }
+
+    public Set<Cotizacion> getCotizacion() {
+        return cotizacion;
+    }
+
+    public void setCotizacion(Set<Cotizacion> cotizacion) {
+        this.cotizacion = cotizacion;
+    }
+
+    public Set<Favoritos> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(Set<Favoritos> favoritos) {
+        this.favoritos = favoritos;
+    }
+
+    public Set<Venta> getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Set<Venta> venta) {
+        this.venta = venta;
     }
 
     @Override

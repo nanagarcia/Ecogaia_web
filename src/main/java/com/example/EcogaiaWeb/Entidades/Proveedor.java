@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Proveedor")
+@Table(name = "proveedor")
 public class Proveedor {
     @Id
     @Column(nullable = false, length = 20)
@@ -18,9 +18,9 @@ public class Proveedor {
     private String Prov_Telefono;
     @Column(nullable = false, length = 100)
     private String Prov_Correo;
-    @OneToMany(mappedBy = "Proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Exportar> exportar;
-    @OneToMany(mappedBy = "Proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Orden_pedido> orden_pedido;
 
     public Proveedor(Integer RUC, String prov_Nombre, String prov_Direccion, String prov_Telefono, String prov_Correo) {

@@ -6,21 +6,21 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Venta")
+@Table(name = "venta")
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Venta_Codigo;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Codigo_Prod", nullable = false)
+    @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
     @JsonIgnore
     private Producto producto;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_Comprador", referencedColumnName = "Id_Comprador", nullable = false)
+    @JoinColumn(name = "id_Usuario", referencedColumnName = "id_Usuario", nullable = false)
     @JsonIgnore
     private Usuario usuario;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Dis_Codigo", referencedColumnName = "Dis_Codigo", nullable = false)
+    @JoinColumn(name = "Dis_Codigo", referencedColumnName = "codigo_Dis", nullable = false)
     @JsonIgnore
     private Distribuir distribuir;
     @Column(nullable = false, length = 100)
