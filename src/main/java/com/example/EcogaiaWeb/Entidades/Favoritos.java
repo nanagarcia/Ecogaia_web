@@ -18,9 +18,9 @@ public class Favoritos {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_Usuario", referencedColumnName = "id_Usuario", nullable = false)
     @JsonIgnore
-    private Usuario usuario;
+    private Comprador usuario;
 
-    public Favoritos(Integer codigo_favoritos, Producto producto, Usuario usuario) {
+    public Favoritos(Integer codigo_favoritos, Producto producto, Comprador usuario) {
         Codigo_favoritos = codigo_favoritos;
         this.producto = producto;
         this.usuario = usuario;
@@ -46,11 +46,11 @@ public class Favoritos {
         this.producto = producto;
     }
 
-    public Usuario getUsuario() {
+    public Comprador getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Comprador usuario) {
         this.usuario = usuario;
     }
 

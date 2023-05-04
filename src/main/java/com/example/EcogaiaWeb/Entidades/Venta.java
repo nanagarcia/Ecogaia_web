@@ -18,7 +18,7 @@ public class Venta {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_Comprador", referencedColumnName = "Id_Comprador", nullable = false)
     @JsonIgnore
-    private Usuario usuario;
+    private Comprador usuario;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Dis_Codigo", referencedColumnName = "Dis_Codigo", nullable = false)
     @JsonIgnore
@@ -36,7 +36,7 @@ public class Venta {
         this.Venta_Fecha = new Date();
     }
 
-    public Venta(Integer venta_Codigo, Producto producto, Usuario usuario, Distribuir distribuir, Integer venta_Cantidad, Integer venta_Valor, Date venta_Fecha, String venta_Estado) {
+    public Venta(Integer venta_Codigo, Producto producto, Comprador usuario, Distribuir distribuir, Integer venta_Cantidad, Integer venta_Valor, Date venta_Fecha, String venta_Estado) {
         Venta_Codigo = venta_Codigo;
         this.producto = producto;
         this.usuario = usuario;
@@ -66,11 +66,11 @@ public class Venta {
         this.producto = producto;
     }
 
-    public Usuario getUsuario() {
+    public Comprador getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Comprador usuario) {
         this.usuario = usuario;
     }
 
