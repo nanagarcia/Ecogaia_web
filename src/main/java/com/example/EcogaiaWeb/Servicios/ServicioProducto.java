@@ -23,7 +23,7 @@ public class ServicioProducto {
     }
 
     public String eliminar(Integer codigo) {
-        String ms = "No se elimino el producto";
+        String ms = "No se pudo eliminar el producto";
         if (repositorio.existsById(codigo)) {
             repositorio.deleteById(codigo);
             ms = "El producto se elimino correctamente";
