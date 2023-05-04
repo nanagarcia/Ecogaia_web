@@ -15,7 +15,7 @@ public class ControladorCotizacion {
     }
 
     @PostMapping(path = "/insertarCotizacion", consumes = "application/x-www-form-urlencoded" )
-    public String insertar(@RequestBody Cotizacion c){
+    public String insertar( Cotizacion c){
         return SC.insertar(c);
     }
 
