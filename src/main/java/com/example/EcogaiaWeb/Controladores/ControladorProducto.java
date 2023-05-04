@@ -18,12 +18,12 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
-    @GetMapping(path = "/listarProductos")
+    @GetMapping(path = "/listarProducto")
     public ArrayList<Producto> listar() {
         return SP.listar();
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminarProducto/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SP.eliminar(codigo);
     }
