@@ -13,7 +13,7 @@ public class ControladorExportar {
     }
 
     @PostMapping(path = "/insertarExportar", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Exportar e) {
+    public String insertar(Exportar e) {
         return SE.insertar(e);
     }
 
