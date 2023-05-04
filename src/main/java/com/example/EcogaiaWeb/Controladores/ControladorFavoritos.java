@@ -16,7 +16,7 @@ public class ControladorFavoritos {
     }
 
     @PostMapping(path = "/insertarFavoritos", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Favoritos f){
+    public String insertar( Favoritos f){
         return SF.insertar(f);
     }
 
