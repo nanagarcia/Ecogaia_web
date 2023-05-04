@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Comprador")
-public class Comprador {
+@Table(name = "Usuario")
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +22,17 @@ public class Comprador {
     @Column(nullable = false, length = 20)
     private String usu_contraseña;
 
-    @OneToMany(mappedBy = "Comprador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Prod_tips> prod_tips;
 
-    @OneToMany(mappedBy = "Comprador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Venta> venta;
 
-    @OneToMany(mappedBy = "Comprador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Cotizacion> cotizacion;
 
 
-    public Comprador(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contraseña) {
+    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contraseña) {
         this.id_Usuario = id_Usuario;
         this.usu_nombre = usu_nombre;
         this.usu_telefono = usu_telefono;
@@ -41,7 +41,7 @@ public class Comprador {
         this.usu_contraseña = usu_contraseña;
     }
 
-    public Comprador() {
+    public Usuario() {
     }
 
     public Integer getId_Usuario() {

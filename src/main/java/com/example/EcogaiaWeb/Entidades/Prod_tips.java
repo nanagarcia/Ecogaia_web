@@ -16,7 +16,7 @@ public class Prod_tips {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false)
     @JsonIgnore
-    private Comprador comprador;
+    private Usuario usuario;
 
     @Column(nullable = false, length = 100)
     private String comp_usuario;

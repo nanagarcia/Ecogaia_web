@@ -20,7 +20,7 @@ public class Cotizacion {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_Usuario", referencedColumnName = "id_Usuario", nullable = false)
     @JsonIgnore
-    private Comprador usuario;
+    private Usuario usuario;
 
     @Column(nullable = false, length = 100)
     private Integer Cant_producto;
@@ -33,7 +33,7 @@ public class Cotizacion {
         this.cot_fecha = new Date();
     }
 
-    public Cotizacion(Integer codigo_cotizacion, Producto producto, Comprador usuario, Integer cant_producto, Date cot_fecha) {
+    public Cotizacion(Integer codigo_cotizacion, Producto producto, Usuario usuario, Integer cant_producto, Date cot_fecha) {
         Codigo_cotizacion = codigo_cotizacion;
         this.producto = producto;
         this.usuario = usuario;
@@ -61,11 +61,11 @@ public class Cotizacion {
         this.producto = producto;
     }
 
-    public Comprador getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Comprador usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
