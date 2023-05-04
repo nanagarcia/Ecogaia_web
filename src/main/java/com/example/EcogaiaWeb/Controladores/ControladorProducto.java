@@ -14,12 +14,16 @@ public class ControladorProducto {
     }
 
     @PostMapping(path = "/insertarProducto", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Producto p) {
+    public String insertar(Producto p) {
         return SP.insertar(p);
     }
 
 
+<<<<<<< HEAD
     @GetMapping(path = "/listarProductos")
+=======
+    @GetMapping(path = "/listarProducto")
+>>>>>>> 117a789b467777c9d6fdc5edad5dfc943552c0e9
     public ArrayList<Producto> listar() {
         return SP.listar();
     }

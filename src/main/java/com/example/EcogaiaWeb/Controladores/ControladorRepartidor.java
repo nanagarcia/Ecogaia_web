@@ -15,7 +15,7 @@ public class ControladorRepartidor {
     }
 
     @PostMapping(path = "/insertarrepartidor", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Repartidor R){
+    public String insertar( Repartidor R){
         return SR.insertar(R);
     }
 
