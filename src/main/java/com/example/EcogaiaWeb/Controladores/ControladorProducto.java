@@ -3,7 +3,6 @@ package com.example.EcogaiaWeb.Controladores;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @RestController
@@ -23,7 +22,7 @@ public class ControladorProducto {
         return SP.listar();
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminarProductos/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SP.eliminar(codigo);
     }
