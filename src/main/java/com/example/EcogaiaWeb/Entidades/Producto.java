@@ -15,7 +15,7 @@ public class Producto {
     private Integer Prod_Precio;
     @Column(nullable = false, length = 150)
     private String Prod_Nombre;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String Prod_Imagen;
     @Column(nullable = false)
     private Integer Prod_Cantidad;
