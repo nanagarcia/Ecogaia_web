@@ -17,7 +17,7 @@ public class ControladorDistibuir {
     }
 
     @PostMapping(path = "/insertarEnvio", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Distribuir d) {
+    public String insertar(Distribuir d) {
         return SD.insertar(d);
     }
 

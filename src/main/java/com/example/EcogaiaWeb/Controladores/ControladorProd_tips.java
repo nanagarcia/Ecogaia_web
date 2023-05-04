@@ -17,7 +17,7 @@ public class ControladorProd_tips {
     }
 
     @PostMapping(path = "/insertarTip", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Prod_tips pr) {
+    public String insertar(Prod_tips pr) {
         return SPR.insertar(pr);
     }
 

@@ -18,11 +18,8 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
-<<<<<<< HEAD
+
     @GetMapping(path = "/listarProductos")
-=======
-    @GetMapping(path = "/listarProducto")
->>>>>>> c5ac092c1c24dafc629a85315eb45c4dff14580d
     public ArrayList<Producto> listar() {
         return SP.listar();
     }

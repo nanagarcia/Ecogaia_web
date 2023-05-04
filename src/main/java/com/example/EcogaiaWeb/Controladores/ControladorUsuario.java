@@ -17,7 +17,7 @@ public class ControladorUsuario {
     }
 
     @PostMapping(path = "/insertarUsuario", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Usuario u) {
+    public String insertar(Usuario u) {
         return SU.insertar(u);
     }
 
