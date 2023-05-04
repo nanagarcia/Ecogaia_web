@@ -18,7 +18,7 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
-    @GetMapping(path = "/listarProductos", consumes = "application/x-www-form-urlenconded")
+    @GetMapping(path = "/listarProductos")
     public ArrayList<Producto> listar() {
         return SP.listar();
     }
