@@ -1,72 +1,87 @@
 package com.example.EcogaiaWeb.Entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
-@Table(name = "repartidor")
+@Table(name = "Repartidor")
 public class Repartidor {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id_Rep;
     @Column(nullable = false, length = 100)
-    private String nombre_Repartidor;
+    private String Rep_Nombre;
     @Column(nullable = false,length = 100)
-    private String telefono_Repartidor;
+    private String telefono;
     @Column(nullable = false,length = 50)
-    private String direccion_Repartidor;
+    private String direccion;
     @Column(nullable = false,length = 20)
-    private String dispo_Repartidor;
+    private String Rep_Disponibilidad;
 
-    public Repartidor(String nombre_Repartidor, String telefono_Repartidor, String direccion_Repartidor, String dispo_Repartidor) {
-        this.nombre_Repartidor = nombre_Repartidor;
-        this.telefono_Repartidor = telefono_Repartidor;
-        this.direccion_Repartidor = direccion_Repartidor;
-        this.dispo_Repartidor = dispo_Repartidor;
+    @OneToMany(mappedBy = "Repartidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Distribuir> Distribuir;
+
+    public Repartidor(Integer id_Rep, String rep_Nombre, String telefono, String direccion, String rep_Disponibilidad) {
+        this.id_Rep = id_Rep;
+        Rep_Nombre = rep_Nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        Rep_Disponibilidad = rep_Disponibilidad;
     }
 
-    public Repartidor() {
+    public Repartidor(){
+
     }
 
-    public String getNombre_Repartidor() {
-        return nombre_Repartidor;
+    public Integer getId_Rep() {
+        return id_Rep;
     }
 
-    public void setNombre_Repartidor(String nombre_Repartidor) {
-        this.nombre_Repartidor = nombre_Repartidor;
+    public void setId_Rep(Integer id_Rep) {
+        this.id_Rep = id_Rep;
     }
 
-    public String getTelefono_Repartidor() {
-        return telefono_Repartidor;
+    public String getRep_Nombre() {
+        return Rep_Nombre;
     }
 
-    public void setTelefono_Repartidor(String telefono_Repartidor) {
-        this.telefono_Repartidor = telefono_Repartidor;
+    public void setRep_Nombre(String rep_Nombre) {
+        Rep_Nombre = rep_Nombre;
     }
 
-    public String getDireccion_Repartidor() {
-        return direccion_Repartidor;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setDireccion_Repartidor(String direccion_Repartidor) {
-        this.direccion_Repartidor = direccion_Repartidor;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public String getDispo_Repartidor() {
-        return dispo_Repartidor;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDispo_Repartidor(String dispo_Repartidor) {
-        this.dispo_Repartidor = dispo_Repartidor;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getRep_Disponibilidad() {
+        return Rep_Disponibilidad;
+    }
+
+    public void setRep_Disponibilidad(String rep_Disponibilidad) {
+        Rep_Disponibilidad = rep_Disponibilidad;
     }
 
     @Override
     public String toString() {
         return "Repartidor{" +
-                "nombre_Repartidor='" + nombre_Repartidor + '\'' +
-                ", telefono_Repartidor='" + telefono_Repartidor + '\'' +
-                ", direccion_Repartidor='" + direccion_Repartidor + '\'' +
-                ", dispo_Repartidor='" + dispo_Repartidor + '\'' +
+                "id_Rep=" + id_Rep +
+                ", Rep_Nombre='" + Rep_Nombre + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", Rep_Disponibilidad='" + Rep_Disponibilidad + '\'' +
                 '}';
     }
 }
