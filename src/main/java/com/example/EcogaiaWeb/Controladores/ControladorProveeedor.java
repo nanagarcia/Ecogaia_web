@@ -17,7 +17,7 @@ public class ControladorProveeedor {
     }
 
     @PostMapping(path = "/insertarProveedor", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Proveedor p) {
+    public String insertar(Proveedor p) {
         return SP.insertar(p);
     }
 
