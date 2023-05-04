@@ -92,6 +92,30 @@ public class Usuario {
         this.usu_contraseña = usu_contraseña;
     }
 
+    public Set<Prod_tips> getProd_tips() {
+        return prod_tips;
+    }
+
+    public void setProd_tips(Set<Prod_tips> prod_tips) {
+        this.prod_tips = prod_tips;
+    }
+
+    public Set<Venta> getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Set<Venta> venta) {
+        this.venta = venta;
+    }
+
+    public Set<Cotizacion> getCotizacion() {
+        return cotizacion;
+    }
+
+    public void setCotizacion(Set<Cotizacion> cotizacion) {
+        this.cotizacion = cotizacion;
+    }
+
     @Override
     public String toString() {
         return "Comprador{" +
