@@ -15,7 +15,7 @@ public class ControladorOrden_pedido {
     }
 
     @PostMapping(path = "/insertarOrdenpedido", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Orden_pedido op) {
+    public String insertar(Orden_pedido op) {
         return SOP.insertar(op);
     }
 

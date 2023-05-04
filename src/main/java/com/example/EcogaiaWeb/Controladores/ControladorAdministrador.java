@@ -14,7 +14,7 @@ public class ControladorAdministrador {
     }
 
     @PostMapping(path = "/insertarAdministrador", consumes = "application/x-www-form-urlencoded")
-    public String insertar(@RequestBody Administrador a) {
+    public String insertar(Administrador a) {
         return SA.insertar(a);
     }
 
