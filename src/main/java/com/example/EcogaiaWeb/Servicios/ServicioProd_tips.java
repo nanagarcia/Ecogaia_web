@@ -25,7 +25,7 @@ public class ServicioProd_tips {
     }
 
     public String eliminar(Integer codigo){
-        String ms = "No se elimino el tip";
+        String ms = "No se pudo eliminar el tip";
         if(repositorio.existsById(codigo)){
             repositorio.deleteById(codigo);
             ms = "El tip se elimino correctamente";
