@@ -19,11 +19,8 @@ public class ControladorProducto {
     }
 
 
-<<<<<<< HEAD
-    @GetMapping(path = "/listarProductos")
-=======
+
     @GetMapping(path = "/listarProducto")
->>>>>>> 117a789b467777c9d6fdc5edad5dfc943552c0e9
     public ArrayList<Producto> listar() {
         return SP.listar();
     }
