@@ -3,6 +3,7 @@ package com.example.EcogaiaWeb.Entidades;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -25,14 +26,14 @@ public class Prod_tips {
     @Column(nullable = false, length = 500)
     private String cuerpo;
     @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private Date fecha = new Date();
 
-    public Prod_tips(Integer codigo_tip, String comp_usuario, String titulo, String cuerpo, Date fecha) {
+    public Prod_tips(Integer codigo_tip, Usuario usuario, String comp_usuario, String titulo, String cuerpo) {
         this.codigo_tip = codigo_tip;
+        this.usuario = usuario;
         this.comp_usuario = comp_usuario;
         this.titulo = titulo;
         this.cuerpo = cuerpo;
-        this.fecha = fecha;
     }
 
     public Prod_tips() {
@@ -44,6 +45,14 @@ public class Prod_tips {
 
     public void setCodigo_tip(Integer codigo_tip) {
         this.codigo_tip = codigo_tip;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getComp_usuario() {
@@ -82,6 +91,7 @@ public class Prod_tips {
     public String toString() {
         return "Prod_tips{" +
                 "codigo_tip=" + codigo_tip +
+                ", usuario=" + usuario +
                 ", comp_usuario='" + comp_usuario + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", cuerpo='" + cuerpo + '\'' +
