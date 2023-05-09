@@ -20,7 +20,9 @@ public class Usuario {
     @Column(nullable = false, length = 100)
     private String usu_correo;
     @Column(nullable = false, length = 20)
-    private String usu_contraseña;
+    private String usu_contrasenia;
+    @Column(nullable = false,length = 50)
+    private String rol;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Prod_tips> prod_tips;
@@ -32,13 +34,14 @@ public class Usuario {
     private Set<Cotizacion> cotizacion;
 
 
-    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contraseña) {
+    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia, String rol, Set<Prod_tips> prod_tips, Set<Venta> venta, Set<Cotizacion> cotizacion) {
         this.id_Usuario = id_Usuario;
         this.usu_nombre = usu_nombre;
         this.usu_telefono = usu_telefono;
         this.usu_direccion = usu_direccion;
         this.usu_correo = usu_correo;
-        this.usu_contraseña = usu_contraseña;
+        this.usu_contrasenia = usu_contrasenia;
+        this.rol = rol;
     }
 
     public Usuario() {
@@ -84,12 +87,20 @@ public class Usuario {
         this.usu_correo = usu_correo;
     }
 
-    public String getUsu_contraseña() {
-        return usu_contraseña;
+    public String getUsu_contrasenia() {
+        return usu_contrasenia;
     }
 
-    public void setUsu_contraseña(String usu_contraseña) {
-        this.usu_contraseña = usu_contraseña;
+    public void setUsu_contrasenia(String usu_contrasenia) {
+        this.usu_contrasenia = usu_contrasenia;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public Set<Prod_tips> getProd_tips() {
@@ -118,13 +129,14 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Comprador{" +
+        return "Usuario{" +
                 "id_Usuario=" + id_Usuario +
                 ", usu_nombre='" + usu_nombre + '\'' +
                 ", usu_telefono='" + usu_telefono + '\'' +
                 ", usu_direccion='" + usu_direccion + '\'' +
                 ", usu_correo='" + usu_correo + '\'' +
-                ", usu_contraseña='" + usu_contraseña + '\'' +
+                ", usu_contrasenia='" + usu_contrasenia + '\'' +
+                ", rol='" + rol + '\'' +
                 '}';
     }
 }
