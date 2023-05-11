@@ -1,7 +1,11 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Favoritos;
+import com.example.EcogaiaWeb.Entidades.Producto;
+import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioFavoritos;
+import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
+import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,14 +13,24 @@ import java.util.ArrayList;
 @Service
 public class ServicioFavoritos {
     RepositorioFavoritos repositorio;
+    RepositorioUsuario repositorioUsuario;
+    RepositorioProducto repositorioProducto;
 
     public ServicioFavoritos(RepositorioFavoritos repo){
         this.repositorio = repo;
     }
 
     public String insertar(Favoritos F){
-        repositorio.save(F);
-        return "Se agrego a favoritos";
+        Usuario u = F.getUsuario();
+        Producto p = F.getProducto();
+        String ms = "Alguno de los datos no existe";
+
+        if(repositorioUsuario.findById(u.getId_Usuario()).isPresent() && repositorioProducto.findById(p.getProd_Codigo()).isPresent()){
+            repositorio.save(F);
+            ms = "El favorito se agrego exitosamente";
+        }
+        return ms;
+
     }
 
     public ArrayList<Favoritos> listar(){
