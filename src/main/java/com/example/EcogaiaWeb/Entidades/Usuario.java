@@ -22,7 +22,7 @@ public class Usuario {
     @Column(nullable = false, length = 20)
     private String usu_contrasenia;
     @Column(nullable = false,length = 50)
-    private String rol;
+    private String rol = "usuario";
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Prod_tips> prod_tips;
@@ -31,17 +31,15 @@ public class Usuario {
     private Set<Venta> venta;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Cotizacion> cotizacion;
+    private Set<Favoritos> favoritos;
 
-
-    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia, String rol, Set<Prod_tips> prod_tips, Set<Venta> venta, Set<Cotizacion> cotizacion) {
+    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia) {
         this.id_Usuario = id_Usuario;
         this.usu_nombre = usu_nombre;
         this.usu_telefono = usu_telefono;
         this.usu_direccion = usu_direccion;
         this.usu_correo = usu_correo;
         this.usu_contrasenia = usu_contrasenia;
-        this.rol = rol;
     }
 
     public Usuario() {
@@ -119,12 +117,12 @@ public class Usuario {
         this.venta = venta;
     }
 
-    public Set<Cotizacion> getCotizacion() {
-        return cotizacion;
+    public Set<Favoritos> getFavoritos() {
+        return favoritos;
     }
 
-    public void setCotizacion(Set<Cotizacion> cotizacion) {
-        this.cotizacion = cotizacion;
+    public void setFavoritos(Set<Favoritos> favoritos) {
+        this.favoritos = favoritos;
     }
 
     @Override

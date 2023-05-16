@@ -1,10 +1,6 @@
 package com.example.EcogaiaWeb.Servicios;
 
-import com.example.EcogaiaWeb.Entidades.Distribuir;
-import com.example.EcogaiaWeb.Entidades.Producto;
-import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Entidades.Venta;
-import com.example.EcogaiaWeb.Repositorios.RepositorioDistribuir;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioVenta;
@@ -14,9 +10,6 @@ import java.util.ArrayList;
 @Service
 public class ServicioVenta {
     RepositorioVenta repositorio;
-    RepositorioProducto repositorioProducto;
-    RepositorioUsuario repositorioUsuario;
-    RepositorioDistribuir repositorioDistribuir;
 
 
     public ServicioVenta(RepositorioVenta repository) {
@@ -24,16 +17,8 @@ public class ServicioVenta {
     }
 
     public String insertar (Venta v) {
-        Producto p =  v.getProducto();
-        Usuario u = v.getUsuario();
-        Distribuir d  = v.getDistribuir();
-        String ms = "Alguno de los datos no existe";
-
-        if(repositorioProducto.findById(p.getProd_Codigo()).isPresent() && repositorioUsuario.findById(u.getId_Usuario()).isPresent() && repositorioDistribuir.findById(d.getCodigo_dis()).isPresent()){
-            repositorio.save(v);
-            ms = "La venta se agrego correctamente";
-        }
-        return ms;
+        repositorio.save(v);
+        return "bien";
     }
 
     public ArrayList<Venta> listar () {

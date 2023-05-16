@@ -3,9 +3,11 @@ package com.example.EcogaiaWeb.Servicios;
 import com.example.EcogaiaWeb.Entidades.Cotizacion;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Entidades.Usuario;
+import com.example.EcogaiaWeb.Entidades.Venta;
 import com.example.EcogaiaWeb.Repositorios.RepositorioCotizacion;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
+import com.example.EcogaiaWeb.Repositorios.RepositorioVenta;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,19 +15,19 @@ import java.util.ArrayList;
 @Service
 public class ServicioCotizacion {
     RepositorioCotizacion repositorio;
-    RepositorioUsuario repositorioUsuario;
     RepositorioProducto repositorioProducto;
+    RepositorioVenta RepositorioVenta;
 
     public ServicioCotizacion(RepositorioCotizacion repo){
         this.repositorio = repo;
     }
 
     public String insertar(Cotizacion co){
-        Usuario u = co.getUsuario();
         Producto p = co.getProducto();
+        Venta v = co.getVenta();
         String ms = "Alguno de los datos no existe";
 
-        if(repositorioUsuario.findById(u.getId_Usuario()).isPresent() && repositorioProducto.findById(p.getProd_Codigo()).isPresent()){
+        if(repositorioProducto.findById(p.getProd_Codigo()).isPresent() && repositorio.findById(v.getVenta_Codigo()).isPresent()){
             repositorio.save(co);
             ms = "El favorito se agrego exitosamente";
         }

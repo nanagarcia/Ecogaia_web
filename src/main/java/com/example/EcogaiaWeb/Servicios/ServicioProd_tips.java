@@ -1,23 +1,34 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Prod_tips;
+import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProd_tips;
+import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 @Service
 public class ServicioProd_tips {
 
     RepositorioProd_tips repositorio;
+    RepositorioUsuario RepositorioUsuario;
+    ArrayList<Prod_tips> mostrar = new ArrayList<Prod_tips>();
 
     public ServicioProd_tips(RepositorioProd_tips repository){
         this.repositorio = repository;
     }
 
     public String insertar(Prod_tips prod){
-        repositorio.save(prod);
-        return "El tip se agrego";
+        Usuario u = prod.getUsuario();
+        String ms = "El usuario no existe";
+
+        if (RepositorioUsuario.findById(u.getId_Usuario()).isPresent()) {
+            repositorio.save(prod);
+            ms = "El tip se agrego";
+        }
+        return ms;
     }
 
     public ArrayList<Prod_tips> listar(){
@@ -31,5 +42,16 @@ public class ServicioProd_tips {
             ms = "El tip se elimino correctamente";
         }
         return ms;
+    }
+
+    public ArrayList<Prod_tips> titulo (String titulo) {
+        ArrayList<Prod_tips> tips = (ArrayList<Prod_tips>) repositorio.findAll();
+        mostrar.clear();
+        for (Prod_tips i: tips){
+            if (i.getTitulo().toLowerCase(Locale.ROOT).startsWith(titulo.toLowerCase(Locale.ROOT))){
+                mostrar.add(i);
+            }
+        }
+        return mostrar;
     }
 }

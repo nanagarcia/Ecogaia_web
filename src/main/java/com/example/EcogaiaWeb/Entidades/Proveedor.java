@@ -19,7 +19,7 @@ public class Proveedor {
     @Column(nullable = false, length = 100)
     private String Prov_Correo;
     @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Exportar> exportar;
+    private Set<Importar> importar;
     @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Orden_pedido> orden_pedido;
 
@@ -75,12 +75,12 @@ public class Proveedor {
         Prov_Correo = prov_Correo;
     }
 
-    public Set<Exportar> getExportar() {
-        return exportar;
+    public Set<Importar> getExportar() {
+        return importar;
     }
 
-    public void setExportar(Set<Exportar> exportar) {
-        this.exportar = exportar;
+    public void setExportar(Set<Importar> exportar) {
+        this.importar = exportar;
     }
 
     public Set<Orden_pedido> getOrden_pedido() {
