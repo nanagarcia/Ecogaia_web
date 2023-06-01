@@ -2,14 +2,13 @@ package com.example.EcogaiaWeb.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "detalle_venta")
-public class Cotizacion {
+public class detalle_venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Codigo_cotizacion;
+    private Integer codigo_cotizacion;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
@@ -27,23 +26,23 @@ public class Cotizacion {
     @Column(nullable = false, length = 100)
     private Integer total;
 
-    public Cotizacion(Integer codigo_cotizacion, Producto producto, Venta venta, Integer cantidad) {
-        Codigo_cotizacion = codigo_cotizacion;
+    public detalle_venta(Integer codigo_cotizacion, Producto producto, Venta venta, Integer cantidad) {
+        this.codigo_cotizacion = codigo_cotizacion;
         this.producto = producto;
         this.venta = venta;
         this.cantidad = cantidad;
         this.total = producto.getProd_Precio() * this.cantidad;
     }
 
-    public Cotizacion() {
+    public detalle_venta() {
     }
 
     public Integer getCodigo_cotizacion() {
-        return Codigo_cotizacion;
+        return codigo_cotizacion;
     }
 
     public void setCodigo_cotizacion(Integer codigo_cotizacion) {
-        Codigo_cotizacion = codigo_cotizacion;
+        codigo_cotizacion = codigo_cotizacion;
     }
 
     public Producto getProducto() {
@@ -81,7 +80,7 @@ public class Cotizacion {
     @Override
     public String toString() {
         return "Cotizacion{" +
-                "Codigo_cotizacion=" + Codigo_cotizacion +
+                "Codigo_cotizacion=" + codigo_cotizacion +
                 ", producto=" + producto +
                 ", venta=" + venta +
                 ", cantidad=" + cantidad +

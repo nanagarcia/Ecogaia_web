@@ -5,6 +5,7 @@ import com.example.EcogaiaWeb.Servicios.ServicioUsuario;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 @RestController
@@ -32,9 +33,17 @@ public class ControladorUsuario {
     public String eliminar(@PathVariable("id") int id) {
         return SU.eliminar(id);
     }
-
     @GetMapping(path = "/validarUsuario/{email}/{pass}")
-    public boolean login(@PathVariable("email") String email, @PathVariable("pass") String password){
+    public String login(@PathVariable("email") String email, @PathVariable("pass") String password){
         return SU.login(email,password);
+    }
+    @PutMapping(path = "/actualizarUsuario")
+    public String actualizar(Usuario u) {
+        return SU.actualizar(u);
+    }
+
+    @GetMapping(path = "/usuarioId/{id}")
+    public Optional<Usuario> buscarId(@PathVariable("id") Integer id) {
+        return SU.usuarioId(id);
     }
 }

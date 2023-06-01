@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorOrden_pedido {
 
     ServicioOrden_pedido SOP;

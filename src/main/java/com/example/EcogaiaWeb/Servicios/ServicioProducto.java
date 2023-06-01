@@ -1,5 +1,6 @@
 package com.example.EcogaiaWeb.Servicios;
 
+import com.example.EcogaiaWeb.Entidades.Favoritos;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,11 @@ public class ServicioProducto {
     public String insertar(Producto p) {
         repositorio.save(p);
         return "El producto se agrego";
+    }
+
+    public Optional<Producto> productoId(Integer codigo) {
+        Optional<Producto> p = repositorio.findById(codigo);
+        return p;
     }
 
     public ArrayList<Producto> listar() {
