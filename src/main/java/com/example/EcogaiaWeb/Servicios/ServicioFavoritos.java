@@ -21,19 +21,8 @@ public class ServicioFavoritos {
         this.repositorio = repo;
     }
 
-    public String insertar(Favoritos F) {
-        Usuario u = F.getUsuario();
-        Producto p = F.getProducto();
-        String ms = "Alguno de los datos no existe";
-        RepositorioProducto repositorioProducto = SP.repositorio;
-        RepositorioUsuario repositorioUsuario = SU.repositorio;
-
-        if (repositorioUsuario.findById(u.getId_Usuario()).isPresent() && repositorioProducto.findById(p.getProd_Codigo()).isPresent()) {
-            repositorio.save(F);
-            ms = "El favorito se agrego exitosamente";
-        }
-        return ms;
-
+    public int insertar(Integer codigo, Integer id) {
+        return repositorio.insertar(codigo, id);
     }
 
     public ArrayList<Favoritos> listar() {
