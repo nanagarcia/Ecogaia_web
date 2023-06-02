@@ -25,7 +25,7 @@ public class Venta {
     @Column(nullable = false, length = 15)
     private String Venta_Estado;
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Cotizacion> cotizacion;
+    private Set<detalle_venta> detalleventa;
     @PrePersist
     public void PrePersist() {
         this.Venta_Fecha = new Date();
@@ -82,12 +82,12 @@ public class Venta {
         Venta_Estado = venta_Estado;
     }
 
-    public Set<Cotizacion> getCotizacion() {
-        return cotizacion;
+    public Set<detalle_venta> getCotizacion() {
+        return detalleventa;
     }
 
-    public void setCotizacion(Set<Cotizacion> cotizacion) {
-        this.cotizacion = cotizacion;
+    public void setCotizacion(Set<detalle_venta> detalleventa) {
+        this.detalleventa = detalleventa;
     }
 
     @Override

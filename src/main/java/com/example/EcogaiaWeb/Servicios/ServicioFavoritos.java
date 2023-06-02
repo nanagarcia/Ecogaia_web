@@ -9,40 +9,36 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServicioFavoritos {
     RepositorioFavoritos repositorio;
-    RepositorioUsuario repositorioUsuario;
-    RepositorioProducto repositorioProducto;
+    ServicioUsuario SU;
+    ServicioProducto SP;
 
-    public ServicioFavoritos(RepositorioFavoritos repo){
+    public ServicioFavoritos(RepositorioFavoritos repo) {
         this.repositorio = repo;
     }
 
-    public String insertar(Favoritos F){
-        Usuario u = F.getUsuario();
-        Producto p = F.getProducto();
-        String ms = "Alguno de los datos no existe";
-
-        if(repositorioUsuario.findById(u.getId_Usuario()).isPresent() && repositorioProducto.findById(p.getProd_Codigo()).isPresent()){
-            repositorio.save(F);
-            ms = "El favorito se agrego exitosamente";
-        }
-        return ms;
-
+    public int insertar(Integer codigo, Integer id) {
+        return repositorio.insertar(codigo, id);
     }
 
-    public ArrayList<Favoritos> listar(){
+    public ArrayList<Favoritos> listar() {
         return (ArrayList<Favoritos>) repositorio.findAll();
     }
 
-    public String eliminar(Integer codigo_favoritos){
+    public String eliminar(Integer codigo_favoritos) {
         String ms = "No se elimino de favoritos";
-        if (repositorio.existsById(codigo_favoritos)){
+        if (repositorio.existsById(codigo_favoritos)) {
             repositorio.deleteById(codigo_favoritos);
             ms = "Se elimino de favoritos";
         }
         return ms;
+    }
+
+    public List<Object[]> favoritosUsuario(Integer id) {
+        return repositorio.favoritos(id);
     }
 }
