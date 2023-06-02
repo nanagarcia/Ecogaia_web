@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorProd_tips {
 
     ServicioProd_tips SPR;
@@ -29,5 +30,10 @@ public class ControladorProd_tips {
     @DeleteMapping("/eliminarTip/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SPR.eliminar(codigo);
+    }
+
+    @GetMapping(path = "/tituloTip/{titulo}")
+    public ArrayList<Prod_tips> titulo (@PathVariable("titulo") String titulo) {
+        return SPR.titulo(titulo);
     }
 }

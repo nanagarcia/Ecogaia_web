@@ -5,6 +5,7 @@ import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 public class ControladorProducto {
@@ -26,5 +27,10 @@ public class ControladorProducto {
     @DeleteMapping("/eliminarProducto/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SP.eliminar(codigo);
+    }
+
+    @GetMapping("/categoriasProducto/{cat}")
+    public ArrayList<Producto> categorias(@PathVariable("cat") String cat) {
+        return SP.categoria(cat);
     }
 }

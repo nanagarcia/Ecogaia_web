@@ -18,9 +18,8 @@ public class Repartidor {
     private String direccion;
     @Column(nullable = false,length = 20)
     private String Rep_Disponibilidad;
-
     @OneToMany(mappedBy = "repartidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Distribuir> Distribuir;
+    private Set<Venta> venta;
 
     public Repartidor(Integer id_Rep, String rep_Nombre, String telefono, String direccion, String rep_Disponibilidad) {
         this.id_Rep = id_Rep;
@@ -74,12 +73,12 @@ public class Repartidor {
         Rep_Disponibilidad = rep_Disponibilidad;
     }
 
-    public Set<com.example.EcogaiaWeb.Entidades.Distribuir> getDistribuir() {
-        return Distribuir;
+    public Set<Venta> getVenta() {
+        return venta;
     }
 
-    public void setDistribuir(Set<com.example.EcogaiaWeb.Entidades.Distribuir> distribuir) {
-        Distribuir = distribuir;
+    public void setVenta(Set<Venta> venta) {
+        this.venta = venta;
     }
 
     @Override

@@ -21,6 +21,17 @@ public class ServicioUsuario {
         return "El usuario se agrego";
     }
 
+    public boolean login (String email, String password) {
+        ArrayList<Usuario> usuarios = this.listar();
+        boolean res = false;
+        for (Usuario u: usuarios){
+            if (u.getUsu_correo().equals(email) && u.getUsu_contrasenia().equals(password)){
+                res = true;
+            }
+        }
+        return res;
+    }
+
     public ArrayList<Usuario> listar(){
         return (ArrayList<Usuario>) repositorio.findAll();
     }
