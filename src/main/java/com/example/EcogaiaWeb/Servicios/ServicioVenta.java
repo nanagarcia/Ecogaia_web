@@ -1,6 +1,8 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Venta;
+import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
+import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioVenta;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +11,14 @@ import java.util.ArrayList;
 public class ServicioVenta {
     RepositorioVenta repositorio;
 
+
     public ServicioVenta(RepositorioVenta repository) {
         this.repositorio = repository;
     }
 
     public String insertar (Venta v) {
         repositorio.save(v);
-        return "La venta se agrego";
+        return "bien";
     }
 
     public ArrayList<Venta> listar () {

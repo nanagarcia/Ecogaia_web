@@ -5,8 +5,10 @@ import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorProducto {
     ServicioProducto SP;
     public ControladorProducto(ServicioProducto s){
@@ -18,7 +20,10 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 508c0d3bcd4bab92052c81f7ffb82c6f47d10c19
     @GetMapping(path = "/listarProducto")
     public ArrayList<Producto> listar() {
         return SP.listar();
@@ -27,5 +32,10 @@ public class ControladorProducto {
     @DeleteMapping("/eliminarProducto/{id}")
     public String eliminar(@PathVariable("id") int codigo){
         return SP.eliminar(codigo);
+    }
+
+    @GetMapping("/categoriasProducto/{cat}")
+    public ArrayList<Producto> categorias(@PathVariable("cat") String cat) {
+        return SP.categoria(cat);
     }
 }

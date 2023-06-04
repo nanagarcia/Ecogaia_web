@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "exportar")
-public class Exportar {
+@Table(name = "importar")
+public class Importar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Codigo;
@@ -18,20 +18,19 @@ public class Exportar {
     @JsonIgnore
     private Producto producto;
     @Column(nullable = false)
-    private Float Exp_Peso;
+    private Float Imp_Peso;
     @Column(nullable = false, length = 100)
-    private Integer Exp_Cantidad;
+    private Integer Imp_Cantidad;
 
-    public Exportar(Integer codigo, Proveedor proveedor, Producto producto, Float exp_Peso, Integer exp_Cantidad) {
+    public Importar(Integer codigo, Proveedor proveedor, Producto producto, Float imp_Peso, Integer imp_Cantidad) {
         Codigo = codigo;
         this.proveedor = proveedor;
         this.producto = producto;
-        Exp_Peso = exp_Peso;
-        Exp_Cantidad = exp_Cantidad;
+        Imp_Peso = imp_Peso;
+        Imp_Cantidad = imp_Cantidad;
     }
 
-    public Exportar() {
-
+    public Importar() {
     }
 
     public Integer getCodigo() {
@@ -58,30 +57,30 @@ public class Exportar {
         this.producto = producto;
     }
 
-    public Float getExp_Peso() {
-        return Exp_Peso;
+    public Float getImp_Peso() {
+        return Imp_Peso;
     }
 
-    public void setExp_Peso(Float exp_Peso) {
-        Exp_Peso = exp_Peso;
+    public void setImp_Peso(Float imp_Peso) {
+        Imp_Peso = imp_Peso;
     }
 
-    public Integer getExp_Cantidad() {
-        return Exp_Cantidad;
+    public Integer getImp_Cantidad() {
+        return Imp_Cantidad;
     }
 
-    public void setExp_Cantidad(Integer exp_Cantidad) {
-        Exp_Cantidad = exp_Cantidad;
+    public void setImp_Cantidad(Integer imp_Cantidad) {
+        Imp_Cantidad = imp_Cantidad;
     }
 
     @Override
     public String toString() {
-        return "Exportar{" +
+        return "Importar{" +
                 "Codigo=" + Codigo +
                 ", proveedor=" + proveedor +
                 ", producto=" + producto +
-                ", Exp_Peso=" + Exp_Peso +
-                ", Exp_Cantidad=" + Exp_Cantidad +
+                ", Imp_Peso=" + Imp_Peso +
+                ", Imp_Cantidad=" + Imp_Cantidad +
                 '}';
     }
 }
