@@ -20,10 +20,7 @@ public class ControladorProducto {
         return SP.insertar(p);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 508c0d3bcd4bab92052c81f7ffb82c6f47d10c19
     @GetMapping(path = "/listarProducto")
     public ArrayList<Producto> listar() {
         return SP.listar();
