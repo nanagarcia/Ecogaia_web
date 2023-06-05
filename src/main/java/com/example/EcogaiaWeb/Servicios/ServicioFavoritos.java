@@ -1,11 +1,7 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Favoritos;
-import com.example.EcogaiaWeb.Entidades.Producto;
-import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioFavoritos;
-import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
-import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -38,7 +34,7 @@ public class ServicioFavoritos {
         return ms;
     }
 
-    public List<Object[]> favoritosUsuario(Integer id) {
-        return repositorio.favoritos(id);
+    public List<Object[]> favoritosUsuario(String correo) {
+        return repositorio.favoritos(correo);
     }
 }

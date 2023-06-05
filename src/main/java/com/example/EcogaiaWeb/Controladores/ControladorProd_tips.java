@@ -1,7 +1,6 @@
 package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Prod_tips;
-import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProd_tips;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +16,9 @@ public class ControladorProd_tips {
         this.SPR = s;
     }
 
-    @PostMapping(path = "/insertarTip", consumes = "application/x-www-form-urlencoded")
-    public String insertar(Prod_tips pr) {
-        return SPR.insertar(pr);
+    @PostMapping(path = "/insertarTip/{correo}", consumes = "application/x-www-form-urlencoded")
+    public String insertar(@PathVariable("correo") String correo, Prod_tips pt) {
+        return SPR.insertar(correo, pt);
     }
 
     @GetMapping(path = "/listarTip")

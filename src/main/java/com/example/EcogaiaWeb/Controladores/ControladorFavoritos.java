@@ -1,7 +1,6 @@
 package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Favoritos;
-import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioFavoritos;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,9 +37,9 @@ public class ControladorFavoritos {
         return SF.eliminar(cod);
     }
 
-    @GetMapping("/favoritosUsuario/{id}")
-    public ResponseEntity<List<Map<String, String>>> favoritoUsuario(@PathVariable("id") Integer id) {
-        List<Object[]> favoritos = SF.favoritosUsuario(id);
+    @GetMapping("/favoritosUsuario/{correo}")
+    public ResponseEntity<List<Map<String, String>>> favoritoUsuario(@PathVariable("correo") String correo) {
+        List<Object[]> favoritos = SF.favoritosUsuario(correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         favoritos.forEach((favorito) -> {

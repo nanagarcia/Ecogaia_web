@@ -37,9 +37,9 @@ public class ControladorDetalle_venta {
         return SC.eliminar(cod);
     }
 
-    @GetMapping("/cotizacionesUsuario/{id}")
-    public ResponseEntity<List<Map<String, String>>> cotizacionUsuario(@PathVariable("id") Integer id) {
-        List<Object[]> detalles_venta = SC.cotizacionesUsuario(id);
+    @GetMapping("/cotizacionesUsuario/{correo}")
+    public ResponseEntity<List<Map<String, String>>> cotizacionUsuario(@PathVariable("correo") String correo) {
+        List<Object[]> detalles_venta = SC.cotizacionesUsuario(correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         for(Object[] objects: detalles_venta) {

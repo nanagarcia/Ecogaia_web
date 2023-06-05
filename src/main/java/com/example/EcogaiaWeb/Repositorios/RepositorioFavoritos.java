@@ -12,8 +12,8 @@ import java.util.List;
 
 @Repository
 public interface RepositorioFavoritos extends CrudRepository<Favoritos, Integer> {
-    @Query(value = "select p.Prod_Codigo, p.Prod_Cantidad, p.Prod_Categoria, p.Prod_Imagen, p.Prod_Nombre, p.Prod_Precio, Codigo_favoritos from Favoritos as f inner join producto as p on p.Prod_Codigo = producto inner join usuario as u on u.id_Usuario = usuario where u.id_Usuario = :id")
-    List<Object[]> favoritos(@Param("id") Integer id);
+    @Query(value = "select p.Prod_Codigo, p.Prod_Cantidad, p.Prod_Categoria, p.Prod_Imagen, p.Prod_Nombre, p.Prod_Precio, Codigo_favoritos from Favoritos as f inner join producto as p on p.Prod_Codigo = producto inner join usuario as u on u.id_Usuario = usuario where u.usu_correo = :correo")
+    List<Object[]> favoritos(@Param("correo") String correo);
     @Modifying
     @Transactional
     @Query(value = "insert into favoritos (codigo_prod, id_usuario) values (:codigo, :id)", nativeQuery = true)

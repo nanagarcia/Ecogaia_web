@@ -20,14 +20,11 @@ public class ServicioProd_tips {
         this.repositorio = repository;
     }
 
-    public String insertar(Prod_tips prod){
-        Usuario u = prod.getUsuario();
-        String ms = "El usuario no existe";
-
-        if (RepositorioUsuario.findById(u.getId_Usuario()).isPresent()) {
-            repositorio.save(prod);
-            ms = "El tip se agrego";
-        }
+    public String insertar(String correo, Prod_tips prod){
+        String ms = "No se agrego el tip";
+        if (repositorio.insert(prod.getCuerpo(), prod.getFecha(), prod.getTitulo(), correo) == 1) {
+            ms = "El tip se agrego correctamente";
+        };
         return ms;
     }
 
