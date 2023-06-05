@@ -5,7 +5,6 @@ import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)

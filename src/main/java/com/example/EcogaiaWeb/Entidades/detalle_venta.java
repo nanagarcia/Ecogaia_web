@@ -42,7 +42,7 @@ public class detalle_venta {
     }
 
     public void setCodigo_cotizacion(Integer codigo_cotizacion) {
-        codigo_cotizacion = codigo_cotizacion;
+        this.codigo_cotizacion = codigo_cotizacion;
     }
 
     public Producto getProducto() {
