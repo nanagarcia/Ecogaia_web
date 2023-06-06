@@ -44,7 +44,11 @@ public class ServicioDetalle_venta {
         return ms;
     }
 
-    public List<Object[]> cotizacionesUsuario(Integer id) {
-        return repositorio.cotizaciones(id);
+    public List<Object[]> cotizacionesUsuario(String correo) {
+        return repositorio.cotizaciones(correo);
+    }
+
+    public List<Object[]> distribuciones(Integer id_rep) {
+        return repositorio.distribuir(id_rep);
     }
 }

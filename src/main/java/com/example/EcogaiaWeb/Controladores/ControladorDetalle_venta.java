@@ -37,9 +37,9 @@ public class ControladorDetalle_venta {
         return SC.eliminar(cod);
     }
 
-    @GetMapping("/cotizacionesUsuario/{id}")
-    public ResponseEntity<List<Map<String, String>>> cotizacionUsuario(@PathVariable("id") Integer id) {
-        List<Object[]> detalles_venta = SC.cotizacionesUsuario(id);
+    @GetMapping("/cotizacionesUsuario/{correo}")
+    public ResponseEntity<List<Map<String, String>>> cotizacionUsuario(@PathVariable("correo") String correo) {
+        List<Object[]> detalles_venta = SC.cotizacionesUsuario(correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         for(Object[] objects: detalles_venta) {
@@ -51,6 +51,25 @@ public class ControladorDetalle_venta {
             datos.put("Venta_Fecha", objects[4].toString());
             datos.put("Codigo_Venta", objects[5].toString());
             datos.put("id_Usuario", objects[6].toString());
+            mostrar.add(datos);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+
+
+    @GetMapping("/distribuir/{id}")
+    public ResponseEntity<List<Map<String, String>>> distribuir (@PathVariable("id") Integer id_rep) {
+        List<Object[]> distribuciones = SC.distribuciones(id_rep);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] objects: distribuciones) {
+            Map<String, String> datos = new HashMap<>();
+            datos.put("usu_nombre", objects[0].toString());
+            datos.put("usu_direccion", objects[1].toString());
+            datos.put("usu_telefono", objects[2].toString());
+            datos.put("id_Usuario", objects[3].toString());
+            datos.put("venta_Codigo", objects[4].toString());
+            datos.put("prod_nombre", objects[5].toString());
             mostrar.add(datos);
         }
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
