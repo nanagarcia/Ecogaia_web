@@ -1,8 +1,6 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Venta;
-import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
-import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioVenta;
 import org.springframework.stereotype.Service;
 

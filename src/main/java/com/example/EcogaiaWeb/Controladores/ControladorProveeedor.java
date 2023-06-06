@@ -1,14 +1,13 @@
 package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Proveedor;
-import com.example.EcogaiaWeb.Entidades.Venta;
 import com.example.EcogaiaWeb.Servicios.ServicioProveedor;
-import com.example.EcogaiaWeb.Servicios.ServicioVenta;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorProveeedor {
     ServicioProveedor SP;
 

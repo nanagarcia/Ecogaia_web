@@ -22,6 +22,11 @@ public class ServicioProducto {
         return "El producto se agrego";
     }
 
+    public Optional<Producto> productoId(Integer codigo) {
+        Optional<Producto> p = repositorio.findById(codigo);
+        return p;
+    }
+
     public ArrayList<Producto> listar() {
         return (ArrayList<Producto>) repositorio.findAll();
     }

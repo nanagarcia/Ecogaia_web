@@ -26,7 +26,7 @@ public class Producto {
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Importar> importar;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Cotizacion> cotizacion;
+    private Set<detalle_venta> detalleventa;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
 
@@ -108,12 +108,12 @@ public class Producto {
         this.importar = exportar;
     }
 
-    public Set<Cotizacion> getCotizacion() {
-        return cotizacion;
+    public Set<detalle_venta> getCotizacion() {
+        return detalleventa;
     }
 
-    public void setCotizacion(Set<Cotizacion> cotizacion) {
-        this.cotizacion = cotizacion;
+    public void setCotizacion(Set<detalle_venta> detalleventa) {
+        this.detalleventa = detalleventa;
     }
 
     public Set<Favoritos> getFavoritos() {
@@ -124,12 +124,12 @@ public class Producto {
         this.favoritos = favoritos;
     }
 
-    public Set<Cotizacion> getVenta() {
-        return cotizacion;
+    public Set<detalle_venta> getVenta() {
+        return detalleventa;
     }
 
-    public void setVenta(Set<Cotizacion> venta) {
-        this.cotizacion = venta;
+    public void setVenta(Set<detalle_venta> venta) {
+        this.detalleventa = venta;
     }
 
     @Override

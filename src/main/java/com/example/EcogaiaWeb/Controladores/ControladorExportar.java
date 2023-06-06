@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorExportar {
     ServicioImportar SE;
     public ControladorExportar(ServicioImportar se){

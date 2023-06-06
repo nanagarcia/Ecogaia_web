@@ -4,8 +4,7 @@ import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.*;
 
 @Service
 public class ServicioUsuario {
@@ -16,17 +15,20 @@ public class ServicioUsuario {
         this.repositorio = repository;
     }
 
-    public String insertar(Usuario u){
+    public boolean insertar(Usuario u){
         repositorio.save(u);
-        return "El usuario se agrego";
+        return true;
     }
 
-    public boolean login (String email, String password) {
+    public Map<String, String> login (String email, String password) {
         ArrayList<Usuario> usuarios = this.listar();
-        boolean res = false;
+        Map<String, String> res = new HashMap<String, String>();
+        res.put("error", "Usuario o contraseña incorrectos");
         for (Usuario u: usuarios){
             if (u.getUsu_correo().equals(email) && u.getUsu_contrasenia().equals(password)){
-                res = true;
+                res.put("res", u.getUsu_correo());
+                res.put("rol", u.getRol());
+                res.replace("error", "Usuario o contraseña incorrectos", null);
             }
         }
         return res;
@@ -43,5 +45,17 @@ public class ServicioUsuario {
             ms = "El usuario se elimino correctamente";
         }
         return ms;
+    }
+
+    public String actualizar (Usuario u, String correo) {
+        String msg = "No se actualizo";
+        if (repositorio.actualizar(u.getUsu_nombre(), u.getUsu_telefono(), u.getUsu_direccion(), u.getUsu_correo(), u.getUsu_contrasenia(), correo) > 0) {
+            msg = "Actualizado correctamente";
+        }
+        return msg;
+    }
+
+    public List<Object[]> perfil (String correo) {
+        return repositorio.usuario(correo);
     }
 }
