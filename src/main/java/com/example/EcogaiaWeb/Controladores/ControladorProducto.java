@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorProducto {
     ServicioProducto SP;
     public ControladorProducto(ServicioProducto s){
