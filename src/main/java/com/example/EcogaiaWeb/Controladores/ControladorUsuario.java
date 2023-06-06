@@ -20,8 +20,7 @@ public class ControladorUsuario {
     }
 
     @PostMapping(path = "/insertarUsuario", consumes = "application/x-www-form-urlencoded")
-    public String insertar(Usuario u) {
-        System.out.println(u);
+    public boolean insertar(Usuario u) {
         return SU.insertar(u);
     }
     @GetMapping(path = "/listarUsuario")

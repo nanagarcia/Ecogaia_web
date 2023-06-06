@@ -15,9 +15,9 @@ public class ServicioUsuario {
         this.repositorio = repository;
     }
 
-    public String insertar(Usuario u){
+    public boolean insertar(Usuario u){
         repositorio.save(u);
-        return "El usuario se agrego";
+        return true;
     }
 
     public Map<String, String> login (String email, String password) {
