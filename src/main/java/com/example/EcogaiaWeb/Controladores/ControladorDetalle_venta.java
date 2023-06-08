@@ -56,6 +56,26 @@ public class ControladorDetalle_venta {
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
 
+<<<<<<< HEAD
 
 
+=======
+    @GetMapping("/distribuir/{correo}")
+    public ResponseEntity<List<Map<String, String>>> distribuir (@PathVariable("correo") String correo) {
+        List<Object[]> distribuciones = SC.distribuciones(correo);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] objects: distribuciones) {
+            Map<String, String> datos = new HashMap<>();
+            datos.put("usu_nombre", objects[0].toString());
+            datos.put("usu_direccion", objects[1].toString());
+            datos.put("usu_telefono", objects[2].toString());
+            datos.put("id_Usuario", objects[3].toString());
+            datos.put("venta_Codigo", objects[4].toString());
+            datos.put("id_repartidor", objects[5].toString());
+            mostrar.add(datos);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+>>>>>>> 183725c4538fe6f59b850f9ae59181ac16a2f039
 }

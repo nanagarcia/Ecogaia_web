@@ -2,9 +2,14 @@ package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.detalle_venta;
 import com.example.EcogaiaWeb.Entidades.Producto;
+import com.example.EcogaiaWeb.Entidades.Repartidor;
+import com.example.EcogaiaWeb.Entidades.Usuario;
 import com.example.EcogaiaWeb.Entidades.Venta;
 import com.example.EcogaiaWeb.Repositorios.RepositorioDetalle_venta;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
+import com.example.EcogaiaWeb.Repositorios.RepositorioRepartidor;
+import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,10 +18,15 @@ import java.util.List;
 @Service
 public class ServicioDetalle_venta {
     RepositorioDetalle_venta repositorio;
+    RepositorioUsuario repositorioUsuario;
+    RepositorioRepartidor repositorioRepartidor;
     RepositorioProducto repositorioProducto;
 
-    public ServicioDetalle_venta(RepositorioDetalle_venta repo) {
+    public ServicioDetalle_venta(RepositorioDetalle_venta repo, RepositorioUsuario usuario, RepositorioRepartidor repositorioRepartidor, RepositorioProducto repositorioProducto) {
         this.repositorio = repo;
+        this.repositorioUsuario = usuario;
+        this.repositorioRepartidor = repositorioRepartidor;
+        this.repositorioProducto =  repositorioProducto;
     }
 
     public String insertar(detalle_venta co) {
@@ -48,5 +58,25 @@ public class ServicioDetalle_venta {
         return repositorio.cotizaciones(correo);
     }
 
+<<<<<<< HEAD
 
+=======
+    public List<Object[]> distribuciones(String correo) {
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) this.repositorioUsuario.findAll();
+        ArrayList<Repartidor> repartidores = (ArrayList<Repartidor>) this.repositorioRepartidor.findAll();
+
+        List<Object[]> mostrar = new ArrayList<Object[]>();
+        for (Usuario u: usuarios) {
+            if (u.getUsu_correo().equals(correo)) {
+                for (Repartidor rep: repartidores) {
+                    if (rep.getRep_Nombre().equals(u.getUsu_nombre())) {
+                        mostrar = repositorio.distribuir(rep.getRep_Nombre());
+                    }
+                };
+            }
+        }
+
+        return mostrar;
+    }
+>>>>>>> 183725c4538fe6f59b850f9ae59181ac16a2f039
 }

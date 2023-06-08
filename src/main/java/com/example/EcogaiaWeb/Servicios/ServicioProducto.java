@@ -21,7 +21,11 @@ public class ServicioProducto {
 
     public String insertar(Producto p) {
         repositorio.save(p);
-        return "El producto se agrego";
+        if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+            return "El producto se agrego";
+        } else {
+            return "El producto no se agrego";
+        } 
     }
 
     public Optional<Producto> productoId(Integer codigo) {
@@ -53,6 +57,7 @@ public class ServicioProducto {
         return this.mostrar;
     }
 
+<<<<<<< HEAD
     public ArrayList<Producto>prod_nombre (String Nombre) {
         ArrayList<Producto> productos = (ArrayList<Producto>) repositorio.findAll();
         mostrar.clear();
@@ -62,5 +67,16 @@ public class ServicioProducto {
             }
         }
         return mostrar;
+=======
+    public ArrayList<Producto> productoNombre(String nombre) {
+        ArrayList<Producto> productos = this.listar();
+        this.mostrar.clear();
+        for (Producto p : productos) {
+            if (p.getProd_Nombre().toLowerCase(Locale.ROOT).startsWith(nombre.toLowerCase(Locale.ROOT))) {
+                this.mostrar.add(p);
+            }
+        }
+        return this.mostrar;
+>>>>>>> 183725c4538fe6f59b850f9ae59181ac16a2f039
     }
 }
