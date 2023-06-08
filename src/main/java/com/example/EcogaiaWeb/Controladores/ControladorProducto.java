@@ -1,5 +1,6 @@
 package com.example.EcogaiaWeb.Controladores;
 
+import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,10 @@ public class ControladorProducto {
     @GetMapping("/categoriasProducto/{cat}")
     public ArrayList<Producto> categorias(@PathVariable("cat") String cat) {
         return SP.categoria(cat);
+    }
+
+    @GetMapping(path = "/Prod_Nombre/{nombre}")
+    public ArrayList<Producto> Prod_Nombre (@PathVariable("Prod_Nombre") String prod_nombre) {
+        return SP.prod_nombre(prod_nombre);
     }
 }

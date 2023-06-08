@@ -5,6 +5,7 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioRepartidor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServicioRepartidor {
@@ -30,6 +31,10 @@ public class ServicioRepartidor {
             ms = "El repartidor se elimino exitosamente";
         }
         return ms;
+    }
+
+    public List<Object[]> distribuciones(Integer id_rep) {
+        return repositorio.distribuir(id_rep);
     }
 
 }

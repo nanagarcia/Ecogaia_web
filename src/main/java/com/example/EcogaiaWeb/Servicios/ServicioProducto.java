@@ -1,10 +1,12 @@
 package com.example.EcogaiaWeb.Servicios;
 
+import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -49,5 +51,16 @@ public class ServicioProducto {
             }
         }
         return this.mostrar;
+    }
+
+    public ArrayList<Producto>prod_nombre (String Nombre) {
+        ArrayList<Producto> productos = (ArrayList<Producto>) repositorio.findAll();
+        mostrar.clear();
+        for (Producto i: productos){
+            if (i.getProd_Nombre().toLowerCase(Locale.ROOT).startsWith(Nombre.toLowerCase(Locale.ROOT))){
+                mostrar.add(i);
+            }
+        }
+        return mostrar;
     }
 }
