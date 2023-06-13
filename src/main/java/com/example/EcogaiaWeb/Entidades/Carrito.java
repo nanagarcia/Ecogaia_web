@@ -1,14 +1,21 @@
 package com.example.EcogaiaWeb.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 @Entity
-@Table(name = "detalle_venta")
-public class detalle_venta {
+@Table(name = "carrito")
+public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigo_cotizacion;
+    private Integer codigo_Carrito;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
@@ -16,9 +23,9 @@ public class detalle_venta {
     private Producto producto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Codigo_Venta", referencedColumnName = "Venta_Codigo", nullable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_Usuario", nullable = false)
     @JsonIgnore
-    private Venta venta;
+    private Usuario usuario;
 
     @Column(nullable = false, length = 100)
     private Integer cantidad;
@@ -26,23 +33,23 @@ public class detalle_venta {
     @Column(nullable = false, length = 100)
     private Integer total;
 
-    public detalle_venta(Integer codigo_cotizacion, Producto producto, Venta venta, Integer cantidad) {
-        this.codigo_cotizacion = codigo_cotizacion;
+    public Carrito(Producto producto, Usuario usuario, Integer cantidad) {
         this.producto = producto;
-        this.venta = venta;
+        this.usuario = usuario;
         this.cantidad = cantidad;
         this.total = producto.getProd_Precio() * this.cantidad;
     }
 
-    public detalle_venta() {
+    public Carrito() {
+
     }
 
-    public Integer getCodigo_cotizacion() {
-        return codigo_cotizacion;
+    public Integer getCodigo_Carrito () {
+        return codigo_Carrito;
     }
 
-    public void setCodigo_cotizacion(Integer codigo_cotizacion) {
-        this.codigo_cotizacion = codigo_cotizacion;
+    public void setCodigo_Carrito (Integer codigo_Carrito) {
+        this.codigo_Carrito = codigo_Carrito;
     }
 
     public Producto getProducto() {
@@ -53,12 +60,12 @@ public class detalle_venta {
         this.producto = producto;
     }
 
-    public Venta getVenta() {
-        return venta;
+    public Usuario getUsuario () {
+        return this.usuario;
     }
 
-    public void setVenta(Venta venta) {
-        this.venta = venta;
+    public void setUsuario (Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getCantidad() {
@@ -73,18 +80,18 @@ public class detalle_venta {
         return total;
     }
 
-    public void setTotal(Integer total) {
-        this.total = total;
+    public void setTotal(int cantidad) {
+        this.total = producto.getProd_Precio() * cantidad;
     }
 
     @Override
     public String toString() {
         return "Cotizacion{" +
-                "Codigo_cotizacion=" + codigo_cotizacion +
-                ", producto=" + producto +
-                ", venta=" + venta +
+                " usuario="+ usuario +
+                " producto=" + producto +
                 ", cantidad=" + cantidad +
                 ", total=" + total +
                 '}';
     }
+
 }

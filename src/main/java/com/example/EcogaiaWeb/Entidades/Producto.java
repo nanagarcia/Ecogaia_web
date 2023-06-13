@@ -1,6 +1,6 @@
 package com.example.EcogaiaWeb.Entidades;
 
-    import jakarta.persistence.*;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -28,10 +28,12 @@ public class Producto {
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<detalle_venta> detalleventa;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Carrito> carrito;
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
 
-
-    public Producto(Integer prod_Codigo, Integer prod_Precio, String prod_Nombre, String prod_Imagen, Integer prod_Cantidad, String prod_Categoria) {
+    public Producto(Integer prod_Codigo, Integer prod_Precio, String prod_Nombre, String prod_Imagen,
+            Integer prod_Cantidad, String prod_Categoria) {
         Prod_Codigo = prod_Codigo;
         Prod_Precio = prod_Precio;
         Prod_Nombre = prod_Nombre;
