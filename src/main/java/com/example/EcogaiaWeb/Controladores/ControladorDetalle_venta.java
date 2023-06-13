@@ -37,29 +37,9 @@ public class ControladorDetalle_venta {
         return SC.eliminar(cod);
     }
 
-    @GetMapping("/cotizacionesUsuario/{correo}")
-    public ResponseEntity<List<Map<String, String>>> cotizacionUsuario(@PathVariable("correo") String correo) {
-        List<Object[]> detalles_venta = SC.cotizacionesUsuario(correo);
-        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
-
-        for(Object[] objects: detalles_venta) {
-            Map<String, String> datos = new HashMap<>();
-            datos.put("codigo_cotizacion", objects[0].toString());
-            datos.put("cantidad", objects[1].toString());
-            datos.put("total", objects[2].toString());
-            datos.put("Prod_Nombre", objects[3].toString());
-            datos.put("Venta_Fecha", objects[4].toString());
-            datos.put("Codigo_Venta", objects[5].toString());
-            datos.put("id_Usuario", objects[6].toString());
-            mostrar.add(datos);
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
-    }
-
-
-    @GetMapping("/distribuir/{id}")
-    public ResponseEntity<List<Map<String, String>>> distribuir (@PathVariable("id") Integer id_rep) {
-        List<Object[]> distribuciones = SC.distribuciones(id_rep);
+    @GetMapping("/distribuir/{correo}")
+    public ResponseEntity<List<Map<String, String>>> distribuir (@PathVariable("correo") String correo) {
+        List<Object[]> distribuciones = SC.distribuciones(correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         for (Object[] objects: distribuciones) {
@@ -69,7 +49,7 @@ public class ControladorDetalle_venta {
             datos.put("usu_telefono", objects[2].toString());
             datos.put("id_Usuario", objects[3].toString());
             datos.put("venta_Codigo", objects[4].toString());
-            datos.put("prod_nombre", objects[5].toString());
+            datos.put("id_repartidor", objects[5].toString());
             mostrar.add(datos);
         }
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);

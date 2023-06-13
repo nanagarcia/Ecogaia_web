@@ -21,9 +21,7 @@ public class ControladorFavoritos {
     }
 
     @PostMapping(path = "/insertarFavoritos/{codigo}/{id}")
-    public int insertar(@PathVariable("codigo") Integer codigo, @PathVariable("id") Integer id) {
-        System.out.println(codigo);
-        System.out.println(id);
+    public String insertar(@PathVariable("codigo") Integer codigo, @PathVariable("id") Integer id) {
         return SF.insertar(codigo, id);
     }
 
@@ -33,8 +31,13 @@ public class ControladorFavoritos {
     }
 
     @DeleteMapping("/eliminarFavoritos/{codigo}")
-    public String eliminar(@PathVariable("codigo") int cod) {
+    public String eliminar(@PathVariable("codigo") Integer cod) {
         return SF.eliminar(cod);
+    }
+
+    @DeleteMapping("/eliminarTodoFavoritos/{id}")
+    public String eliminarTod(@PathVariable("id") Integer id) {
+        return SF.eliminarTodo(id);
     }
 
     @GetMapping("/favoritosUsuario/{correo}")
