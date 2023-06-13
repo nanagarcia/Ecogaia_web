@@ -31,10 +31,12 @@ public class Usuario {
     private Set<Venta> venta;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Carrito> carrito;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
 
-    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia) {
-        this.id_Usuario = id_Usuario;
+    public Usuario(String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia) {
         this.usu_nombre = usu_nombre;
         this.usu_telefono = usu_telefono;
         this.usu_direccion = usu_direccion;

@@ -54,13 +54,6 @@ public class ServicioDetalle_venta {
         return ms;
     }
 
-    public List<Object[]> cotizacionesUsuario(String correo) {
-        return repositorio.cotizaciones(correo);
-    }
-
-<<<<<<< HEAD
-
-=======
     public List<Object[]> distribuciones(String correo) {
         ArrayList<Usuario> usuarios = (ArrayList<Usuario>) this.repositorioUsuario.findAll();
         ArrayList<Repartidor> repartidores = (ArrayList<Repartidor>) this.repositorioRepartidor.findAll();
@@ -78,5 +71,4 @@ public class ServicioDetalle_venta {
 
         return mostrar;
     }
->>>>>>> 183725c4538fe6f59b850f9ae59181ac16a2f039
 }
