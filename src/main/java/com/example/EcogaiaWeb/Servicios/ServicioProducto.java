@@ -57,17 +57,6 @@ public class ServicioProducto {
         return this.mostrar;
     }
 
-<<<<<<< HEAD
-    public ArrayList<Producto>prod_nombre (String Nombre) {
-        ArrayList<Producto> productos = (ArrayList<Producto>) repositorio.findAll();
-        mostrar.clear();
-        for (Producto i: productos){
-            if (i.getProd_Nombre().toLowerCase(Locale.ROOT).startsWith(Nombre.toLowerCase(Locale.ROOT))){
-                mostrar.add(i);
-            }
-        }
-        return mostrar;
-=======
     public ArrayList<Producto> productoNombre(String nombre) {
         ArrayList<Producto> productos = this.listar();
         this.mostrar.clear();
@@ -77,6 +66,5 @@ public class ServicioProducto {
             }
         }
         return this.mostrar;
->>>>>>> 183725c4538fe6f59b850f9ae59181ac16a2f039
     }
 }
