@@ -22,7 +22,7 @@ public class ControladorFavoritos {
     }
 
     @PostMapping(path = "/insertarFavoritos/{codigo}/{id}")
-    public String insertar(@PathVariable("codigo") Integer codigo, @PathVariable("id") Integer id) {
+    public Boolean insertar(@PathVariable("codigo") Integer codigo, @PathVariable("id") Integer id) {
         return SF.insertar(codigo, id);
     }
 

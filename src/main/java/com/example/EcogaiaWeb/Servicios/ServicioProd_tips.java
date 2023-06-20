@@ -3,6 +3,9 @@ package com.example.EcogaiaWeb.Servicios;
 import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProd_tips;
 import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
+import com.example.EcogaiaWeb.Entidades.Usuario;
+
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,11 +15,12 @@ import java.util.Locale;
 public class ServicioProd_tips {
 
     RepositorioProd_tips repositorio;
-    RepositorioUsuario RepositorioUsuario;
+    RepositorioUsuario repositorioUsuario;
     ArrayList<Prod_tips> mostrar = new ArrayList<Prod_tips>();
 
-    public ServicioProd_tips(RepositorioProd_tips repository){
+    public ServicioProd_tips(RepositorioProd_tips repository, RepositorioUsuario repositorioUsuario){
         this.repositorio = repository;
+        this.repositorioUsuario = repositorioUsuario;
     }
 
     public String insertar(String correo, Prod_tips prod){
@@ -50,4 +54,23 @@ public class ServicioProd_tips {
         }
         return mostrar;
     }
+
+
+    public ArrayList<Prod_tips> tipsUsuario (String correo) {
+        List<Object[]> Usuario = repositorioUsuario.usuario(correo);
+        ArrayList<Prod_tips> pt =  (ArrayList<Prod_tips>) repositorio.findAll();
+        ArrayList<Prod_tips> mostrar = new ArrayList<Prod_tips>();
+        int id_usuario = Integer.parseInt(Usuario.get(0)[0].toString());
+
+        Usuario u = repositorioUsuario.findById(id_usuario).get();
+
+        for (Prod_tips p : pt) {
+            if (p.getUsuario().getId_Usuario() == u.getId_Usuario()) {
+                mostrar.add(p);
+            }
+        }
+
+        return mostrar;
+    }
+
 }

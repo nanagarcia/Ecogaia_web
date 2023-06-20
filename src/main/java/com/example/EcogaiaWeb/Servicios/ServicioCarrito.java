@@ -1,18 +1,10 @@
 package com.example.EcogaiaWeb.Servicios;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import com.example.EcogaiaWeb.Entidades.*;
+import com.example.EcogaiaWeb.Repositorios.*;
 import org.springframework.stereotype.Service;
-
-import com.example.EcogaiaWeb.Entidades.Carrito;
-import com.example.EcogaiaWeb.Entidades.Producto;
-import com.example.EcogaiaWeb.Entidades.Usuario;
-import com.example.EcogaiaWeb.Repositorios.RepositorioCarrito;
-import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
-import com.example.EcogaiaWeb.Repositorios.RepositorioRepartidor;
-import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 
 @Service
 public class ServicioCarrito {
@@ -20,13 +12,18 @@ public class ServicioCarrito {
     RepositorioProducto repositorioProducto;
     RepositorioUsuario repositorioUsuario;
     RepositorioRepartidor repositorioRepartidor;
+    RepositorioVenta repositorioVenta;
+    RepositorioDetalle_venta repositorioDetalle_venta;
 
     public ServicioCarrito(RepositorioCarrito repositorioCarrito, RepositorioProducto repositorioProducto,
-            RepositorioUsuario repositorioUsuario, RepositorioRepartidor repositorioRepartidor) {
+            RepositorioUsuario repositorioUsuario, RepositorioRepartidor repositorioRepartidor,
+            RepositorioVenta repositorioVenta, RepositorioDetalle_venta repositorioDetalle_venta) {
         this.repositorio = repositorioCarrito;
         this.repositorioProducto = repositorioProducto;
         this.repositorioUsuario = repositorioUsuario;
         this.repositorioRepartidor = repositorioRepartidor;
+        this.repositorioVenta = repositorioVenta;
+        this.repositorioDetalle_venta = repositorioDetalle_venta;
     }
 
     public ArrayList<Carrito> listar() {
@@ -37,47 +34,127 @@ public class ServicioCarrito {
         return repositorio.cotizaciones(correo);
     }
 
-    public String insertar(String correo, Integer codigo, int cantidad) {
-        ArrayList<Carrito> cotizaciones = (ArrayList<Carrito>) repositorio.findAll();
-        Object[] object = repositorioUsuario.usuario(correo).get(0);
+    public boolean insertar(String correo, Integer codigo, int cantidad) {
+        String id_usuario = repositorioUsuario.usuario(correo).get(0)[0].toString();
+        Usuario u = repositorioUsuario.findById(Integer.parseInt(id_usuario)).get();
+        Producto p = repositorioProducto.findById(codigo).get();
 
-        Producto product = repositorioProducto.findById(codigo).get();
-        Usuario user = repositorioUsuario.findById(Integer.parseInt(object[0].toString())).get();
+        boolean res = true;
 
-        String ms = "";
-        Boolean isIn = false;
-        for (Carrito ct : cotizaciones) {
-            if (product.getProd_Codigo() == ct.getProducto().getProd_Codigo()
-                    && user.getId_Usuario() == ct.getUsuario().getId_Usuario()) {
-                int newCantidad = ct.getCantidad() + 1;
-                ct.setCantidad(newCantidad);
-                ct.setTotal(newCantidad);
-                repositorio.actualizar(ct.getCantidad(), ct.getTotal(), ct.getCodigo_Carrito());
-                ms = "Se añadio una unidad de este producto en el carrito";
-                isIn = true;
-                break;
+        List<Object[]> cotizaciones = this.cotizacionesUsuario(correo);
+
+        Carrito c = new Carrito(p, u, cantidad);
+
+        for (Object[] objects : cotizaciones) {
+            Carrito ct = repositorio.findById(Integer.parseInt(objects[0].toString())).get();
+            if (c.getProducto().getProd_Codigo() == ct.getProducto().getProd_Codigo()) {
+                res = false;
+                repositorio.deleteById(ct.getCodigo_Carrito());
+                repositorioProducto.actualizar(p.getProd_Cantidad()+1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
             }
         }
 
-        if (isIn == false) {
-            Carrito c = new Carrito(product, user, cantidad);
+        if (res) {
             repositorio.save(c);
-            if (repositorio.findById(c.getCodigo_Carrito()).isPresent()) {
-                ms = "El producto se agrego a carrito";
-            } else {
-                ms = "El producto no se agrego a carrito";
-            }
+            repositorioProducto.actualizar(p.getProd_Cantidad()-1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
         }
 
-        if (cotizaciones.isEmpty()) {
-            Carrito c = new Carrito(product, user, cantidad);
-            repositorio.save(c);
-            if (repositorio.findById(c.getCodigo_Carrito()).isPresent()) {
-                ms = "El producto se agrego a carrito";
-            } else {
-                ms = "El producto no se agrego a carrito";
+        return res;
+    }
+
+    public String compra(String correo) {
+        /// obtenemos el id del usuario
+        String id = repositorioUsuario.usuario(correo).get(0)[0].toString();
+        /// obtenemos el usuario apartir del id
+        Usuario user = repositorioUsuario.findById(Integer.parseInt(id)).get();
+        /// obtenemos un repartidor al azar
+        Repartidor repartidor = repositorioRepartidor.findById((int) (Math.random() * 5 + 1)).get();
+
+        /// listamos el carrito
+        List<Object[]> productos = this.cotizacionesUsuario(correo);
+
+        /// mensaje de respuesta
+        String ms = "No se pudo registrar la compra";
+
+        /// Validamos si las cotizaciones del usuario estan vacias
+        if (productos.isEmpty()) {
+            ms = "No hay productos que comprar";
+        } else {
+            /// creamos una venta para asignar la compra
+            Venta venta = new Venta(user, repartidor, "En distribucion");
+            /// enviamos la venta a la base de datos
+            repositorioVenta.save(venta);
+            /// validamos la creacion de la venta
+            if (repositorioVenta.findById(venta.getVenta_Codigo()).isPresent()) {
+                /// recorremos las cotizaciones del usuario
+                for (Object[] o : productos) {
+                    /// buscamos el carrito mediante el codigo_carrito del objeto[]
+                    Carrito c = repositorio.findById(Integer.parseInt(o[0].toString())).get();
+                    /// creamos un detalle de venta
+                    detalle_venta dt = new detalle_venta(c.getProducto(), venta, c.getCantidad());
+                    /// guardamos el detalle de venta
+                    repositorioDetalle_venta.save(dt);
+                    /// borramos el carrito que se envio a la venta
+                    repositorio.delete(c);
+                    /// validamos el ingreso del detalle venta
+                    if (repositorioDetalle_venta.findById(dt.getCodigo_cotizacion()).isPresent()) {
+                        ms = "Se registro una compra de sus productos";
+                    }
+                }
             }
         }
         return ms;
+    }
+
+    public String eliminar(Integer codigo) {
+        String ms = "No se elimino el producto";
+        if (repositorio.findById(codigo).isPresent()) {
+            repositorio.delete(repositorio.findById(codigo).get());
+            ms = "El producto se elimino";
+        }
+        return ms;
+    }
+
+    public boolean sumar(Integer codigo) {
+        Carrito c = repositorio.findById(codigo).get();
+
+        int prod_codigo = c.getProducto().getProd_Codigo();
+        Producto p = repositorioProducto.findById(prod_codigo).get();
+
+        int newCantidad = c.getCantidad() + 1;
+        c.setCantidad(newCantidad);
+        c.setTotal(newCantidad);
+
+        if (p.getProd_Cantidad() > 0) {
+            repositorio.actualizar(c.getCantidad(), c.getTotal(), codigo);
+            repositorioProducto.actualizar(p.getProd_Cantidad()-1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
+            return true;
+        } else if (p.getProd_Cantidad() == 1) {
+            return false;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean restar(Integer codigo) {
+         Carrito c = repositorio.findById(codigo).get();
+
+        int prod_codigo = c.getProducto().getProd_Codigo();
+        Producto p = repositorioProducto.findById(prod_codigo).get();
+
+        int newCantidad = c.getCantidad() - 1;
+        c.setCantidad(newCantidad);
+        c.setTotal(newCantidad);
+
+        if (c.getCantidad() > 0) {
+            repositorio.actualizar(c.getCantidad(), c.getTotal(), codigo);
+            repositorioProducto.actualizar(p.getProd_Cantidad()+1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
+            return true;
+        } else if (c.getCantidad() == 0) {
+            repositorio.deleteById(c.getCodigo_Carrito());;
+            return false;
+        }else {
+            return false;
+        }
     }
 }

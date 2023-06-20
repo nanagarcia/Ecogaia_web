@@ -1,5 +1,6 @@
 package com.example.EcogaiaWeb.Controladores;
 
+import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 import org.springframework.web.bind.annotation.*;

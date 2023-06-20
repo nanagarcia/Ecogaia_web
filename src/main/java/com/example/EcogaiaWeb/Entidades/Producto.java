@@ -22,19 +22,14 @@ public class Producto {
     @Column(nullable = false, length = 100)
     private String Prod_Categoria;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Orden_pedido> orden_pedido;
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Importar> importar;
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<detalle_venta> detalleventa;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Carrito> carrito;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
 
-    public Producto(Integer prod_Codigo, Integer prod_Precio, String prod_Nombre, String prod_Imagen,
+    public Producto(Integer prod_Precio, String prod_Nombre, String prod_Imagen,
             Integer prod_Cantidad, String prod_Categoria) {
-        Prod_Codigo = prod_Codigo;
         Prod_Precio = prod_Precio;
         Prod_Nombre = prod_Nombre;
         Prod_Imagen = prod_Imagen;
@@ -92,22 +87,6 @@ public class Producto {
 
     public void setProd_Categoria(String prod_Categoria) {
         Prod_Categoria = prod_Categoria;
-    }
-
-    public Set<Orden_pedido> getOrden_pedido() {
-        return orden_pedido;
-    }
-
-    public void setOrden_pedido(Set<Orden_pedido> orden_pedido) {
-        this.orden_pedido = orden_pedido;
-    }
-
-    public Set<Importar> getExportar() {
-        return importar;
-    }
-
-    public void setExportar(Set<Importar> exportar) {
-        this.importar = exportar;
     }
 
     public Set<detalle_venta> getCotizacion() {
