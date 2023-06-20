@@ -24,6 +24,12 @@ public class Usuario {
     @Column(nullable = false,length = 50)
     private String rol = "usuario";
 
+    @OneToOne(mappedBy = "usuario")
+    private Administrador administrador;
+    
+    @OneToOne(mappedBy = "usuario")
+    private Repartidor repartidor;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Prod_tips> prod_tips;
 

@@ -38,6 +38,5 @@ public class ControladorProducto {
     @GetMapping("/nombreProducto/{nombre}")
     public ArrayList<Producto> nombre(@PathVariable("nombre") String nombre) {
         return SP.productoNombre(nombre);
-
     }
 }

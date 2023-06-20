@@ -14,7 +14,12 @@ public class ServicioAdministrador {
 
     public String insertar (Administrador a) {
         repositorio.save(a);
-        return "El administrador se agrego";
+
+        if (repositorio.findById(a.getId_admin()).isPresent()) {
+            return "Se agrego el administrador " + a.getAdmin_nombre();
+        } else {
+            return "No se agrego el administrador";
+        }
     }
 
     public ArrayList<Administrador> listar () {

@@ -3,8 +3,6 @@ package com.example.EcogaiaWeb.Entidades;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "administrador")
 public class Administrador {
@@ -18,15 +16,15 @@ public class Administrador {
     @Column(nullable = false, length = 100)
     private String admin_telefono;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
-    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Orden_pedido> orden_pedido; /// Faltaban get and setter de este
-
-    public Administrador(Integer id_admin, String admin_nombre, String admin_correo, String admin_telefono) {
-        this.id_admin = id_admin;
+    public Administrador(String admin_nombre, String admin_correo, String admin_telefono, Usuario usuario) {
         this.admin_nombre = admin_nombre;
         this.admin_correo = admin_correo;
         this.admin_telefono = admin_telefono;
+        this.usuario = usuario;
     }
 
     public Administrador() {
@@ -62,14 +60,6 @@ public class Administrador {
 
     public void setAdmin_telefono(String admin_telefono) {
         this.admin_telefono = admin_telefono;
-    }
-
-    public Set<Orden_pedido> getOrden_pedido() {
-        return orden_pedido;
-    }
-
-    public void setOrden_pedido(Set<Orden_pedido> orden_pedido) {
-        this.orden_pedido = orden_pedido;
     }
 
     @Override

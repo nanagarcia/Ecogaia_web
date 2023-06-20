@@ -26,8 +26,7 @@ public class detalle_venta {
     @Column(nullable = false, length = 100)
     private Integer total;
 
-    public detalle_venta(Integer codigo_cotizacion, Producto producto, Venta venta, Integer cantidad) {
-        this.codigo_cotizacion = codigo_cotizacion;
+    public detalle_venta(Producto producto, Venta venta, Integer cantidad) {
         this.producto = producto;
         this.venta = venta;
         this.cantidad = cantidad;

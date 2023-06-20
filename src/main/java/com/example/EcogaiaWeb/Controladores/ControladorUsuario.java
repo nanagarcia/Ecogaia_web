@@ -55,4 +55,9 @@ public class ControladorUsuario {
         });
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
+
+    @PutMapping("/cambiarRol/{correo}/{rol}")
+    public String rol (@PathVariable("correo") String correo, @PathVariable("rol") String rol) {
+        return SU.rol(correo, rol);
+    }
 }

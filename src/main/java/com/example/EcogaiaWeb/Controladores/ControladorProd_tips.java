@@ -35,4 +35,9 @@ public class ControladorProd_tips {
     public ArrayList<Prod_tips> titulo (@PathVariable("titulo") String titulo) {
         return SPR.titulo(titulo);
     }
+
+    @GetMapping("/tipsUsuario/{correo}")
+    public ArrayList<Prod_tips> tipsUsuario (@PathVariable("correo") String correo) {
+        return SPR.tipsUsuario(correo);
+    }
 }

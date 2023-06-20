@@ -20,9 +20,10 @@ public class Repartidor {
     private String Rep_Disponibilidad;
     @OneToMany(mappedBy = "repartidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Venta> venta;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Usuario usuario;
 
-    public Repartidor(Integer id_Rep, String rep_Nombre, String telefono, String direccion, String rep_Disponibilidad) {
-        this.id_Rep = id_Rep;
+    public Repartidor(String rep_Nombre, String telefono, String direccion, String rep_Disponibilidad) {
         Rep_Nombre = rep_Nombre;
         this.telefono = telefono;
         this.direccion = direccion;

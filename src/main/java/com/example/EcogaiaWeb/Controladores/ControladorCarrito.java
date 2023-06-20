@@ -7,13 +7,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.EcogaiaWeb.Entidades.Carrito;
+import org.springframework.web.bind.annotation.*;
 import com.example.EcogaiaWeb.Servicios.ServicioCarrito;
 
 @RestController
@@ -25,7 +19,7 @@ public class ControladorCarrito {
     }
 
     @PostMapping("/insertarCarrito/{correo}/{codigo}/{cantidad}")
-    public String insertar (@PathVariable("correo") String correo, @PathVariable("codigo") Integer codigo, @PathVariable("cantidad") int cantidad) {
+    public boolean insertar (@PathVariable("correo") String correo, @PathVariable("codigo") Integer codigo, @PathVariable("cantidad") int cantidad) {
         return SC.insertar(correo,codigo,cantidad);
     }
 
@@ -44,6 +38,27 @@ public class ControladorCarrito {
             mostrar.add(datos);
         }
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+
+    @DeleteMapping("/eliminarCarrito/{codigo}")
+    public String eliminar (@PathVariable("codigo") Integer codigo) {
+        return SC.eliminar(codigo);
+    }
+
+
+    @GetMapping("/compra/{correo}")
+    public String compras (@PathVariable("correo") String correo) {
+        return SC.compra(correo);
+    }
+
+    @PostMapping("/sumarCarrito/{codigo}")
+    public boolean sumar ( @PathVariable("codigo") Integer codigo) {
+        return SC.sumar(codigo);
+    }
+
+    @PostMapping("/restarCarrito/{codigo}")
+    public boolean restar ( @PathVariable("codigo") Integer codigo) {
+        return SC.restar(codigo);
     }
 
 }
