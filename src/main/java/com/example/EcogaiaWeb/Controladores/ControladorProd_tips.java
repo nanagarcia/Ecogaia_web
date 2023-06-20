@@ -32,7 +32,8 @@ public class ControladorProd_tips {
     }
 
     @GetMapping(path = "/tituloTip/{titulo}")
-    public ArrayList<Prod_tips> titulo (@PathVariable("titulo") String titulo) {
+    public ArrayList<Prod_tips> titulo (
+            @PathVariable("titulo") String titulo) {
         return SPR.titulo(titulo);
     }
 }
