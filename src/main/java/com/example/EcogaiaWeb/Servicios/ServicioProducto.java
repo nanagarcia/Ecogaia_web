@@ -19,13 +19,22 @@ public class ServicioProducto {
     }
 
     public String insertar(Producto p) {
-        repositorio.save(p);
-        if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+        ArrayList<Producto> productos = this.listar();
+        String ms = "";
+        for (Producto producto: productos) {
+            if (producto.getProd_Nombre().equals(p.getProd_Nombre())) {
+                ms = "El producto ya existe";
+            } else {
+                repositorio.save(p);
+                if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+                    ms = "El producto se agrego";
+                } else {
+                    ms = "El producto no se agrego";
+                }
+            }
+        }
 
-            return "El producto se agrego";
-        } else {
-            return "El producto no se agrego";
-        } 
+        return ms;
     }
 
     public Optional<Producto> productoId(Integer codigo) {
