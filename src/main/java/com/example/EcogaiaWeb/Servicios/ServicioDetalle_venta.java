@@ -13,7 +13,9 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ServicioDetalle_venta {
@@ -67,6 +69,38 @@ public class ServicioDetalle_venta {
                     }
                 };
             }
+        }
+
+        return mostrar;
+    }
+
+    public List<Map<String, String>> listadoProductosDesc () {
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+        List<Object[]> productos = repositorio.productosDesc();
+
+        for (Object[] objects: productos) {
+            Map<String, String> producto = new HashMap<String, String>();
+            producto.put("cantidad", objects[0].toString());
+            producto.put("prod_Nombre", objects[1].toString());
+            producto.put("codigo_Prod", objects[2].toString());
+
+            mostrar.add(producto);
+        }
+
+        return mostrar;
+    }
+
+    public List<Map<String, String>> listadoProductosAsc () {
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+        List<Object[]> productos = repositorio.productosAsc();
+
+        for (Object[] objects: productos) {
+            Map<String, String> producto = new HashMap<String, String>();
+            producto.put("cantidad", objects[0].toString());
+            producto.put("prod_Nombre", objects[1].toString());
+            producto.put("codigo_Prod", objects[2].toString());
+
+            mostrar.add(producto);
         }
 
         return mostrar;

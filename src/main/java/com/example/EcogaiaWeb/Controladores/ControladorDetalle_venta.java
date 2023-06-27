@@ -54,4 +54,13 @@ public class ControladorDetalle_venta {
         }
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
+    @GetMapping("/listadoDesc")
+    public ResponseEntity<List<Map<String, String>>> listadoDesc () {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.listadoProductosDesc());
+    }
+
+    @GetMapping("/listadoAsc")
+    public ResponseEntity<List<Map<String, String>>> listadoAsc () {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.listadoProductosAsc());
+    }
 }
