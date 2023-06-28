@@ -40,7 +40,6 @@
     />
     <title>Ecogaia</title>
     <script type="module" src="public/scripts/inventario.js"></script>
-    <script src="public/scripts/unmodule.js"></script>
     <link
       rel="shortcut icon"
       href="public/assets/hoja.png"
@@ -55,7 +54,7 @@
       <li id="">
         <a href="/" class="logo">
           <img src="public/assets/hoja.png" alt="" />
-          <span class="nav-item-nombre ">Ecogaia</span>
+          <span class="nav-item-nombre">Ecogaia</span>
         </a>
       </li>
 
@@ -86,7 +85,6 @@
           href="#offcanvasExample"
           role="button"
           aria-controls="offcanvasExample"
-          
         >
           <i class="fas fa-cart-shopping"></i>
           <span class="nav-item">Carrito</span>
@@ -99,9 +97,7 @@
         >
           <div class="offcanvas-header">
             <img src="public/assets/hoja.png" alt="" />
-            <h5 class="tituloCarrito" id="offcanvasExampleLabel">
-              CARRITO
-            </h5>
+            <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
             <button
               type="button"
               class="btn-close text-reset"
@@ -122,13 +118,7 @@
               </thead>
               <tbody id="tablaCarrito"></tbody>
             </table>
-            <button
-            onclick="comprar()"
-            type="button"
-            class="btn btn-success mb-2"
-          >
-            Comprar
-          </button>
+            <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
           </div>
         </div>
       </li>
@@ -171,45 +161,42 @@
     <!-- Inventario -->
 
     <div class="inventarioEco">
-      <img class="logoivt" src="public/assets/logosecundario.png" alt="">
-        <h2>Productos</h2>
-        <div class="scrollable-table" id="scroll-products">
-          <table class="table table-hover text-center" >
-            <thead>
-              <tr class="titulos">
-                <th scope="col">Borrar</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Actualizar</th>
-              </tr>
-            </thead>
-            <tbody class="tabla" id="tabla-productos">
-            </tbody>
-          </table>
-        </div>
+      <img class="logoivt" src="public/assets/logosecundario.png" alt="" />
+
+      <h2>Productos</h2>
+      <div class="scrollable-table" id="scroll-products">
+        <table class="table table-hover text-center">
+          <thead>
+            <tr class="titulos">
+              <th scope="col">Borrar</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Actualizar</th>
+            </tr>
+          </thead>
+          <tbody class="tabla" id="tabla-productos"></tbody>
+        </table>
+      </div>
 
       <!-- Botones CRUD -->
 
       <div class="btn_crud" id="buttons">
-
-        <button class="btn_invt btn_Agre" type="button" id="btn_add_prod"><span>Agregar</span></button>
-
-        <div class="formaddprodu" id="formaddprodu">
-        </div>
+        <form id="insertProducto" class="addGestion" method="post" enctype="multipart/form-data" >
+          <input type="submit" class="btn-insert" value="Enviar" />
+          <input type="text" class="text-light" id="prod_Nombre" placeholder="Nombre" />
+          <input type="file" name="file" required />
+          <input type="text" id="prod_Categoria" class="text-light" placeholder="Categoria"/>
+          <input type="text" id="prod_Cantidad" class="text-light" placeholder="Cantidad" />
+          <input type="text" id="prod_Precio" class="text-light" placeholder="Precio"/>
+        </form>
       </div>
-
-      <form method="POST" id="prueba" enctype="multipart/form-data">
-        <input type="file" name="prod_Imagen" id="pruebaImagen" placeholder="Imagen">
-        <input type="submit" onclick="prueba()">
-      </form>
-
 
       <h2>Usuarios</h2>
       <div class="scrollable-table" id="scroll-users">
-        <table class="table table-hover text-center" >
+        <table class="table table-hover text-center">
           <thead>
             <tr class="titulos">
               <th scope="col">Borrar</th>
@@ -221,19 +208,56 @@
               <th scope="col">Actualizar</th>
             </tr>
           </thead>
-          <tbody class="tabla" id="tabla-usuarios">
-          </tbody>
+          <tbody class="tabla" id="tabla-usuarios"></tbody>
         </table>
       </div>
+
+      <!-- Botones CRUD -->
+
       <div class="btn_crud" id="buttons">
-
-        <button class="btn_invt btn_Agre" type="button" id="btn_add_user"><span>Agregar</span></button>
-
-        <div class="formaddprodu" id="formaddprodu">
-        </div>
+        <form class="addGestion">
+          <input
+            type="button"
+            class="btn-insert"
+            onclick="insertuser()"
+            value="Enviar"
+          />
+          <input
+            type="text"
+            class="text-light"
+            placeholder="Nombre"
+            id="usu_nombre"
+          />
+          <input type="text" class="text-light" placeholder="Rol" id="rol" />
+          <input
+            type="text"
+            class="text-light"
+            placeholder="Correo"
+            id="usu_correo"
+          />
+          <input
+            type="text"
+            class="text-light"
+            placeholder="Dirección"
+            id="usu_direccion"
+          />
+          <input
+            type="text"
+            class="text-light"
+            placeholder="Telefono"
+            id="usu_telefono"
+          />
+          <input
+            type="text"
+            class="text-light"
+            placeholder="Contraseña"
+            id="usu_contrasenia"
+          />
+        </form>
+      </div>
     </div>
-    <div id="alerta" class="oculto" >
-    </div>
+    <div id="alerta" class="oculto"></div>
     <script src="public/scripts/carrito.js"></script>
+    <script src="public/scripts/unmodule.js"></script>
   </body>
 </html>

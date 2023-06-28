@@ -366,9 +366,6 @@ p.price {
 
 /* Añadir CARRITO ------------------------------------------------------------*/
 
-.titCarrito th {
-  color: #609966;
-}
 .offcanvas-header {
   background-color: #60996605;
 }
@@ -1731,15 +1728,21 @@ h3 {
   color: aliceblue;
 }
 
-
-#tabla-productos td input {
+.addGestion {
+  display: flex;
+  margin: 2% 0;
   width: 100%;
-  height: 100%;
+}
+
+.addGestion input {
+  width: 150%;
+  height: 40px;
+  margin: 0 2%;
   border: 1px solid black;
 }
 
-#tabla-productos td input::placeholder {
-  padding: 0 0 0 10px;
+.addGestion input::placeholder {
+  padding: 3px;
 }
 
 .tabla {
@@ -1776,42 +1779,15 @@ h3 {
 }
 
 .btn-insert {
-  display: inline-flex;
-  padding: 10px;
-  margin-inline: 2%;
   align-items: center;
   background: black;
   color: #fff;
-  transition: 0.3s ease all;
   border-radius: 3px;
-  overflow: hidden;
 }
 
 .fa-check {
   margin: 0;
   color: white;
-}
-
-.btn-insert:hover span {
-  color: black;
-  z-index: 1;
-}
-
-.btn-insert:hover::after {
-  transform: scale(400);
-  background: #fff;
-}
-
-.btn-insert::after {
-  content: "";
-  width: 1px;
-  height: 1px;
-  background: none;
-  position: relative;
-  z-index: 0;
-  transition: 0.8s ease-in-out all;
-  border-radius: 100px;
-  transform-origin: center;
 }
 
 .btn_invt {
@@ -2463,7 +2439,6 @@ form h2 {
   margin-left: 62%;
 }
 .table th {
-  color: white;
   font-family: "Quicksand", sans-serif;
 }
 .table tbody {
@@ -2809,9 +2784,6 @@ footer {
 
 /* Añadir CARRITO ------------------------------------------------------------*/
 
-.titCarrito th{
-    color: #609966;
-}
 .offcanvas-header{
     background-color: #60996605;
 }

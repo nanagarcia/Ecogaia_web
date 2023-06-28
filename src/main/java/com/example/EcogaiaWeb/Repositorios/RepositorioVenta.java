@@ -15,4 +15,7 @@ public interface RepositorioVenta extends CrudRepository<Venta, Integer> {
 
     @Query(value = "select count(*) as cantidad from venta where venta_fecha > :sdate and venta_fecha < :edate",nativeQuery = true)
     List<Object[]> anuales(@Param("sdate") String sdate, @Param("edate") String edate);
+
+    @Query(value = "select usu_nombre,venta_estado, venta_codigo, venta_fecha, rep_nombre from venta as v inner join usuario as u on u.id_usuario = v.id_usuario inner join repartidor on id_rep = id_repartidor where usu_correo =:correo", nativeQuery = true)
+    List<Object[]> compras(@Param("correo") String correo);
 }

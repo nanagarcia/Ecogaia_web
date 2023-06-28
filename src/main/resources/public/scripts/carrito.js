@@ -39,6 +39,21 @@ $("#op4").on("click", function () {
   });
 });
 
+$("#comprar").on("click", () => {
+  $.ajax({
+    url: "http://localhost:8080/compra/" + sessionStorage.getItem("user"),
+    type: "GET",
+    datatype: "JSON",
+    success: (res) => {
+      if (res == "Se registro una compra de sus productos") {
+        alert(res+" en perfil>compras")
+      } else {
+        alert(res)
+      }
+    },
+  });
+})
+
 $(".btn-hamburguesa").on("click", () => {
   $(".barra")[0].style.display = "block"
 })

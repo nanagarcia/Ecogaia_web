@@ -13,14 +13,14 @@ function add(codigo, id) {
         type: "POST",
         success: (res) => {
           if (res) {
-            alerta.style.background="#EBD166"
-            mostrarOculto("El producto se agrego a tus favoritos")
+            alerta.style.background = "#EBD166";
+            mostrarOculto("El producto se agrego a tus favoritos");
           } else if (!res) {
-            alerta.style.background="#EBD166"
-            mostrarOculto("El producto se elimino de tus favoritos")
+            alerta.style.background = "#EBD166";
+            mostrarOculto("El producto se elimino de tus favoritos");
           } else {
-            alerta.style.background="#EBD166"
-            mostrarOculto("No se puedo agregar el producto a tus favoritos")
+            alerta.style.background = "#EBD166";
+            mostrarOculto("No se puedo agregar el producto a tus favoritos");
           }
         },
       });
@@ -46,26 +46,6 @@ function addCar(codigo, correo) {
       } else {
         alert("No se puedo agregar el producto al carrito");
       }
-    },
-  });
-}
-
-function insertproduct() {
-  const newprod = {
-    prod_Nombre: $("#prod_Nombre").val(),
-    prod_Imagen: $("#prod_Imagen").val(),
-    prod_Categoria: $("#prod_Categoria").val(),
-    prod_Cantidad: $("#prod_Cantidad").val(),
-    prod_Precio: $("#prod_Precio").val(),
-  };
-
-  $.ajax({
-    url: "http://localhost:8080/insertarProducto",
-    type: "POST",
-    data: newprod,
-    datatype: "text/plain",
-    success: (res) => {
-      alert(res);
     },
   });
 }
@@ -132,17 +112,6 @@ function deleteCar(codigo) {
   });
 }
 
-function comprar() {
-  $.ajax({
-    url: "http://localhost:8080/compra/" + sessionStorage.getItem("user"),
-    type: "GET",
-    datatype: "JSON",
-    success: (res) => {
-      alert(res);
-    },
-  });
-}
-
 function sumCar(id, total, nombre, codigo) {
   var tdcantidad = $("#" + id)[0];
   var tdtotal = $("#" + total)[0];
@@ -194,21 +163,22 @@ function resCar(id, total, nombre, codigo) {
 }
 
 $(".btn-hamburguesa").on("click", () => {
-    $(".barra")[0].style.display = "block"
-  })
+  $(".barra")[0].style.display = "block";
+});
 
-  $(".cerrar_barra").on("click", () => {
-    $(".barra")[0].style.display = "none"
-  })
+$(".cerrar_barra").on("click", () => {
+  $(".barra")[0].style.display = "none";
+});
 
-  function mostrarOculto(frase){
-    var alerta = document.getElementById("alerta");
+function mostrarOculto(frase) {
+  var alerta = document.getElementById("alerta");
 
-    alerta.innerHTML= "<img src='public/assets/alert_error.png'><span id='mensaje'></span>"
-    var mensaje = document.getElementById("mensaje");
-    alerta.classList.add("mostrar");
-      mensaje.innerHTML=frase
-      setTimeout(function() {
-        alerta.classList.remove("mostrar");
-      }, 3000);
-  }
+  alerta.innerHTML =
+    "<img src='public/assets/alert_error.png'><span id='mensaje'></span>";
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+  mensaje.innerHTML = frase;
+  setTimeout(function () {
+    alerta.classList.remove("mostrar");
+  }, 3000);
+}

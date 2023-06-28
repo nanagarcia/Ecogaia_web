@@ -54,7 +54,7 @@
       <li id="">
         <a href="/" class="logo">
           <img src="public/assets/hoja.png" alt="" />
-          <span class="nav-item-nombre ">Ecogaia</span>
+          <span class="nav-item-nombre">Ecogaia</span>
         </a>
       </li>
 
@@ -85,7 +85,6 @@
           href="#offcanvasExample"
           role="button"
           aria-controls="offcanvasExample"
-          
         >
           <i class="fas fa-cart-shopping"></i>
           <span class="nav-item">Carrito</span>
@@ -98,9 +97,7 @@
         >
           <div class="offcanvas-header">
             <img src="public/assets/hoja.png" alt="" />
-            <h5 class="tituloCarrito" id="offcanvasExampleLabel">
-              CARRITO
-            </h5>
+            <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
             <button
               type="button"
               class="btn-close text-reset"
@@ -121,13 +118,7 @@
               </thead>
               <tbody id="tablaCarrito"></tbody>
             </table>
-            <button
-            onclick="comprar()"
-            type="button"
-            class="btn btn-success mb-2"
-          >
-            Comprar
-          </button>
+            <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
           </div>
         </div>
       </li>
@@ -146,7 +137,7 @@
       </li>
 
       <li id="op7">
-        <a href="/distribuciones" >
+        <a href="/distribuciones">
           <i class="fas fa-folder-open"></i>
           <span class="nav-item">Repartidor</span>
         </a>
@@ -166,48 +157,56 @@
         </a>
       </li>
     </nav>
-      <div class="login-contenedor">
-        <form id="insert_blog" action="">
-          <img src="public/assets/fotoPerfil.png" class="avatar" alt="" />
+    <div class="login-contenedor">
+      <form id="insert_blog" action="">
+        <img src="public/assets/fotoPerfil.png" class="avatar" alt="" />
 
-          <h2>Blog</h2>
+        <h2>Blog</h2>
 
-          <div class="input-div">
-            <div class="i">
-              <i class="fas fa-user"></i>
-            </div>
-
-
-            <div>
-              <h5>Titulo</h5>
-              <input id="title_blog" class="inputIn" type="text" />
-            </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-user"></i>
           </div>
 
-          <div class="textarea">
-            <h1>Contenido</h1>
-
-            <textarea
-              class="contenido_blog"
-              name=""
-              id="content_blog"
-              cols="35"
-              rows="4"
-            ></textarea>
+          <div>
+            <h5>Titulo</h5>
+            <input id="title_blog" class="inputIn" type="text" />
           </div>
-          <!-- boton -->
-          <button type="button" class="btnForms" id="send_tip">
-            <div class="blog_ico">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-              </svg>
-            </div>
-            <span>Insertar</span>
-          </button>
-        </form>
-      </div>
-      <div id="alerta" class="oculto" >
-      </div>
-      <script src="public/scripts/carrito.js"></script>
+        </div>
+
+        <div class="textarea">
+          <h1>Contenido</h1>
+
+          <textarea
+            class="contenido_blog"
+            name=""
+            id="content_blog"
+            cols="35"
+            rows="4"
+          ></textarea>
+        </div>
+        <!-- boton -->
+        <button type="button" class="btnForms" id="send_tip">
+          <div class="blog_ico">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
+          </div>
+          <span>Insertar</span>
+        </button>
+      </form>
+    </div>
+    <div id="alerta" class="oculto"></div>
+    <script src="public/scripts/carrito.js"></script>
   </body>
 </html>

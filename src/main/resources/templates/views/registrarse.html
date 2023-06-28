@@ -1,151 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecogaia</title>
     <!--css link-------------->
-    <link rel="stylesheet" href="public/styles/style.css"/>
+    <link rel="stylesheet" href="public/styles/style.css" />
     <!--link ajax-------------->
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!--fonts-------------->
     <link
-            href="https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&family=Tangerine:wght@700&display=swap"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&family=Tangerine:wght@700&display=swap"
+      rel="stylesheet"
     />
     <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
     />
     <!--icono-------------->
-    <link rel="shortcut icon" href="public/assets/hoja.png" type="image/x-icon"/>
+    <link
+      rel="shortcut icon"
+      href="public/assets/hoja.png"
+      type="image/x-icon"
+    />
     <!--ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--js-->
     <script type="module" src="public/scripts/registrarse.js"></script>
-</head>
+  </head>
 
-<body id="body3">
+  <body id="body3">
     <!--barra navegacion-------------->
     <nav class="barra">
-        <li id="">
-            <a href="/" class="logo">
-                <img src="public/assets/hoja.png" alt=""/>
-                <span class="nav-item-nombre ">Ecogaia</span>
-            </a>
-        </li>
+      <li id="">
+        <a href="/" class="logo">
+          <img src="public/assets/hoja.png" alt="" />
+          <span class="nav-item-nombre">Ecogaia</span>
+        </a>
+      </li>
 
-        <li id="op1">
-            <a href="/" class="home">
-                <i class="fas fa-home"></i>
-                <span class="nav-item">Home</span>
-            </a>
-        </li>
+      <li id="op1">
+        <a href="/" class="home">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a>
+      </li>
 
-        <li id="op2">
-            <a href="/nosotros" class="nosotros">
-                <i class="fas fa-users"></i>
-                <span class="nav-item">Nosotros</span>
-            </a>
-        </li>
+      <li id="op2">
+        <a href="/nosotros" class="nosotros">
+          <i class="fas fa-users"></i>
+          <span class="nav-item">Nosotros</span>
+        </a>
+      </li>
 
-        <li id="op3">
-            <a href="/blog">
-                <i class="fas fa-paper-plane"></i>
-                <span class="nav-item">Blog</span>
-            </a>
-        </li>
+      <li id="op3">
+        <a href="/blog">
+          <i class="fas fa-paper-plane"></i>
+          <span class="nav-item">Blog</span>
+        </a>
+      </li>
 
-        <li id="op4">
-            <a
-                    data-bs-toggle="offcanvas"
-                    href="#offcanvasExample"
-                    role="button"
-                    aria-controls="offcanvasExample"
+      <li id="op4">
+        <a
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <i class="fas fa-cart-shopping"></i>
+          <span class="nav-item">Carrito</span>
+        </a>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div class="offcanvas-header">
+            <img src="public/assets/hoja.png" alt="" />
+            <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <table class="table table-hover">
+              <thead>
+                <tr class="titCarrito">
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"><i class="fas fa-trash"></i></th>
+                </tr>
+              </thead>
+              <tbody id="tablaCarrito"></tbody>
+            </table>
+            <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
+          </div>
+        </div>
+      </li>
+      <li id="op5">
+        <a href="/inventario" id="inventario">
+          <i class="fas fa-folder-open"></i>
+          <span class="nav-item">Inventario</span>
+        </a>
+      </li>
 
-            >
-                <i class="fas fa-cart-shopping"></i>
-                <span class="nav-item">Carrito</span>
-            </a>
-            <div
-                    class="offcanvas offcanvas-end"
-                    tabindex="-1"
-                    id="offcanvasExample"
-                    aria-labelledby="offcanvasExampleLabel"
-            >
-                <div class="offcanvas-header">
-                    <img src="public/assets/hoja.png" alt=""/>
-                    <h5 class="tituloCarrito" id="offcanvasExampleLabel">
-                        CARRITO
-                    </h5>
-                    <button
-                            type="button"
-                            class="btn-close text-reset"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div class="offcanvas-body">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr class="titCarrito">
-                            <th scope="col">Codigo</th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Total</th>
-                            <th scope="col"><i class="fas fa-trash"></i></th>
-                        </tr>
-                        </thead>
-                        <tbody id="tablaCarrito"></tbody>
-                    </table>
-                    <button
-                            onclick="comprar()"
-                            type="button"
-                            class="btn btn-success mb-2"
-                    >
-                        Comprar
-                    </button>
-                </div>
-            </div>
-        </li>
-        <li id="op5">
-            <a href="/inventario" id="inventario">
-                <i class="fas fa-folder-open"></i>
-                <span class="nav-item">Inventario</span>
-            </a>
-        </li>
+      <li id="op6">
+        <a href="/estadisticas">
+          <i class="fas fa-ranking-star"></i>
+          <span class="nav-item">Estadisticas</span>
+        </a>
+      </li>
 
-        <li id="op6">
-            <a href="/estadisticas">
-                <i class="fas fa-ranking-star"></i>
-                <span class="nav-item">Estadisticas</span>
-            </a>
-        </li>
+      <li id="op7">
+        <a href="/distribuciones">
+          <i class="fas fa-folder-open"></i>
+          <span class="nav-item">Repartidor</span>
+        </a>
+      </li>
 
-        <li id="op7">
-            <a href="/distribuciones">
-                <i class="fas fa-folder-open"></i>
-                <span class="nav-item">Repartidor</span>
-            </a>
-        </li>
+      <li id="op8">
+        <a href="/registrarse" class="registro">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item">Registrarse</span>
+        </a>
+      </li>
 
-        <li id="op8">
-            <a href="/registrarse" class="registro">
-                <i class="fas fa-tasks"></i>
-                <span class="nav-item">Registrarse</span>
-            </a>
-        </li>
-
-        <li id="op9">
-            <a href="/login" class="inicio2">
-                <i class="fas fa-sign-out-alt"></i>
-                <span class="nav-item">Inicio Sesion</span>
-            </a>
-        </li>
+      <li id="op9">
+        <a href="/login" class="inicio2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Inicio Sesion</span>
+        </a>
+      </li>
     </nav>
     <!--imagen fondo-------------->
     <!-- <img src="../public/assets/fondogris.png" class="wave" alt="" />
@@ -156,70 +151,113 @@
       </div> -->
     <!--registro usuario-------------->
     <div class="login-contenedor">
-        <form action="">
-            <h2>Registro</h2>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div>
-                    <input id="nombre" class="inputIn" placeholder="Ingrese su nombre " type="text" required/>
-                </div>
-            </div>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                    <input id="correo" class="inputIn" placeholder="Ingrese su correo " type="text" required/>
-                </div>
-            </div>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-tent"></i>
-                </div>
-                <div>
-                    <input id="direccion" class="inputIn" placeholder="Ingrese su direccion " type="text" required/>
-                </div>
-            </div>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-unlock"></i>
-                </div>
-                <div>
-                    <input id="contrasenia" class="inputIn" placeholder="Ingrese su contraseña " type="text" required/>
-                </div>
-            </div>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div>
-                    <input id="confirmacion" class="inputIn" placeholder="Ingrese su contraseña " type="text" required/>
-                </div>
-            </div>
-            <div class="input-div">
-                <div class="i">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <div>
-                    <input id="telefono" class="inputIn" placeholder="Ingrese su telefono " type="text" required/>
-                </div>
-            </div>
-            <!--boton-------------->
-            <button type="button" class="btnForms" id="sign_in">
-                <div class="registro_ico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                    </svg>
-                </div>
-                <span>Registrar</span>
-            </button>
-        </form>
+      <form action="">
+        <h2>Registro</h2>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div>
+            <input
+              id="nombre"
+              class="inputIn"
+              placeholder="Ingrese su nombre "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <input
+              id="correo"
+              class="inputIn"
+              placeholder="Ingrese su correo "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-tent"></i>
+          </div>
+          <div>
+            <input
+              id="direccion"
+              class="inputIn"
+              placeholder="Ingrese su direccion "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-unlock"></i>
+          </div>
+          <div>
+            <input
+              id="contrasenia"
+              class="inputIn"
+              placeholder="Ingrese su contraseña "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div>
+            <input
+              id="confirmacion"
+              class="inputIn"
+              placeholder="Ingrese su contraseña "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div>
+            <input
+              id="telefono"
+              class="inputIn"
+              placeholder="Ingrese su telefono "
+              type="text"
+              required
+            />
+          </div>
+        </div>
+        <!--boton-------------->
+        <button type="button" class="btnForms" id="sign_in">
+          <div class="registro_ico">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
+          </div>
+          <span>Registrar</span>
+        </button>
+      </form>
     </div>
-    <div id="alerta" class="oculto" >
-    </div>
-</body>
+    <div id="alerta" class="oculto"></div>
+  </body>
 </html>

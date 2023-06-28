@@ -27,7 +27,7 @@ public class ServicioProducto {
             } else {
                 repositorio.save(p);
                 if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
-                    ms = "El producto se agrego";
+                    ms = p.getProd_Codigo().toString();
                 } else {
                     ms = "El producto no se agrego";
                 }

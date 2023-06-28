@@ -49,7 +49,7 @@ public class ControladorProducto {
     @PostMapping("/guardarImagen/{codigo}")
     public String guardarImagen (@PathVariable("codigo") Integer codigo, @RequestParam("file") MultipartFile imagen) {
         if (!imagen.isEmpty()) {
-            Path dir = Paths.get("src//main//resources//templates//uploads");
+            Path dir = Paths.get("src//main//resources//uploads");
             String ruta = dir.toFile().getAbsolutePath();
             if (SP.productoCodigo(codigo).isPresent()) {
                 Producto p = SP.productoCodigo(codigo).get();
