@@ -1,6 +1,7 @@
-import { on_session } from "public/scripts/index.js";
+import { on_session } from "./index.js";
+import { mostrarOculto } from "./index.js";
 
-$(document).ready((e) => {
+$(document).ready(() => {
   const val = sessionStorage.getItem("user");
   var nombre = $("#nombre");
   var telefono = $("#telefono");
@@ -37,7 +38,8 @@ $(document).ready((e) => {
           rol: rol,
         },
         success: (res) => {
-          alert(res);
+          alerta.style.background="#dc3545"
+          mostrarOculto(res)
           window.location.href = "iniciosesion.html"
           sessionStorage.removeItem("user")
           sessionStorage.removeItem("status")
@@ -50,6 +52,15 @@ $(document).ready((e) => {
       });
     } else {
       alert("Las contraseñas no coinciden");
+      mostrarOculto("Las contraseñas no coinciden")
     }
   });
 });
+
+$(".btn-hamburguesa").on("click", () => {
+  $(".barra")[0].style.display = "block"
+})
+
+$(".cerrar_barra").on("click", () => {
+  $(".barra")[0].style.display = "none"
+})

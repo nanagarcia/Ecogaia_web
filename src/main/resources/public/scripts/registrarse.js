@@ -1,7 +1,7 @@
 import { on_session } from "./index.js";
+import { mostrarOculto } from "./index.js";
 
 $(document).ready((e) => {
-
   $("#sign_in").on("click", () => {
     const user = {
       id_usuario: 0,
@@ -13,8 +13,8 @@ $(document).ready((e) => {
     };
     
     if (user.usu_nombre == "" || user.usu_telefono == "" || user.usu_direccion == "" || user.usu_correo == "" || user.usu_contrasenia == "") {
-
-        alert("Completar todos los campos")
+      alerta.style.background="#dc3545"
+      mostrarOculto("Completar todos los campos")
     } else {
         $.ajax({
             url: "http://localhost:8080/insertarUsuario",
@@ -22,9 +22,18 @@ $(document).ready((e) => {
             data: user,
             dataType: "text",
             success: (res) => {
-                alert(res)
+                alerta.style.background="#dc3545"
+                mostrarOculto("Completar todos los campos")
             },
           });
     }
   });
 });
+
+$(".btn-hamburguesa").on("click", () => {
+  $(".barra")[0].style.display = "block"
+})
+
+$(".cerrar_barra").on("click", () => {
+  $(".barra")[0].style.display = "none"
+})

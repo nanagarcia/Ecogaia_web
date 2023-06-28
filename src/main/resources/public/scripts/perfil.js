@@ -1,4 +1,5 @@
 import { on_session } from "./index.js";
+import { mostrarOculto } from "./index.js";
 
 $(document).ready((e) => {
     $(".barra")[0].style.backgroundColor = "#000000"
@@ -58,7 +59,8 @@ $(document).ready((e) => {
                 url: "http://localhost:8080/eliminarTodoFavoritos/"+ res.id_usuario,
                 type: "DELETE",
                 success: (res) => {
-                    alert(res)
+                    alerta.style.background="#dc3545"
+                    mostrarOculto(res)
                     window.location.reload()
                 }
             })
@@ -66,3 +68,11 @@ $(document).ready((e) => {
     })
   })
 });
+
+$(".btn-hamburguesa").on("click", () => {
+    $(".barra")[0].style.display = "block"
+  })
+
+  $(".cerrar_barra").on("click", () => {
+    $(".barra")[0].style.display = "none"
+  })

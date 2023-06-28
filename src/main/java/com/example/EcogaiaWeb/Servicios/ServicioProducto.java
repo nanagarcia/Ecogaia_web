@@ -37,7 +37,7 @@ public class ServicioProducto {
         return ms;
     }
 
-    public Optional<Producto> productoId(Integer codigo) {
+    public Optional<Producto> productoCodigo(Integer codigo) {
         Optional<Producto> p = repositorio.findById(codigo);
         return p;
     }
@@ -75,5 +75,14 @@ public class ServicioProducto {
             }
         }
         return this.mostrar;
+    }
+
+    public String actualizar (Producto p) {
+        if (repositorio.findById(p.getProd_Codigo()).isPresent()) {
+            repositorio.save(p);
+            return "El producto se actualizo exitosamente";
+        } else {
+            return "El producto no existe";
+        }
     }
 }

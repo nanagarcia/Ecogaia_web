@@ -1,6 +1,5 @@
 $(document).ready(() => {
   on_session();
-  console.log("bien")
   if (window.location.pathname == "/") {
     const productos = document.getElementById("productos");
     var user = sessionStorage.getItem("user");
@@ -120,6 +119,16 @@ $(document).ready(() => {
   });
 });
 
+  window.addEventListener('resize', () => {
+      const largo = window.innerHeight
+      const ancho = window.innerWidth
+
+      if (largo > 320 && ancho > 620) {
+        $(".barra")[0].style.display = "block"
+      }
+  })
+
+
 export const on_session = () => {
   var state = false;
   if (sessionStorage.getItem("status") != null) {
@@ -218,6 +227,18 @@ export const off_session = () => {
     "Registrarse"
   );
 };
+
+export function mostrarOculto(frase){
+  var alerta = document.getElementById("alerta");
+
+  alerta.innerHTML= "<img src='public/assets/alert_error.png'><span id='mensaje'></span>"
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+    mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+}
 
 $(".btn-hamburguesa").on("click", () => {
   $(".barra")[0].style.display = "block";

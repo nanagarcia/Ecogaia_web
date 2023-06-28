@@ -201,6 +201,12 @@
         </div>
       </div>
 
+      <form method="POST" id="prueba" enctype="multipart/form-data">
+        <input type="file" name="prod_Imagen" id="pruebaImagen" placeholder="Imagen">
+        <input type="submit" onclick="prueba()">
+      </form>
+
+
       <h2>Usuarios</h2>
       <div class="scrollable-table" id="scroll-users">
         <table class="table table-hover text-center" >
@@ -225,6 +231,8 @@
 
         <div class="formaddprodu" id="formaddprodu">
         </div>
+    </div>
+    <div id="alerta" class="oculto" >
     </div>
     <script src="public/scripts/carrito.js"></script>
   </body>

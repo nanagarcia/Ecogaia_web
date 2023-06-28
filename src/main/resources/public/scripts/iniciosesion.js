@@ -1,4 +1,5 @@
 import { on_session } from "./index.js";
+import { mostrarOculto } from "./index.js";
 
 $(document).ready((e) => {
   $("#log_in").on("click", () => {
@@ -7,7 +8,8 @@ $(document).ready((e) => {
     console.log(email + pass);
 
     if (email == "" || pass == "") {
-      alert("Debes completar todos los campos");
+      alerta.style.background="#E97578"
+      mostrarOculto("Completa todos los campos")
     } else {
       $.ajax({
         url: "http://localhost:8080/validarUsuario/" + email + "/" + pass,
@@ -15,11 +17,14 @@ $(document).ready((e) => {
         datatype: "JSON",
         success: (res) => {
           if (res.error != "Usuario o contraseña incorrectos") {
+            alerta.style.background="#dc3545"
+            mostrarOculto(res)
             sessionStorage.setItem("status", res.rol);
             sessionStorage.setItem("user", res.res)
             window.location.href = "/";
           } else {
-            alert(res.error);
+            alerta.style.background="#dc3545"
+            mostrarOculto(res.error)
           }
         },
         error: (xhr, status, error) => {
@@ -30,3 +35,12 @@ $(document).ready((e) => {
     }
   });
 });
+
+
+$(".btn-hamburguesa").on("click", () => {
+  $(".barra")[0].style.display = "block"
+})
+
+$(".cerrar_barra").on("click", () => {
+  $(".barra")[0].style.display = "none"
+})

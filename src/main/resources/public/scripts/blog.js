@@ -1,6 +1,7 @@
 import { on_session } from "./index.js";
+import { mostrarOculto } from "./index.js";
 
-$(document).ready((e) => {
+$(document).ready(() => {
   if(!on_session()) {
     $(".insertar_blog")[0].style.display = "none"
   }
@@ -83,7 +84,8 @@ $(document).ready((e) => {
       cuerpo: $("#content_blog").val(),
     };
     if (blog.titulo == "" || blog.content == "") {
-      alert("Completar todos los campos")
+      alerta.style.background="#EBD166"
+      mostrarOculto("Completar todos los campos")
   } else {
 
     $.ajax({
@@ -93,10 +95,12 @@ $(document).ready((e) => {
       dataType: "text",
       success: (res) => {
         if(res != "No se agrego el tip"){
-          alert(res)
+          alerta.style.background="#EBD166"
+          mostrarOculto(res)
           window.location.href = "/blog"
         }else{
-          alert(res)
+          alerta.style.background="#EBD166"
+          mostrarOculto(res)
         }
         console.log(res);
       },
@@ -110,7 +114,13 @@ $(document).ready((e) => {
   })
 })  
 
+$(".btn-hamburguesa").on("click", () => {
+  $(".barra")[0].style.display = "block"
+})
 
+$(".cerrar_barra").on("click", () => {
+  $(".barra")[0].style.display = "none"
+})
 
 
 
