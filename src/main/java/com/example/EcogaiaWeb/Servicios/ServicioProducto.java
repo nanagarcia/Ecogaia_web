@@ -19,16 +19,25 @@ public class ServicioProducto {
     }
 
     public String insertar(Producto p) {
-        repositorio.save(p);
-        if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+        ArrayList<Producto> productos = this.listar();
+        String ms = "";
+        for (Producto producto: productos) {
+            if (producto.getProd_Nombre().equals(p.getProd_Nombre())) {
+                ms = "El producto ya existe";
+            } else {
+                repositorio.save(p);
+                if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+                    ms = p.getProd_Codigo().toString();
+                } else {
+                    ms = "El producto no se agrego";
+                }
+            }
+        }
 
-            return "El producto se agrego";
-        } else {
-            return "El producto no se agrego";
-        } 
+        return ms;
     }
 
-    public Optional<Producto> productoId(Integer codigo) {
+    public Optional<Producto> productoCodigo(Integer codigo) {
         Optional<Producto> p = repositorio.findById(codigo);
         return p;
     }
@@ -66,5 +75,14 @@ public class ServicioProducto {
             }
         }
         return this.mostrar;
+    }
+
+    public String actualizar (Producto p) {
+        if (repositorio.findById(p.getProd_Codigo()).isPresent()) {
+            repositorio.save(p);
+            return "El producto se actualizo exitosamente";
+        } else {
+            return "El producto no existe";
+        }
     }
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecogaia</title>
+    <!--css link-------------->
+    <link rel="stylesheet" href="public/styles/style.css" />
+    <!-- Bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!--fonts-------------->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&family=Tangerine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!--icono-------------->
+    <link
+      rel="shortcut icon"
+      href="public/assets/hoja.png"
+      type="image/x-icon"
+    />
+    <!-- js --------------->
+    <script type="module" src="public/scripts/perfil.js"></script>
+    <script src="public/scripts/unmodule.js"></script>
+  </head>
+  <body id="body2">
+    <!--barra navegacion-------------->
+    <nav class="barra">
+      <li id="">
+        <a href="/" class="logo">
+          <img src="public/assets/hoja.png" alt="" />
+          <span class="nav-item-nombre">Ecogaia</span>
+        </a>
+      </li>
+
+      <li id="op1">
+        <a href="/" class="home">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a>
+      </li>
+
+      <li id="op2">
+        <a href="/nosotros" class="nosotros">
+          <i class="fas fa-users"></i>
+          <span class="nav-item">Nosotros</span>
+        </a>
+      </li>
+
+      <li id="op3">
+        <a href="/blog">
+          <i class="fas fa-paper-plane"></i>
+          <span class="nav-item">Blog</span>
+        </a>
+      </li>
+
+      <li id="op4">
+        <a
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <i class="fas fa-cart-shopping"></i>
+          <span class="nav-item">Carrito</span>
+        </a>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div class="offcanvas-header">
+            <img src="public/assets/hoja.png" alt="" />
+            <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <table class="table table-hover">
+              <thead>
+                <tr class="titCarrito">
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"><i class="fas fa-trash"></i></th>
+                </tr>
+              </thead>
+              <tbody id="tablaCarrito"></tbody>
+            </table>
+            <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
+          </div>
+        </div>
+      </li>
+      <li id="op5">
+        <a href="/inventario" id="inventario">
+          <i class="fas fa-folder-open"></i>
+          <span class="nav-item">Inventario</span>
+        </a>
+      </li>
+
+      <li id="op6">
+        <a href="/estadisticas">
+          <i class="fas fa-ranking-star"></i>
+          <span class="nav-item">Estadisticas</span>
+        </a>
+      </li>
+
+      <li id="op7">
+        <a href="/distribuciones">
+          <i class="fas fa-folder-open"></i>
+          <span class="nav-item">Repartidor</span>
+        </a>
+      </li>
+
+      <li id="op8">
+        <a href="/registrarse" class="registro">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item">Registrarse</span>
+        </a>
+      </li>
+
+      <li id="op9">
+        <a href="/login" class="inicio2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Inicio Sesion</span>
+        </a>
+      </li>
+    </nav>
+    <!--imagen fondo-------------->
+    <!-- <img src="../public/assets/fondogris.png" class="wave" alt=""> -->
+
+    <!--perfil usuario-------------->
+    <div class="info-container">
+      <div class="left-side">
+        <div class="profile-container">
+          <img src="public/assets/usuario.png" alt="" class="profile-icon" />
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="container2">
+          <h1 class="title" id="userName">Usuario</h1>
+          <div class="description-container">
+            <span class="low" id="userEmail">usuario123@gmail.com</span>
+          </div>
+          <a href="/actualizar-usuario" class="edit-profile">Editar perfil</a>
+        </div>
+
+        <div class="container">
+          <div class="info-content">
+            <span id="cantFav" class="high">0</span>
+            <span>Favoritos</span>
+          </div>
+          <div class="info-content">
+            <span id="cantBlog" class="high">0</span>
+            <span>Blogs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--barra de favoritos-------------->
+
+    <div class="barra-navegacion">
+      <span id="fav" class="item">Favoritos</span>
+      <span id="com" class="item">Compras</span>
+    </div>
+    <div class="table-responsive-md">
+      <table class="table table-active w-75 m-auto">
+        <thead>
+          <tr id="header">
+          </tr>
+        </thead>
+        <tbody class="table-content"></tbody>
+      </table>
+    </div>
+    <div id="alerta" class="oculto"></div>
+    <script src="public/scripts/carrito.js"></script>
+  </body>
+</html>

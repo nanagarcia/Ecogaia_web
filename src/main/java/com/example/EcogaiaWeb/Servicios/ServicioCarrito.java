@@ -50,13 +50,11 @@ public class ServicioCarrito {
             if (c.getProducto().getProd_Codigo() == ct.getProducto().getProd_Codigo()) {
                 res = false;
                 repositorio.deleteById(ct.getCodigo_Carrito());
-                repositorioProducto.actualizar(p.getProd_Cantidad()+1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
             }
         }
 
         if (res) {
             repositorio.save(c);
-            repositorioProducto.actualizar(p.getProd_Cantidad()-1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
         }
 
         return res;
@@ -90,6 +88,8 @@ public class ServicioCarrito {
                 for (Object[] o : productos) {
                     /// buscamos el carrito mediante el codigo_carrito del objeto[]
                     Carrito c = repositorio.findById(Integer.parseInt(o[0].toString())).get();
+                    Producto p = c.getProducto();
+                    repositorioProducto.actualizar(p.getProd_Cantidad()-c.getCantidad(), p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
                     /// creamos un detalle de venta
                     detalle_venta dt = new detalle_venta(c.getProducto(), venta, c.getCantidad());
                     /// guardamos el detalle de venta
@@ -127,7 +127,6 @@ public class ServicioCarrito {
 
         if (p.getProd_Cantidad() > 0) {
             repositorio.actualizar(c.getCantidad(), c.getTotal(), codigo);
-            repositorioProducto.actualizar(p.getProd_Cantidad()-1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
             return true;
         } else if (p.getProd_Cantidad() == 1) {
             return false;
@@ -148,7 +147,6 @@ public class ServicioCarrito {
 
         if (c.getCantidad() > 0) {
             repositorio.actualizar(c.getCantidad(), c.getTotal(), codigo);
-            repositorioProducto.actualizar(p.getProd_Cantidad()+1, p.getProd_Categoria(), p.getProd_Imagen(), p.getProd_Nombre(), p.getProd_Precio(), p.getProd_Codigo());
             return true;
         } else if (c.getCantidad() == 0) {
             repositorio.deleteById(c.getCodigo_Carrito());;
