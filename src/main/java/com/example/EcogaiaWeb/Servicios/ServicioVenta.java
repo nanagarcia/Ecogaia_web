@@ -57,4 +57,22 @@ public class ServicioVenta {
 
         return (cantidad / cantVentas) * 100;
     }
+
+    public List<Map<String, String>> comprasUsuario (String correo) {
+        List<Object[]> compras = repositorio.compras(correo);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] objects: compras) {
+            Map<String, String> datos = new HashMap<String, String>();
+            datos.put("usu_nombre", objects[0].toString());
+            datos.put("venta_estado",objects[1].toString());
+            datos.put("venta_codigo",objects[2].toString());
+            datos.put("venta_fecha",objects[3].toString());
+            datos.put("rep_nombre",objects[4].toString());
+
+            mostrar.add(datos);
+        }
+
+        return mostrar;
+    }
 }

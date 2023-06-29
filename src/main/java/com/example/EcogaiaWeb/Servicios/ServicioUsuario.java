@@ -23,9 +23,22 @@ public class ServicioUsuario {
         this.repositorioRepartidor = repositorioRepartidor;
     }
 
-    public boolean insertar(Usuario u){
-        repositorio.save(u);
-        return true;
+    public String insertar(Usuario u){
+        ArrayList<Usuario> usuarios = this.listar();
+        String ms = "";
+        for (Usuario usuario: usuarios) {
+            if (u.getUsu_correo().equals(usuario.getUsu_correo())) {
+                ms = "El correo ya se encuentra registrado";
+            } else {
+                repositorio.save(u);
+                if (repositorio.findById(u.getId_Usuario()).isPresent()) {
+                    ms = "El usuario se registro correctamente";
+                } else {
+                    ms = "El usuario no se registro";
+                }
+            }
+        }
+        return ms;
     }
 
     public Map<String, String> login (String email, String password) {

@@ -59,4 +59,9 @@ public class ControladorVenta {
     public double ventaAnual (@PathVariable("sdate") String sDate, @PathVariable("edate") String eDate) {
         return SV.ventas_anuales(sDate, eDate);
     }
+
+    @GetMapping("/comprasUsuario/{correo}")
+    public ResponseEntity<List<Map<String, String>>> compras (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SV.comprasUsuario(correo));
+    }
 }
