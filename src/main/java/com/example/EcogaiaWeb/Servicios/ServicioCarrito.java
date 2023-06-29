@@ -157,4 +157,21 @@ public class ServicioCarrito {
             return false;
         }
     }
+
+    public List<Object[]> carritoUsuario(String correo) {
+        return repositorio.buscar(correo);
+    }
+
+    public List<Object[]> filtrar (String nombre, String correo) {
+        List<Object[]>  buscar = this.carritoUsuario(correo);
+        List<Object[]> mostrar = new ArrayList<Object[]>();
+        mostrar.clear();
+
+        for (Object[] obj: buscar){
+            if (obj[5].toString().toLowerCase(Locale.ROOT).startsWith(nombre.toLowerCase(Locale.ROOT))){
+                mostrar.add(obj);
+            }
+        }
+        return mostrar;
+    }
 }
