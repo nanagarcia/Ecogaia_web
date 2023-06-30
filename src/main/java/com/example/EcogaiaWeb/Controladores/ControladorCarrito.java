@@ -61,4 +61,44 @@ public class ControladorCarrito {
         return SC.restar(codigo);
     }
 
+    @GetMapping("/productosCarrito/{correo}")
+    public ResponseEntity<List<Map<String, String>>> carritoUsuario(@PathVariable("correo") String correo) {
+        List<Object[]> cotizaciones = SC.carritoUsuario(correo);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        cotizaciones.forEach((element) -> {
+            Map<String, String> datos = new HashMap<>();
+            datos.put("codigo_carrito", element[0].toString());
+            datos.put("cantidad", element[1].toString());
+            datos.put("total", element[2].toString());
+            datos.put("codigo_prod", element[3].toString());
+            datos.put("id_Usuario", element[4].toString());
+            datos.put("Prod_Nombre", element[5].toString());
+            mostrar.add(datos);
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+
+
+    @GetMapping(path = "/NombreProdCar/{correo}/{Prod_Nombre}")
+    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("Prod_Nombre") String Prod_Nombre, @PathVariable("correo") String correo) {
+        List<Object[]>buscar = SC.filtrar(Prod_Nombre,correo);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        buscar.forEach((element) -> {
+            Map<String, String> datos = new HashMap<>();
+            datos.put("codigo_carrito", element[0].toString());
+            datos.put("cantidad", element[1].toString());
+            datos.put("total", element[2].toString());
+            datos.put("codigo_prod", element[3].toString());
+            datos.put("id_Usuario", element[4].toString());
+            datos.put("Prod_Nombre", element[5].toString());
+            mostrar.add(datos);
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+
+
 }

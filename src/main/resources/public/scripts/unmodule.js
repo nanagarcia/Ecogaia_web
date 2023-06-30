@@ -173,8 +173,7 @@ $(".cerrar_barra").on("click", () => {
 function mostrarOculto(frase) {
   var alerta = document.getElementById("alerta");
 
-  alerta.innerHTML =
-    "<img src='public/assets/alert_error.png'><span id='mensaje'></span>";
+  alerta.innerHTML ="<img src='public/assets/alert_error.png'><span id='mensaje'></span>";
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");
   mensaje.innerHTML = frase;

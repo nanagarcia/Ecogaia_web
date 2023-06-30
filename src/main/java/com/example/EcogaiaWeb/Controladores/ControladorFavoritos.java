@@ -1,6 +1,7 @@
 package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Favoritos;
+import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Servicios.ServicioFavoritos;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,27 @@ public class ControladorFavoritos {
     @GetMapping("/favoritosUsuario/{correo}")
     public ResponseEntity<List<Map<String, String>>> favoritoUsuario(@PathVariable("correo") String correo) {
         List<Object[]> favoritos = SF.favoritosUsuario(correo);
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+
+        favoritos.forEach((favorito) -> {
+            Map<String, String> datos = new HashMap<String, String>();
+            String prod_imagen = "";
+            if (favorito[3] != null) prod_imagen = favorito[3].toString();
+            datos.put("prod_Codigo", favorito[0].toString());
+            datos.put("prod_Cantidad", favorito[1].toString());
+            datos.put("prod_Categoria", favorito[2].toString());
+            datos.put("prod_Imagen", prod_imagen);
+            datos.put("prod_Nombre", favorito[4].toString());
+            datos.put("prod_Precio", favorito[5].toString());
+            datos.put("codigo_favoritos", favorito[6].toString());
+            mostrar.add(datos);
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+    @GetMapping(path = "/NombreFavorito/{correo}/{nombreFav}")
+    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("nombreFav") String nombreFav, @PathVariable("correo") String correo) {
+        List<Object[]>favoritos = SF.filtrar(nombreFav,correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         favoritos.forEach((favorito) -> {

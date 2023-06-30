@@ -41,7 +41,7 @@ public class ControladorProducto {
         return SP.categoria(cat);
     }
 
-    @GetMapping("/nombreProducto/{nombre}")
+        @GetMapping("/nombreProducto/{nombre}")
     public ArrayList<Producto> nombre(@PathVariable("nombre") String nombre) {
         return SP.productoNombre(nombre);
     }
