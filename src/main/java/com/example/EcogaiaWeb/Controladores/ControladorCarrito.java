@@ -81,9 +81,9 @@ public class ControladorCarrito {
     }
 
 
-    @GetMapping(path = "/NombreProdCar/{correo}/{Prod_Nombre}")
-    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("Prod_Nombre") String Prod_Nombre, @PathVariable("correo") String correo) {
-        List<Object[]>buscar = SC.filtrar(Prod_Nombre,correo);
+    @GetMapping(path = "/nombreProdCar/{correo}/{nombre}")
+    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("nombre") String nombre, @PathVariable("correo") String correo) {
+        List<Object[]>buscar = SC.filtrar(nombre,correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         buscar.forEach((element) -> {
