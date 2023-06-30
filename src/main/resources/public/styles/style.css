@@ -2316,11 +2316,6 @@ form h2 {
   margin-bottom: 1.4rem;
 }
 
-.title {
-  font-size: 28px;
-  font-weight: 100;
-  margin-right: 1rem;
-}
 
 .edit-profile {
   margin-right: 1rem;
@@ -3403,12 +3398,6 @@ form h2{
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-  }
-
-  .title {
-    font-size: 20px;
-    margin: auto;
-    margin-bottom: 1%;
   }
 
   .edit-profile {

@@ -63,4 +63,9 @@ public class ControladorDetalle_venta {
     public ResponseEntity<List<Map<String, String>>> listadoAsc () {
         return ResponseEntity.status(HttpStatus.OK).body(SC.listadoProductosAsc());
     }
+
+    @GetMapping("/productosCompra/{correo}/{codigo}")
+    public ResponseEntity<List<Map<String, String>>> productos (@PathVariable("correo") String correo, @PathVariable("codigo") Integer codigo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.productos(correo, codigo));
+    }
 }
