@@ -20,22 +20,16 @@ public class Venta {
     @JoinColumn(name = "id_repartidor", referencedColumnName = "id_Rep", nullable = false)
     @JsonIgnore
     private Repartidor repartidor;
-    @Temporal(TemporalType.DATE)
-    private Date Venta_Fecha;
     @Column(nullable = false, length = 15)
     private String Venta_Estado;
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<detalle_venta> detalleventa;
-    @PrePersist
-    public void PrePersist() {
-        this.Venta_Fecha = new Date();
-    }
+    @Temporal(TemporalType.DATE)
+    private Date Venta_Fecha = new Date();
 
-    public Venta(Integer venta_Codigo, Usuario usuario, Repartidor repartidor, Date venta_Fecha, String venta_Estado) {
-        Venta_Codigo = venta_Codigo;
+    public Venta(Usuario usuario, Repartidor repartidor,String venta_Estado) {
         this.usuario = usuario;
         this.repartidor = repartidor;
-        Venta_Fecha = venta_Fecha;
         Venta_Estado = venta_Estado;
     }
 

@@ -5,6 +5,7 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -18,11 +19,25 @@ public class ServicioProducto {
     }
 
     public String insertar(Producto p) {
-        repositorio.save(p);
-        return "El producto se agrego";
+        ArrayList<Producto> productos = this.listar();
+        String ms = "";
+        for (Producto producto: productos) {
+            if (producto.getProd_Nombre().equals(p.getProd_Nombre())) {
+                ms = "El producto ya existe";
+            } else {
+                repositorio.save(p);
+                if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
+                    ms = p.getProd_Codigo().toString();
+                } else {
+                    ms = "El producto no se agrego";
+                }
+            }
+        }
+
+        return ms;
     }
 
-    public Optional<Producto> productoId(Integer codigo) {
+    public Optional<Producto> productoCodigo(Integer codigo) {
         Optional<Producto> p = repositorio.findById(codigo);
         return p;
     }
@@ -49,5 +64,25 @@ public class ServicioProducto {
             }
         }
         return this.mostrar;
+    }
+
+    public ArrayList<Producto> productoNombre(String nombre) {
+        ArrayList<Producto> productos = this.listar();
+        this.mostrar.clear();
+        for (Producto p : productos) {
+            if (p.getProd_Nombre().toLowerCase(Locale.ROOT).startsWith(nombre.toLowerCase(Locale.ROOT))) {
+                this.mostrar.add(p);
+            }
+        }
+        return this.mostrar;
+    }
+
+    public String actualizar (Producto p) {
+        if (repositorio.findById(p.getProd_Codigo()).isPresent()) {
+            repositorio.save(p);
+            return "El producto se actualizo exitosamente";
+        } else {
+            return "El producto no existe";
+        }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.EcogaiaWeb.Servicios;
 
 import com.example.EcogaiaWeb.Entidades.Repartidor;
+import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioRepartidor;
+import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,9 +11,15 @@ import java.util.ArrayList;
 @Service
 public class ServicioRepartidor {
     RepositorioRepartidor repositorio;
+    RepositorioUsuario repositorioUsuario;
+    RepositorioRepartidor repositorioRepartidor;
+    RepositorioProducto repositorioProducto;
 
-    public ServicioRepartidor(RepositorioRepartidor repo){
+    public ServicioRepartidor(RepositorioRepartidor repo, RepositorioUsuario usuario, RepositorioRepartidor repositorioRepartidor, RepositorioProducto repositorioProducto){
         this.repositorio = repo;
+        this.repositorioUsuario = usuario;
+        this.repositorioRepartidor = repositorioRepartidor;
+        this.repositorioProducto =  repositorioProducto;
     }
 
     public String insertar(Repartidor rep){
@@ -31,5 +39,7 @@ public class ServicioRepartidor {
         }
         return ms;
     }
+
+
 
 }

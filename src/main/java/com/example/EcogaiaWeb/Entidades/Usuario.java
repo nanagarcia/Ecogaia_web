@@ -24,6 +24,12 @@ public class Usuario {
     @Column(nullable = false,length = 50)
     private String rol = "usuario";
 
+    @OneToOne(mappedBy = "usuario")
+    private Administrador administrador;
+    
+    @OneToOne(mappedBy = "usuario")
+    private Repartidor repartidor;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Prod_tips> prod_tips;
 
@@ -31,10 +37,12 @@ public class Usuario {
     private Set<Venta> venta;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Carrito> carrito;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Favoritos> favoritos;
 
-    public Usuario(Integer id_Usuario, String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia) {
-        this.id_Usuario = id_Usuario;
+    public Usuario(String usu_nombre, String usu_telefono, String usu_direccion, String usu_correo, String usu_contrasenia) {
         this.usu_nombre = usu_nombre;
         this.usu_telefono = usu_telefono;
         this.usu_direccion = usu_direccion;

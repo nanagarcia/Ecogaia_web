@@ -21,7 +21,6 @@ public class ControladorUsuario {
 
     @PostMapping(path = "/insertarUsuario", consumes = "application/x-www-form-urlencoded")
     public String insertar(Usuario u) {
-        System.out.println(u);
         return SU.insertar(u);
     }
     @GetMapping(path = "/listarUsuario")
@@ -47,12 +46,18 @@ public class ControladorUsuario {
         List<Object[]> object = SU.perfil(correo);
         Map<String, String> mostrar = new HashMap<String, String>();
         object.forEach((o) -> {
-            mostrar.put("usu_nombre", o[0].toString());
-            mostrar.put("usu_correo", o[1].toString());
-            mostrar.put("usu_direccion", o[2].toString());
-            mostrar.put("usu_contrasenia", o[3].toString());
-            mostrar.put("usu_telefono", o[4].toString());
+            mostrar.put("id_usuario", o[0].toString());
+            mostrar.put("usu_nombre", o[1].toString());
+            mostrar.put("usu_correo", o[2].toString());
+            mostrar.put("usu_direccion", o[3].toString());
+            mostrar.put("usu_contrasenia", o[4].toString());
+            mostrar.put("usu_telefono", o[5].toString());
         });
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
+    }
+
+    @PutMapping("/cambiarRol/{correo}/{rol}")
+    public String rol (@PathVariable("correo") String correo, @PathVariable("rol") String rol) {
+        return SU.rol(correo, rol);
     }
 }

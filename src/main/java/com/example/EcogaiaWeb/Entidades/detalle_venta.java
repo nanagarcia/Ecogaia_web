@@ -13,7 +13,7 @@ public class detalle_venta {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Codigo_Prod", referencedColumnName = "Prod_Codigo", nullable = false)
     @JsonIgnore
-    private Producto producto = new Producto();
+    private Producto producto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Codigo_Venta", referencedColumnName = "Venta_Codigo", nullable = false)
@@ -26,8 +26,7 @@ public class detalle_venta {
     @Column(nullable = false, length = 100)
     private Integer total;
 
-    public detalle_venta(Integer codigo_cotizacion, Producto producto, Venta venta, Integer cantidad) {
-        this.codigo_cotizacion = codigo_cotizacion;
+    public detalle_venta(Producto producto, Venta venta, Integer cantidad) {
         this.producto = producto;
         this.venta = venta;
         this.cantidad = cantidad;

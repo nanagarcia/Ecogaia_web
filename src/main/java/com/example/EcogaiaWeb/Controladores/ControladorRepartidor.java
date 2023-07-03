@@ -2,6 +2,7 @@ package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Repartidor;
 import com.example.EcogaiaWeb.Servicios.ServicioRepartidor;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,4 +30,6 @@ public class ControladorRepartidor {
     public String eliminar(@PathVariable("id")int id){
         return SR.eliminar(id);
     }
+
+
 }
