@@ -14,7 +14,7 @@ $(document).ready((e) => {
     header.innerHTML =
     '<th scope="col">#</th><th scope="col">Estado</th><th scope="col">Fecha</th><th scope="col">Repartidor</th><th scope="col">Info</th>';
     $.ajax({
-        url: "http://localhost:8080/ventasUsuario/"+user,
+        url: "http://localhost:8080/comprasUsuario/"+user,
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -23,7 +23,27 @@ $(document).ready((e) => {
             if (res.length > 0) {
                 res.forEach(vent => {
                     i++
-                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><p>"+vent.venta_estado+"</p></td><td><h5>"+vent.venta_fecha+"</h5></td><td><p>"+vent.rep_nombre+"</p></td><td><button class='btn btn-success mb-2'>Mas</button></td></tr>"
+                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><p>"+vent.venta_estado+"</p></td><td><h5>"+vent.venta_fecha+"</h5></td><td><p>"+vent.rep_nombre+"</p></td><td><button data-bs-toggle='modal'  data-bs-target='#car"+vent.venta_codigo+"'>Mas</button></td></tr>" +
+                      '<!-- Modal --><div  class="modal fade w-25"  id="car'+vent.venta_codigo+'"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body">' +
+                        "<h1 class='text-center text-success'>" +
+                        vent.rep_nombre +
+                        "</h1><p class='contenido '>" +
+                        vent.venta_fecha +
+                        '</p><p class="contenido" >Productos</p><div id="body'+vent.venta_codigo+'" class="body-compra"></div></div></div></div></div></div></div>'
+                    $.ajax({
+                      url: "http://localhost:8080/productosCompra/" + user + "/" + vent.venta_codigo,
+                      type: "GET",
+                      datatype: "JSON",
+                      success: (res1) => {
+                        const prods = document.getElementById("body"+vent.venta_codigo)  
+                        res1.forEach((prod) => {
+                          prods.innerHTML += "<div class='compra'><h1 class='articulos text-center text-success'>" + prod.prod_nombre +
+                          "</h1><p>Categoria: " + prod.prod_categoria + "</p>"+
+                          "<p>Cantidad: " + prod.prod_cantidad + "</p>"
+                          "<p>Precio: $" + prod.prod_precio + "</p></div>";
+                        })
+                      }
+                    })
                 });
             } else {
                 table.innerHTML = "<tr><td colspan='7'><p class='text-center'>No tienes compras</p></td></tr>"
