@@ -215,8 +215,6 @@ li a {
   justify-content: center;
 }
 
-
-
 p.price {
   margin: 10px 0;
 }
@@ -1407,7 +1405,6 @@ footer {
   .productos {
     flex-direction: column;
   }
-
 
   .producto {
     overflow: hidden;
@@ -3855,22 +3852,4 @@ footer{
         margin: 0%;
     }
   }
-}
-
-.compra {
-  overflow: hidden;
-  width: 250px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 5px;
-  margin: 10px 0;
-  border: #07070718 2px solid;
-}
-
-.body-compra {
-  overflow: auto;
-  height: 200px;
 }
