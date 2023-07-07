@@ -451,51 +451,6 @@ p.price {
   margin-bottom: 20px;
 }
 
-/* botones inventario */
-
-.btn_crud {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn_invt {
-  display: inline-flex;
-  width: 12%;
-  height: 40px;
-  margin: 20px 0 40px 0;
-  margin-inline: 2%;
-  align-items: center;
-  justify-content: center;
-  background: #609966;
-  color: #fff;
-  transition: 0.3s ease all;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.btn_invt::after {
-  content: "";
-  width: 1px;
-  height: 1px;
-  background: none;
-  position: relative;
-  z-index: 0;
-  transition: 0.8s ease-in-out all;
-  border-radius: 100px;
-  transform-origin: center;
-}
-
-.btn_invt:hover span {
-  color: #609966;
-  z-index: 1;
-}
-
-.btn_invt:hover::after {
-  transform: scale(400);
-  background: #fff;
-}
 
 /*nosotros y blogs---------------------------------------------------------------------*/
 .box {
@@ -540,7 +495,7 @@ input {
   padding: 30px;
 }
 .blogN h3 {
-  color: #609966;
+  color: black;
   font-weight: bold;
   font-size: 45px;
   font-family: "Charm", cursive;
@@ -668,7 +623,7 @@ input {
   margin-left: 35%;
 }
 .blog h3 {
-  color: #609966;
+  color: black;
   font-size: 40px;
   font-family: "Charm", cursive;
   font-weight: bold;
@@ -2516,6 +2471,10 @@ footer {
   display: none;
 }
 
+.tabla-inventario{
+  display: block;
+}
+
 @media screen and (min-width: 320px) and (max-width: 620px) {
   /* Barra */
 
@@ -2546,32 +2505,27 @@ footer {
     display: block;
   }
 
+  /* Añadir blog -----------------------------------------------------------------*/
   
+  .insertar_blog img{
+      width: 60px;
+      position: fixed;
+      float: right;
+      z-index: 0;
+      bottom: 80px;
+      right: 50px;
+      transition: transform 0.3s ease;
+  }
 
+  .insertar_blog img:hover{
+      transform: scale(1.2);
+  }
 
-
-/* Añadir blog -----------------------------------------------------------------*/
-
-.insertar_blog img{
-    width: 60px;
-    position: fixed;
-    float: right;
-    z-index: 0;
-    bottom: 80px;
-    right: 50px;
-    transition: transform 0.3s ease;
-}
-
-.insertar_blog img:hover{
-    transform: scale(1.2);
-}
-
-#btn_add_blog{
-    padding: 0%;
-    margin-left: 0%;
-    width: auto;
-}
-
+  #btn_add_blog{
+      padding: 0%;
+      margin-left: 0%;
+      width: auto;
+  }
 
   #alerta {
     display: flex ;
@@ -2594,34 +2548,33 @@ footer {
 
   }
 
-
   .mostrar {
     transform: translateX(-20%);
   }
 
 
-/* Añadir CARRITO ------------------------------------------------------------*/
+  /* Añadir CARRITO ------------------------------------------------------------*/
 
-.offcanvas-header{
-    background-color: #60996605;
-}
+  .offcanvas-header{
+      background-color: #60996605;
+  }
 
+  .offcanvas-header h5{
+      position: relative;
+      font-weight: bold;
+      font-size: 25px;
+      font-family: 'Charm', cursive;
+      color:#609966;
+  }
 
-.offcanvas-header h5{
-    position: relative;
-    font-weight: bold;
-    font-size: 25px;
-    font-family: 'Charm', cursive;
-    color:#609966;
-}
-.offcanvas-header img{
-    width: 40px;
-    height: 40px;
-}
+  .offcanvas-header img{
+      width: 40px;
+      height: 40px;
+  }
 
-/* boton carrito */
+  /* boton carrito */
 
-.comp_carrito{
+  .comp_carrito{
     display: inline-flex;
     width: 30%;
     height: 40px;
@@ -2632,442 +2585,297 @@ footer {
     flex-direction: column;
   }
 
-.titulos{
-    background-color: #609966;
-    color: aliceblue;
-}
+  .titulos{
+      background-color: #609966;
+      color: aliceblue;
+  }
 
-#tabla{
-    border: rgba(240, 248, 255, 0.075) 2px solid;
-    background-color: #121212e1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  #tabla{
+      border: rgba(240, 248, 255, 0.075) 2px solid;
+      background-color: #121212e1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-}
+  }
 
-#tabla td{
-    color: aliceblue;
-    height: 60px;
-    border-right: rgba(240, 248, 255, 0.075) 2px solid;
-}
+  #tabla td{
+      color: aliceblue;
+      height: 60px;
+      border-right: rgba(240, 248, 255, 0.075) 2px solid;
+  }
 
-.titulo_invt{
-    color: aliceblue;
-    text-align: center;
-    margin-bottom: 4%;
+  .titulo_invt{
+      color: aliceblue;
+      text-align: center;
+      margin-bottom: 4%;
 
-}
+  }
 
-.logoivt{
-    width: 25%;
-    margin-bottom: 20px;
-}
+  .logoivt{
+      width: 25%;
+      margin-bottom: 20px;
+  }
 
-/* botones inventario */
+  /* insertar blog  -----------------------------------------------------------------*/
+  .contenido_blog{
+      font-size: 15px;
+      padding: 15px;
+      background-color: #eee;
+      border-radius: 5px;
 
-.btn_crud{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  }
 
-.btn_invt{
-    display: inline-flex;
-    width: 12%;
-    height: 40px;
-    margin: 20px 0 40px 0;
-    margin-inline: 2%;
-    align-items: center;
-    justify-content: center;
-    background: #609966;
-    color: #fff;
-    transition: .3s ease all;
-    border-radius: 3px;
-    overflow: hidden;
-}
+  .textarea h1{
+    left: 10px;
+      margin-bottom: 10px;
+    top: 50%;
+      font-family: 'Quicksand', sans-serif;
+    color: #9999997e;
+    font-size: 18px;
+    transition: .3s;
+  }
 
-.btn_invt::after{
-    content: "";
-    width: 1px;
-    height: 1px;
-    background: none;
-    position: relative;
-    z-index: 0;
-    transition: .8s ease-in-out all;
-    border-radius: 100px;
-    transform-origin: center;
-}
+  .nosotros_cards{
+      transition: all 1s;
+  }
 
-.btn_invt:hover span{
+  .nosotros_cards:hover{
+      transform: translateX(20px)
+  }
+
+  /*formularios ----------------------------------------------------------------------*/
+
+  .login-contenedor{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      margin-top: 2%;
+      margin-left: 62%;
+  }
+
+  .login-contenedor img{
+      height: 100px;
+  }
+
+  .login-contenedor h2{
+      margin: 15px 0;
     color: #609966;
-    z-index: 1;
-}
-
-.btn_invt:hover::after{
-    transform: scale(400);
-    background: #fff;
-}
-
-
-
-
-
-/* insertar blog  -----------------------------------------------------------------*/
-.contenido_blog{
-    font-size: 15px;
-    padding: 15px;
-    background-color: #eee;
-    border-radius: 5px;
-
-}
-
-.textarea h1{
-	left: 10px;
-    margin-bottom: 10px;
-	top: 50%;
-    font-family: 'Quicksand', sans-serif;
-	color: #9999997e;
-	font-size: 18px;
-	transition: .3s;
-}
-
-.nosotros_cards{
-    transition: all 1s;
-}
-
-.nosotros_cards:hover{
-    transform: translateX(20px)
-}
-
-
-/*formularios ----------------------------------------------------------------------*/
-
-.login-contenedor{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    margin-top: 2%;
-    margin-left: 62%;
-}
-
-.login-contenedor img{
-    height: 100px;
-}
-
-.login-contenedor h2{
-    margin: 15px 0;
-	color: #609966;
-	text-transform: uppercase;
-    font-family: 'Charm', cursive;
-	font-size: 2.9rem;
-}
-
-form{
-    width: 360px;
-    margin-left: 70px;
-}
-
-.avatar{
-    width: 100px;
-}
-
-form h2{
-    font-size: 2.0rem;
-    font-family: 'Quicksand', sans-serif;
     text-transform: uppercase;
-    margin: 15px 0;
-    color: #609966;
-}
+      font-family: 'Charm', cursive;
+    font-size: 2.9rem;
+  }
 
-.login-contenedor .input-div{
-    position: relative;
-    display: grid;
-    grid-template-columns: 7% 93%;
-    margin: 10px 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #d9d9d9;
-}
+  form{
+      width: 360px;
+      margin-left: 70px;
+  }
 
-.login-contenedor .input-div.one{
-	margin-top: 0;
-}
+  .avatar{
+      width: 100px;
+  }
 
-.i{
-	color: #d9d9d9;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+  form h2{
+      font-size: 2.0rem;
+      font-family: 'Quicksand', sans-serif;
+      text-transform: uppercase;
+      margin: 15px 0;
+      color: #609966;
+  }
 
-.i i{
-	transition: .3s;
-}
+  .login-contenedor .input-div{
+      position: relative;
+      display: grid;
+      grid-template-columns: 7% 93%;
+      margin: 10px 0;
+      padding: 5px 0;
+      border-bottom: 2px solid #d9d9d9;
+  }
 
-.input-div > div{
-    position: relative;
-	height: 45px;
-}
+  .login-contenedor .input-div.one{
+    margin-top: 0;
+  }
 
-.input-div > div > h5{
-	position: absolute;
-	left: 10px;
-	top: 50%;
-	transform: translateY(-40%);
-    font-family: 'Quicksand', sans-serif;
-	color: #999;
-    opacity: 0.40;
-	font-size: 18px;
-	transition: .3s;
-}
-
-.input-div:before, .input-div:after{
-	content: '';
-	position: absolute;
-	bottom: -2px;
-	width: 0%;
-	height: 2px;
-	background-color: #38d39f;
-	transition: .4s;
-}
-
-.input-div:before{
-	right: 50%;
-}
-
-.input-div:after{
-	left: 50%;
-}
-
-.input-div.focus:before, .input-div.focus:after{
-	width: 50%;
-}
-
-.input-div.focus > div > h5{
-	top: -5px;
-	font-size: 15px;
-}
-
-.input-div.focus > .i > i{
-    color: #609966;
-}
-
-.input-div > div > input{
-    position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	border: none;
-	outline: none;
-	background: none;
-	padding: 0.5rem 0.7rem;
-	font-size: 1.2rem;
-	color: #555;
-	font-family: 'poppins', sans-serif;
-}
-
-.input-div.pass{
-	margin-bottom: 4px;
-}
-
-.btnForms{
-	display: block;
-	width: 100%;
-	height: 50px;
-	border-radius: 25px;
-	outline: none;
-	border: none;
-	background-image: linear-gradient(to right, #609966, #609966, #609966);
-	background-size: 200%;
-	font-size: 1.2rem;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
-	margin: 1rem 0;
-    margin-top: 40px;
-	cursor: pointer;
-	transition: .5s;
+  .i{
+    color: #d9d9d9;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
+  .i i{
+    transition: .3s;
+  }
 
-.btnForms span{
-    transition: .4s ease-in-out all;
+  .input-div > div{
+      position: relative;
+    height: 45px;
+  }
+
+  .input-div > div > h5{
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+      font-family: 'Quicksand', sans-serif;
+    color: #999;
+      opacity: 0.40;
+    font-size: 18px;
+    transition: .3s;
+  }
 
-}
-
-.btnForms:hover span {
-    margin: 0 15% 0 0;
-}
-
-.btnForms .ini_ico{
-    display: block;
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    left: 60%;
-    transition: .3s ease-in-out all;
-}
-
-.btnForms svg{
-    color: #fff;
-    width: 30px;
-    height: 30px;
-}
-
-.btnForms:hover .ini_ico{
-    left:  calc(89%);
-}
-
-
-.btnForms .registro_ico{
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    left: 64%;
-    transition: .3s ease-in-out all;
-}
-
-.btnForms:hover .registro_ico{
-    left:  calc(89%);
-}
-
-.btnForms .actu_ico{
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    left: 64%;
-    transition: .3s ease-in-out all;
-}
-
-.btnForms:hover .actu_ico{
-    left:  calc(89%);
-}
-
-.btnForms .blog_ico{
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    left: 64%;
-    transition: .3s ease-in-out all;
-}
-
-.btnForms:hover .blog_ico{
-    left:  calc(89%);
-}
-
-
-
-/* blog_insertar -----------------------------------------------------------------*/
-
-.cancelar img{
-    width: 10px;
-}
-
-/* boton switch */
-
-
-.lbl-switch{
-    display: inline-block;
-    width: 55px;
-    height: 30px;
-    background: #ffffff;
-    border-radius: 100px;
-    position: relative;
-    cursor: pointer;
-}
-
-#btn-switch:checked~ .lbl-switch{
-    background: #609966;
-}
-
-
-.lbl-switch:after{
-    position: absolute;
+  .input-div:before, .input-div:after{
     content: '';
-    width: 22px;
-    height: 22px;
-    background: #aaa;
-    border-radius: 100px;
-    top: 4px;
-    left: 5px;
-    transition: 0.3s;
-}
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #38d39f;
+    transition: .4s;
+  }
 
-#btn-switch:checked~ .lbl-switch:after{
-    left: 28px;
-    background: #fff;
-}
+  .input-div:before{
+    right: 50%;
+  }
 
-#btn-switch{
-    display: none;
-}
+  .input-div:after{
+    left: 50%;
+  }
 
-.barra-responsive {
-    display: none;
-}
+  .input-div.focus:before, .input-div.focus:after{
+    width: 50%;
+  }
 
-.iconos img{
-    padding: 6px;
-}
+  .input-div.focus > div > h5{
+    top: -5px;
+    font-size: 15px;
+  }
 
-.imagen img{
-    width: 30%;
-}
+  .input-div.focus > .i > i{
+      color: #609966;
+  }
 
-.imagen p{
-    flex-direction: row;
-    margin-top: 3px;
-    color: white;
-}
-
-.opaco{
+  .input-div > div > input{
+      position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    border-color: #4CBC00;
-}
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    color: #555;
+    font-family: 'poppins', sans-serif;
+  }
 
-.info_productos{
-    width: 20%;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 30px 0px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  .input-div.pass{
+    margin-bottom: 4px;
+  }
 
-    margin-top: 10%;
-}
+  .btnForms{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #609966, #609966, #609966);
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+      margin-top: 40px;
+    cursor: pointer;
+    transition: .5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 
-.info_productos img{
-    width: 70%;
 
-}
+  .btnForms span{
+      transition: .4s ease-in-out all;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-.info_productos h1{
-    font-size: 18px;
-    color: #4CBC00;
-    font-weight: bold;
-}
+  }
 
-.info_productos .texto{
-    margin-left: 40px;
-}
+  .btnForms:hover span {
+      margin: 0 15% 0 0;
+  }
 
-.logo .cerrar_barra{
-    padding-right: 30px;
-    display: none;
-}
+  .btnForms .ini_ico{
+      display: block;
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      left: 60%;
+      transition: .3s ease-in-out all;
+  }
+
+  .btnForms svg{
+      color: #fff;
+      width: 30px;
+      height: 30px;
+  }
+
+  .btnForms:hover .ini_ico{
+      left:  calc(89%);
+  }
+
+
+  .btnForms .registro_ico{
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      left: 64%;
+      transition: .3s ease-in-out all;
+  }
+
+  .btnForms:hover .registro_ico{
+      left:  calc(89%);
+  }
+
+  .btnForms .actu_ico{
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      left: 64%;
+      transition: .3s ease-in-out all;
+  }
+
+  .btnForms:hover .actu_ico{
+      left:  calc(89%);
+  }
+
+  .btnForms .blog_ico{
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      left: 64%;
+      transition: .3s ease-in-out all;
+  }
+
+  .btnForms:hover .blog_ico{
+      left:  calc(89%);
+  }
+
+
+
+  /* blog_insertar -----------------------------------------------------------------*/
+
+  .cancelar img{
+      width: 10px;
+  }
+
+  
    /* Inicio de sesion */
 
     #body3 {
@@ -3105,6 +2913,12 @@ form h2{
 
     .btnForms:hover span{
         margin: 0%;
+    }
+
+    /* Inventarios */
+
+    tabl{
+      display: none;
     }
 
 }
@@ -3346,6 +3160,3 @@ form h2{
 
 
 }
-
-
-
