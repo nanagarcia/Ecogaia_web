@@ -25,7 +25,7 @@ $(document).ready(() => {
                   "</h1><p>$" + producto.prod_Precio + "</p><!-- Button trigger modal --><button type='button' class='btn btn-success mb-2' data-bs-toggle='modal'  data-bs-target='#exampleModal" + producto.prod_Codigo +
                   "'>Mas información</button>"; 
                   productos.innerHTML += '<!-- Modal --><div  class="modal fade w-25"  id="exampleModal' + producto.prod_Codigo +
-                  '"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><i onclick="add(\''  + producto.prod_Codigo +
+                  '"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><i onclick="add(\''  + producto.prod_Codigo +
                   "','" + sessionStorage.getItem("user") + "'" + ')" class="' + favState + ' fa-star"></i><img class="producto_img"src="https://frutosalvaje.com/wp-content/uploads/2021/11/Cepillo-de-Bambu_1-1-1536x1536.png"alt=""/><p class="precio">' + producto.prod_Categoria +
                   "</p><h1 class='text-center text-success'>" + producto.prod_Nombre + "</h1><p class='contenido '>$" + producto.prod_Precio + '</p><button type="button" onclick="addCar(' +
                   "'" + producto.prod_Codigo + "','" + sessionStorage.getItem("user") + "'" + ')" class="btn btn-success">Agregar a Carrito</button></div></div></div></div></div></div>';
@@ -119,14 +119,14 @@ $(document).ready(() => {
   });
 });
 
-  window.addEventListener('resize', () => {
-      const largo = window.innerHeight
-      const ancho = window.innerWidth
+window.addEventListener('resize', () => {
+    const largo = window.innerHeight
+    const ancho = window.innerWidth
 
-      if (largo > 320 && ancho > 620) {
-        $(".barra")[0].style.display = "block"
-      }
-  })
+    if (largo > 320 && ancho > 620) {
+      $(".barra")[0].style.display = "block"
+    }
+})
 
 
 export const on_session = () => {
