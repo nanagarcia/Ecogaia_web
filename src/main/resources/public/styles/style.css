@@ -132,27 +132,9 @@ li a {
   position: absolute;
   bottom: 7px;
 }
-
 .perfil {
   top: 82%;
   position: absolute;
-}
-
-.body-compra {
-  width: 110%;
-  height: 300px;
-  overflow: auto;
-}
-
-.compra {
-  padding: 5px;
-  border-radius: 8px;
-  display: flex;
-  margin: 10px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border: #07070718 2px solid;
 }
 
 /* CARRUSEL - home ----------------------------------------------------------------*/
@@ -225,20 +207,6 @@ li a {
 
 .modal {
   margin-left: 38%;
-}
-
-.modal-act .modal-content {
-  width: 500px;
-  height: 300px;
-}
-
-.modal-act .modal-body {
-  width: 500px;
-  height: 300px;
-}
-
-.modal-act .modal-body h6 form {
-  display: flex;
 }
 
 .body-car {
@@ -3885,4 +3853,3 @@ footer{
     }
   }
 }
-
