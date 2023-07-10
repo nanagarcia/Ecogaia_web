@@ -26,16 +26,22 @@ public class ServicioUsuario {
     public String insertar(Usuario u){
         ArrayList<Usuario> usuarios = this.listar();
         String ms = "";
+        boolean isIn = false;
         for (Usuario usuario: usuarios) {
             if (u.getUsu_correo().equals(usuario.getUsu_correo())) {
-                ms = "El correo ya se encuentra registrado";
+                isIn = true;
+                break;
+            }
+        }
+
+        if (isIn) {
+            ms = "El correo ya se encuentra registrado";
+        }else {
+            repositorio.save(u);
+            if (repositorio.findById(u.getId_Usuario()).isPresent()) {
+                ms = "El usuario se registro correctamente";
             } else {
-                repositorio.save(u);
-                if (repositorio.findById(u.getId_Usuario()).isPresent()) {
-                    ms = "El usuario se registro correctamente";
-                } else {
-                    ms = "El usuario no se registro";
-                }
+                ms = "El usuario no se registro";
             }
         }
         return ms;
