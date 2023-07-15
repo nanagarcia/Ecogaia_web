@@ -20,7 +20,7 @@ public interface RepositorioCarrito extends CrudRepository<Carrito, Integer>{
     @Query (value = "update carrito set cantidad =:cantidad, total =:total where codigo_carrito =:codigo", nativeQuery = true)
     int actualizar(@Param("cantidad") int cantidad, @Param("total") int total, @Param("codigo") Integer codigo);
 
-    @Query(value = "select codigo_Carrito, prod_precio, cantidad, total, p.Prod_Nombre, c.id_Usuario from carrito as c inner join producto as p on p.Prod_Codigo = c.codigo_prod inner join usuario as u on u.id_usuario = c.id_usuario where u.usu_correo =:correo", nativeQuery = true)
+    @Query(value = "select codigo_Carrito, prod_precio, prod_Imagen, cantidad, total, p.Prod_Nombre, c.id_Usuario from carrito as c inner join producto as p on p.Prod_Codigo = c.codigo_prod inner join usuario as u on u.id_usuario = c.id_usuario where u.usu_correo =:correo", nativeQuery = true)
     List<Object[]> cotizaciones(@Param("correo") String correo);
     @Query(value= "select codigo_carrito, cantidad,total,codigo_prod,c.id_usuario,Prod_Nombre from carrito as c inner join producto as p on p.Prod_Codigo = codigo_prod inner join usuario as u on u.id_Usuario = c.id_Usuario where u.usu_correo = :correo", nativeQuery = true )
     List<Object[]> buscar(@Param("correo")String correo);

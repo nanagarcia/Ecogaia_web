@@ -32,10 +32,11 @@ public class ControladorCarrito {
             Map<String, String> datos = new HashMap<>();
             datos.put("codigo_carrito", objects[0].toString());
             datos.put("prod_precio", objects[1].toString());
-            datos.put("cantidad", objects[2].toString());
-            datos.put("total", objects[3].toString());
-            datos.put("Prod_Nombre", objects[4].toString());
-            datos.put("id_Usuario", objects[5].toString());
+            datos.put("prod_Imagen", objects[2].toString());
+            datos.put("cantidad", objects[3].toString());
+            datos.put("total", objects[4].toString());
+            datos.put("Prod_Nombre", objects[5].toString());
+            datos.put("id_Usuario", objects[6].toString());
             mostrar.add(datos);
         }
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
