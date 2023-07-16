@@ -4,6 +4,8 @@ import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Servicios.ServicioProducto;
 
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -69,4 +73,21 @@ public class ControladorProducto {
 
         return "La imagen se agrego correctamente";
     }
+    @GetMapping("/ordenarProdNombre")
+    public ResponseEntity<List<Map<String, String>>> ordenarProdNombre () {
+        return ResponseEntity.status(HttpStatus.OK).body(SP.ordenarNombre());
+    }
+    @GetMapping("/ordenarProdPrecio")
+    public ResponseEntity<List<Map<String, String>>> ordenarProdPrecio () {
+        return ResponseEntity.status(HttpStatus.OK).body(SP.ordenaarPrecio());
+    }
+    @GetMapping("/ordenarProdCategoria")
+    public ResponseEntity<List<Map<String, String>>> ordenarProdCategoria () {
+        return ResponseEntity.status(HttpStatus.OK).body(SP.ordenarCategoria());
+    }
+    @GetMapping("/ordenarProdCantidad")
+    public ResponseEntity<List<Map<String, String>>> ordenarProdCantidad () {
+        return ResponseEntity.status(HttpStatus.OK).body(SP.ordenarCantidad());
+    }
+
 }

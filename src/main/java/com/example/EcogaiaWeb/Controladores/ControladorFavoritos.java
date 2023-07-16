@@ -83,4 +83,17 @@ public class ControladorFavoritos {
 
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
+
+    @GetMapping("/ordenarFavNombre/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarFavNombre (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SF.ordenarFavNombre(correo));
+    }
+    @GetMapping("/ordenarFavPrecio/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarFavPrecio (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SF.ordenarFavPrecio(correo));
+    }
+    @GetMapping("/ordenarFavCategoria/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarFavCategoria (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SF.ordenarFavCategoria(correo));
+    }
 }
