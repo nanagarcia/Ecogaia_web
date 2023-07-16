@@ -2,9 +2,13 @@ package com.example.EcogaiaWeb.Controladores;
 
 import com.example.EcogaiaWeb.Entidades.Prod_tips;
 import com.example.EcogaiaWeb.Servicios.ServicioProd_tips;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -41,4 +45,18 @@ public class ControladorProd_tips {
     public ArrayList<Prod_tips> tipsUsuario (@PathVariable("correo") String correo) {
         return SPR.tipsUsuario(correo);
     }
+
+        @GetMapping("/ordenarTipUsuario")
+    public ResponseEntity<List<Map<String, String>>> ordenarTipUsuario () {
+        return ResponseEntity.status(HttpStatus.OK).body(SPR.ordenarTipUsuario());
+    }
+    @GetMapping("/ordenarTipFecha")
+    public ResponseEntity<List<Map<String, String>>> ordenarTipFecha () {
+        return ResponseEntity.status(HttpStatus.OK).body(SPR.ordenarTipFecha());
+    }
+    @GetMapping("/ordenarTipAz")
+    public ResponseEntity<List<Map<String, String>>> ordenarTipAz () {
+        return ResponseEntity.status(HttpStatus.OK).body(SPR.ordenarTipAz());
+    }
+
 }

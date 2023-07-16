@@ -4,9 +4,9 @@ import com.example.EcogaiaWeb.Entidades.Producto;
 import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
+
+import static java.util.Collections.*;
 
 @Service
 public class ServicioProducto {
@@ -88,4 +88,73 @@ public class ServicioProducto {
             return "El producto no existe";
         }
     }
+    public List<Map<String,String>> ordenarNombre (){
+        List<Object[]> productos = repositorio.sortProdName();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : productos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("prod_Codigo",obj[0].toString());
+            Datos.put("prod_Cantidad",obj[1].toString());
+            Datos.put("prod_Categoria",obj[2].toString());
+            Datos.put("prod_Imagen",obj[3].toString());
+            Datos.put("prod_Nombre",obj[4].toString());
+            Datos.put("prod_Precio",obj[5].toString());
+
+            mostrar.add(Datos);
+        }
+    return mostrar;
+    }
+    public List<Map<String,String>> ordenaarPrecio (){
+        List<Object[]> productos = repositorio.sortProdPrice();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : productos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("prod_Codigo",obj[0].toString());
+            Datos.put("prod_Cantidad",obj[1].toString());
+            Datos.put("prod_Categoria",obj[2].toString());
+            Datos.put("prod_Imagen",obj[3].toString());
+            Datos.put("prod_Nombre",obj[4].toString());
+            Datos.put("prod_Precio",obj[5].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarCategoria (){
+        List<Object[]> productos = repositorio.sortProdCat();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : productos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("prod_Codigo",obj[0].toString());
+            Datos.put("prod_Cantidad",obj[1].toString());
+            Datos.put("prod_Categoria",obj[2].toString());
+            Datos.put("prod_Imagen",obj[3].toString());
+            Datos.put("prod_Nombre",obj[4].toString());
+            Datos.put("prod_Precio",obj[5].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarCantidad (){
+        List<Object[]> productos = repositorio.sortProdStock();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : productos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("prod_Codigo",obj[0].toString());
+            Datos.put("prod_Cantidad",obj[1].toString());
+            Datos.put("prod_Categoria",obj[2].toString());
+            Datos.put("prod_Imagen",obj[3].toString());
+            Datos.put("prod_Nombre",obj[4].toString());
+            Datos.put("prod_Precio",obj[5].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+
 }

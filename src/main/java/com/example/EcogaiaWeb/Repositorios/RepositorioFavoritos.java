@@ -18,4 +18,11 @@ public interface RepositorioFavoritos extends CrudRepository<Favoritos, Integer>
     @Transactional
     @Query(value = "insert into favoritos (codigo_prod, id_usuario) values (:codigo, :id)", nativeQuery = true)
     int insertar (@Param("codigo") Integer codigo, @Param(("id")) Integer id);
+
+    @Query(value = "select codigo_favoritos, p.prod_Codigo, u.id_usuario, p.prod_nombre, p.prod_Precio, p.prod_Categoria, p.prod_cantidad from favoritos as f inner join usuario as u on u.id_usuario = f.id_usuario inner join producto as p on f.codigo_prod = p.prod_codigo where usu_correo = :correo order by p.prod_nombre", nativeQuery = true)
+    List<Object[]> sortFavName(@Param("correo") String correo);
+    @Query(value = "select codigo_favoritos, .p.prod_Codigo, u.id_usuario, p.prod_nombre, p.prod_Precio, p.prod_Categoria, p.prod_cantidad from favoritos as f inner join usuario as u on u.id_usuario = f.id_usuario inner join producto as p on f.codigo_prod = p.prod_codigo where usu_correo = :correo order by p.prod_Precio", nativeQuery = true)
+    List<Object[]> sortFavPrice(@Param("correo") String correo);
+    @Query(value = "select codigo_favoritos, p.prod_Codigo, u.id_usuario, p.prod_nombre, p.prod_Precio, p.prod_Categoria, p.prod_cantidad from favoritos as f inner join usuario as u on u.id_usuario = f.id_usuario inner join producto as p on f.codigo_prod = p.prod_codigo where usu_correo = :correo order by p.prod_Categoria", nativeQuery = true)
+    List<Object[]> sortFavCat(@Param("correo") String correo);
 }
