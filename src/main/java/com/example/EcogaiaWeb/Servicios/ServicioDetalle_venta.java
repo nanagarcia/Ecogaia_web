@@ -105,4 +105,25 @@ public class ServicioDetalle_venta {
 
         return mostrar;
     }
+
+
+    public List<Map<String, String>> productos (String correo, Integer codigo) {
+        List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
+        List<Object[]> productos = repositorio.productos(correo, codigo);
+
+        for (Object[] objects: productos) {
+            Map<String, String> producto = new HashMap<String, String>();
+            producto.put("prod_codigo", objects[0].toString());
+            producto.put("prod_nombre", objects[1].toString());
+            producto.put("prod_precio", objects[2].toString());
+            producto.put("prod_categoria", objects[3].toString());
+            producto.put("prod_cantidad", objects[4].toString());
+            producto.put("id_usuario", objects[5].toString());
+            producto.put("venta_codigo", objects[6].toString());
+
+            mostrar.add(producto);
+        }
+
+        return  mostrar;
+    }
 }

@@ -28,7 +28,7 @@ $(document).ready(function () {
           "</td><td>" +
           invt.prod_Precio +
           "</td>" +
-          '</td><td><i class="fas fa-pencil"></i></td></tr>';
+          '</td><td><i onClick="actProd('+invt.prod_Codigo+')" class="fas fa-pencil"></i></td></tr>'
       });
     },
   });
@@ -53,7 +53,7 @@ $(document).ready(function () {
           "</td><td>" +
           invt.usu_telefono +
           "</td>" +
-          '<td><i class="fas fa-pencil"></i></td>';
+          '<td><i onClick="actUsu(\''+invt.usu_correo+'\')" class="fas fa-pencil"></i></td>';
       });
     },
   });
@@ -96,6 +96,94 @@ $(document).ready(function () {
         }
       },
     });
+  });
+});
+
+
+$("#actProducto").submit(function (event) {
+  event.preventDefault();
+
+  const newprod = {
+    prod_Codigo: 0,
+    prod_Nombre: $("#actProdNombre").val(),
+    prod_Imagen: $("#actProdImagen").val(),
+    prod_Categoria: $("#actProdCategoria").val(),
+    prod_Cantidad: $("#actProdCantidad").val(),
+    prod_Precio: $("#actProdPrecio").val(),
+  };
+
+  if ($("#actProdImagen").val() == "") {
+    $.ajax({
+      url: "http://localhost:8080/nombreProducto/" + newprod.prod_Nombre,
+      type: "GET",
+      datatype: "JSON",
+      success: (res) => {
+        newprod.prod_Codigo = res[0].prod_Codigo
+        newprod.prod_Imagen = res[0].prod_Imagen
+        $.ajax({
+          url: "http://localhost:8080/actualizarProducto",
+          type: "PUT",
+          data: newprod,
+          success: (res) => {
+            alert(res)
+          }
+        })
+      }
+    })
+  } else {
+    $.ajax({
+      url: "http://localhost:8080/nombreProducto/" + newprod.prod_Nombre,
+      type: "GET",
+      datatype: "JSON",
+      success: (res) => {
+        newprod.prod_Codigo = res[0].prod_Codigo
+        $.ajax({
+          url: "http://localhost:8080/actualizarProducto",
+          type: "PUT",
+          data: newprod,
+          success: (res2) => {
+          var formData = new FormData($(this)[0]);
+            $.ajax({
+              url: "http://localhost:8080/guardarImagen/" + res[0].prod_Codigo,
+              type: "POST",
+              data: formData,
+              cache: false,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                alert(res2)
+              },
+              error: function () {
+                alert("Failed to upload image!");
+              },
+            });
+          }
+        })
+      }
+    })
+  }
+});
+
+$("#userAct").submit(function (event) {
+  event.preventDefault();
+
+  const newuser = {
+    usu_nombre: $("#actUsuNombre").val(),
+    usu_correo: $("#actUsuCorreo").val(),
+    usu_telefono: $("#actUsuTelefono").val(),
+    usu_direccion: $("#actUsuDireccion").val(),
+    rol: $("#actRol").val(),
+    usu_contrasenia: $("#actUsuContrasenia").val(),
+  };
+
+  $.ajax({
+    url: "http://localhost:8080/actualizarUsuario/" + newuser.usu_correo,
+    type: "PUT",
+    data: newuser,
+    datatype: "text/plain",
+    success: (res) => {
+      alert(res)
+    },
   });
 });
 

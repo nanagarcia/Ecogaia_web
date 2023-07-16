@@ -47,6 +47,17 @@
     />
   </head>
   <body id="body2">
+
+    <!-- barra de navegacion responsive -->
+
+    <div class="barra-responsive">
+      <i class="btn-hamburguesa fas fa-bars" aria-hidden="true"></i>
+
+      <span class="nav-item-nombre-responsive .d-block .d-sm-none"
+        >Ecogaia</span
+      >
+    </div>
+
     <!--barra navegacion-------------->
 
     <!-- barra -->
@@ -55,6 +66,7 @@
         <a href="/" class="logo">
           <img src="public/assets/hoja.png" alt="" />
           <span class="nav-item-nombre">Ecogaia</span>
+          <i class="cerrar_barra fas fa-x"></i>
         </a>
       </li>
 
@@ -163,9 +175,8 @@
     <div class="inventarioEco">
       <img class="logoivt" src="public/assets/logosecundario.png" alt="" />
 
-      <h2>Productos</h2>
-      <div class="scrollable-table" id="scroll-products">
-        <table class="table table-hover text-center">
+      <div class="scrollable-table tabla-inventario" id="scroll-products">
+        <table class="table text-center">
           <thead>
             <tr class="titulos">
               <th scope="col">Borrar</th>
@@ -185,12 +196,23 @@
 
       <div class="btn_crud" id="buttons">
         <form id="insertProducto" class="addGestion" method="post" enctype="multipart/form-data" >
-          <input type="submit" class="btn-insert" value="Enviar" />
+          <input type="submit" class="btn-insert" value="Insertar" />
           <input type="text" class="text-light" id="prod_Nombre" placeholder="Nombre" />
           <input type="file" name="file" required />
           <input type="text" id="prod_Categoria" class="text-light" placeholder="Categoria"/>
           <input type="text" id="prod_Cantidad" class="text-light" placeholder="Cantidad" />
           <input type="text" id="prod_Precio" class="text-light" placeholder="Precio"/>
+        </form>
+      </div>
+
+      <div class="btn_crud" id="buttons">
+        <form id="actProducto" class="addGestion" method="post" enctype="multipart/form-data" >
+          <input type="submit" class="btn-insert" value="Actualizar" />
+          <input type="text" class="text-light" id="actProdNombre" placeholder="Nombre" />
+          <input type="file" name="file" id="actProdImagen"/>
+          <input type="text" id="actProdCategoria" class="text-light" placeholder="Categoria"/>
+          <input type="text" id="actProdCantidad" class="text-light" placeholder="Cantidad" />
+          <input type="text" id="actProdPrecio" class="text-light" placeholder="Precio"/>
         </form>
       </div>
 
@@ -216,43 +238,25 @@
 
       <div class="btn_crud" id="buttons">
         <form class="addGestion">
-          <input
-            type="button"
-            class="btn-insert"
-            onclick="insertuser()"
-            value="Enviar"
-          />
-          <input
-            type="text"
-            class="text-light"
-            placeholder="Nombre"
-            id="usu_nombre"
-          />
+          <input type="button" class="btn-insert" onclick="insertuser()" value="Insertar"/>
+          <input type="text" class="text-light" placeholder="Nombre" id="usu_nombre" />
           <input type="text" class="text-light" placeholder="Rol" id="rol" />
-          <input
-            type="text"
-            class="text-light"
-            placeholder="Correo"
-            id="usu_correo"
-          />
-          <input
-            type="text"
-            class="text-light"
-            placeholder="Dirección"
-            id="usu_direccion"
-          />
-          <input
-            type="text"
-            class="text-light"
-            placeholder="Telefono"
-            id="usu_telefono"
-          />
-          <input
-            type="text"
-            class="text-light"
-            placeholder="Contraseña"
-            id="usu_contrasenia"
-          />
+          <input type="text" class="text-light" placeholder="Correo" id="usu_correo"/>
+          <input type="text" class="text-light" placeholder="Dirección" id="usu_direccion" />
+          <input type="text" class="text-light" placeholder="Telefono" id="usu_telefono" />
+          <input type="text" class="text-light" placeholder="Contraseña" id="usu_contrasenia" />
+        </form>
+      </div>
+
+      <div class="btn_crud" id="buttons">
+        <form id="userAct" method="post" class="addGestion">
+          <input type="submit" class="btn-insert" id="actUser" value="Actualizar"/>
+          <input type="text" class="text-light" placeholder="Nombre" id="actUsuNombre" />
+          <input type="text" class="text-light" placeholder="Rol" id="actRol" />
+          <input type="text" class="text-light" placeholder="Correo" id="actUsuCorreo"/>
+          <input type="text" class="text-light" placeholder="Dirección" id="actUsuDireccion" />
+          <input type="text" class="text-light" placeholder="Telefono" id="actUsuTelefono" />
+          <input type="text" class="text-light" placeholder="Contraseña" id="actUsuContrasenia" />
         </form>
       </div>
     </div>

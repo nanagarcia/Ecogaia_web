@@ -62,9 +62,9 @@ public class ControladorFavoritos {
 
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
-    @GetMapping(path = "/NombreFavorito/{correo}/{nombreFav}")
-    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("nombreFav") String nombreFav, @PathVariable("correo") String correo) {
-        List<Object[]>favoritos = SF.filtrar(nombreFav,correo);
+    @GetMapping(path = "/nombreFavorito/{correo}/{nombre}")
+    public ResponseEntity<List<Map<String, String>>>  filtrar (@PathVariable("nombre") String nombre, @PathVariable("correo") String correo) {
+        List<Object[]>favoritos = SF.filtrar(nombre,correo);
         List<Map<String, String>> mostrar = new ArrayList<Map<String, String>>();
 
         favoritos.forEach((favorito) -> {

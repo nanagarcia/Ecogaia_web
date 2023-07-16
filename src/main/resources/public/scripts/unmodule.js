@@ -162,14 +162,6 @@ function resCar(id, total, nombre, codigo) {
   });
 }
 
-$(".btn-hamburguesa").on("click", () => {
-  $(".barra")[0].style.display = "block";
-});
-
-$(".cerrar_barra").on("click", () => {
-  $(".barra")[0].style.display = "none";
-});
-
 function mostrarOculto(frase) {
   var alerta = document.getElementById("alerta");
 
@@ -180,4 +172,35 @@ function mostrarOculto(frase) {
   setTimeout(function () {
     alerta.classList.remove("mostrar");
   }, 3000);
+}
+
+
+function actProd(codigo) {
+  $.ajax({
+    url: "http://localhost:8080/productoCodigo/" + codigo,
+    type: "GET",
+    datatype: "JSON",
+    success: (res) => {
+      document.getElementById("actProdNombre").value = res.prod_Nombre
+      document.getElementById("actProdCategoria").value = res.prod_Categoria
+      document.getElementById("actProdCantidad").value = res.prod_Cantidad
+      document.getElementById("actProdPrecio").value = res.prod_Precio
+    }
+  })
+}
+
+function actUsu(correo) {
+  $.ajax({
+    url: "http://localhost:8080/usuario/" + correo,
+    type: "GET",
+    datatype: "JSON",
+    success: (res) => {
+      document.getElementById("actUsuNombre").value = res.usu_nombre
+      document.getElementById("actRol").value = res.rol
+      document.getElementById("actUsuCorreo").value = res.usu_correo
+      document.getElementById("actUsuDireccion").value = res.usu_direccion
+      document.getElementById("actUsuTelefono").value = res.usu_telefono
+      document.getElementById("actUsuContrasenia").value = res.usu_contrasenia
+    }
+  })
 }

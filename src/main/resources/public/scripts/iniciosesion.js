@@ -12,9 +12,9 @@ $(document).ready((e) => {
       mostrarOculto("Completa todos los campos")
     } else {
       $.ajax({
-        url: "http://localhost:8080/validarUsuario/" + email + "/" + pass,
+        url: "http://localhost:8080/validarUsuario/"+email+"/"+pass,
         type: "GET",
-        datatype: "JSON",
+        dataType: "JSON",
         success: (res) => {
           if (res.error != "Usuario o contraseña incorrectos") {
             alerta.style.background="#dc3545"

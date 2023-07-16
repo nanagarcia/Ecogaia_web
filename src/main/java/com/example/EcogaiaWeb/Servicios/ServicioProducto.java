@@ -38,8 +38,11 @@ public class ServicioProducto {
     }
 
     public Optional<Producto> productoCodigo(Integer codigo) {
-        Optional<Producto> p = repositorio.findById(codigo);
-        return p;
+        if (repositorio.findById(codigo).isPresent()) {
+            return repositorio.findById(codigo);
+        } else {
+            return Optional.empty();
+        }
     }
 
     public ArrayList<Producto> listar() {

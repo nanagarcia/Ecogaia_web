@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,8 @@ import java.util.Map;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ControladorProducto {
     ServicioProducto SP;
-    public ControladorProducto(ServicioProducto s){
+
+    public ControladorProducto(ServicioProducto s) {
         this.SP = s;
     }
 
@@ -36,7 +38,7 @@ public class ControladorProducto {
     }
 
     @DeleteMapping("/eliminarProducto/{id}")
-    public String eliminar(@PathVariable("id") int codigo){
+    public String eliminar(@PathVariable("id") int codigo) {
         return SP.eliminar(codigo);
     }
 
@@ -45,13 +47,23 @@ public class ControladorProducto {
         return SP.categoria(cat);
     }
 
-        @GetMapping("/nombreProducto/{nombre}")
+    @GetMapping("/nombreProducto/{nombre}")
     public ArrayList<Producto> nombre(@PathVariable("nombre") String nombre) {
         return SP.productoNombre(nombre);
     }
 
+    @PutMapping("/actualizarProducto")
+    public String actualizar (Producto p) {
+        return SP.actualizar(p);
+    }
+
+    @GetMapping("/productoCodigo/{codigo}")
+    public Optional<Producto> codigo (@PathVariable("codigo") Integer codigo) {
+        return SP.productoCodigo(codigo);
+    }
+
     @PostMapping("/guardarImagen/{codigo}")
-    public String guardarImagen (@PathVariable("codigo") Integer codigo, @RequestParam("file") MultipartFile imagen) {
+    public String guardarImagen(@PathVariable("codigo") Integer codigo, @RequestParam("file") MultipartFile imagen) {
         if (!imagen.isEmpty()) {
             Path dir = Paths.get("src//main//resources//uploads");
             String ruta = dir.toFile().getAbsolutePath();
@@ -59,10 +71,10 @@ public class ControladorProducto {
                 Producto p = SP.productoCodigo(codigo).get();
                 try {
                     byte[] bytesImagen = imagen.getBytes();
-                    Path allPath = Paths.get(ruta + "//Prueba"+imagen.getOriginalFilename());
-                    Files.write(allPath,bytesImagen);
+                    Path allPath = Paths.get(ruta + "//Prueba" + imagen.getOriginalFilename());
+                    Files.write(allPath, bytesImagen);
                     p.setProd_Imagen(p.getProd_Codigo().toString() + "_" + imagen.getOriginalFilename());
-                    SP.actualizar(p); 
+                    SP.actualizar(p);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

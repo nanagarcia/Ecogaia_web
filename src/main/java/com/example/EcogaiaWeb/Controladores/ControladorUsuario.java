@@ -49,9 +49,10 @@ public class ControladorUsuario {
             mostrar.put("id_usuario", o[0].toString());
             mostrar.put("usu_nombre", o[1].toString());
             mostrar.put("usu_correo", o[2].toString());
-            mostrar.put("usu_direccion", o[3].toString());
-            mostrar.put("usu_contrasenia", o[4].toString());
-            mostrar.put("usu_telefono", o[5].toString());
+            mostrar.put("rol", o[3].toString());
+            mostrar.put("usu_direccion", o[4].toString());
+            mostrar.put("usu_contrasenia", o[5].toString());
+            mostrar.put("usu_telefono", o[6].toString());
         });
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
