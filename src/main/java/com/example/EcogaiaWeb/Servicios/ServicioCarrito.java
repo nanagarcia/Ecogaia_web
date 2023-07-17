@@ -172,4 +172,59 @@ public class ServicioCarrito {
         }
         return mostrar;
     }
+    public List<Map<String,String>> ordenarCarNombre (String correo){
+        List<Object[]> tips = repositorio.sortCarName(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_carrito",obj[0].toString());
+            Datos.put("cantidad",obj[1].toString());
+            Datos.put("total",obj[2].toString());
+            Datos.put("codigo_prod",obj[3].toString());
+            Datos.put("id_usuario",obj[4].toString());
+            Datos.put("Prod_Nombre",obj[5].toString());
+            Datos.put("usu_correo",obj[6].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarCarCantidad (String correo){
+        List<Object[]> tips = repositorio.sortCarCant(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_carrito",obj[0].toString());
+            Datos.put("cantidad",obj[1].toString());
+            Datos.put("total",obj[2].toString());
+            Datos.put("codigo_prod",obj[3].toString());
+            Datos.put("id_usuario",obj[4].toString());
+            Datos.put("Prod_Nombre",obj[5].toString());
+            Datos.put("usu_correo",obj[6].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarCarTotal (String correo){
+        List<Object[]> tips = repositorio.sortCarTot(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_carrito",obj[0].toString());
+            Datos.put("cantidad",obj[1].toString());
+            Datos.put("total",obj[2].toString());
+            Datos.put("codigo_prod",obj[3].toString());
+            Datos.put("id_usuario",obj[4].toString());
+            Datos.put("Prod_Nombre",obj[5].toString());
+            Datos.put("usu_correo",obj[6].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+
 }

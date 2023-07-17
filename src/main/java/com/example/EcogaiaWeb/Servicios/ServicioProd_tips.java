@@ -5,11 +5,9 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioProd_tips;
 import com.example.EcogaiaWeb.Repositorios.RepositorioUsuario;
 import com.example.EcogaiaWeb.Entidades.Usuario;
 
-import java.util.List;
-import org.springframework.stereotype.Service;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ServicioProd_tips {
@@ -72,5 +70,60 @@ public class ServicioProd_tips {
 
         return mostrar;
     }
+    public List<Map<String,String>> ordenarTipUsuario (){
+        List<Object[]> tips = repositorio.sortTipUs();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_tip",obj[0].toString());
+            Datos.put("comp_usuario",obj[1].toString());
+            Datos.put("fecha",obj[2].toString());
+            Datos.put("id_usuario",obj[3].toString());
+            Datos.put("titulo",obj[4].toString());
+            Datos.put("cuerpo",obj[5].toString());
+
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarTipFecha (){
+        List<Object[]> tips = repositorio.sortTipDate();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_tip",obj[0].toString());
+            Datos.put("comp_usuario",obj[1].toString());
+            Datos.put("fecha",obj[2].toString());
+            Datos.put("id_usuario",obj[3].toString());
+            Datos.put("titulo",obj[4].toString());
+            Datos.put("cuerpo",obj[5].toString());
+
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarTipAz (){
+        List<Object[]> tips = repositorio.sortTipAz();
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : tips){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_tip",obj[0].toString());
+            Datos.put("comp_usuario",obj[1].toString());
+            Datos.put("fecha",obj[2].toString());
+            Datos.put("id_usuario",obj[3].toString());
+            Datos.put("titulo",obj[4].toString());
+            Datos.put("cuerpo",obj[5].toString());
+
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+
 
 }

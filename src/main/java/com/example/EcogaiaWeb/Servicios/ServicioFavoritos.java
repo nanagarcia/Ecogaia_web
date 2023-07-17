@@ -6,10 +6,7 @@ import com.example.EcogaiaWeb.Repositorios.RepositorioProducto;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 public class ServicioFavoritos {
@@ -80,4 +77,63 @@ public class ServicioFavoritos {
         }
         return mostrar;
     }
+    public List<Map<String,String>> ordenarFavNombre (String correo){
+        List<Object[]> favoritos = repositorio.sortFavName(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : favoritos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_favoritos",obj[0].toString());
+            Datos.put("codigo_prod",obj[1].toString());
+            Datos.put("id_usuario",obj[2].toString());
+            Datos.put("prod_Nombre",obj[3].toString());
+            Datos.put("prod_Precio",obj[4].toString());
+            Datos.put("prod_Categoria",obj[5].toString());
+            Datos.put("prod_Cantidad",obj[6].toString());
+
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+
+
+    public List<Map<String,String>> ordenarFavPrecio (String correo){
+        List<Object[]> favoritos = repositorio.sortFavPrice(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : favoritos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_favoritos",obj[0].toString());
+            Datos.put("codigo_prod",obj[1].toString());
+            Datos.put("id_usuario",obj[2].toString());
+            Datos.put("prod_Nombre",obj[3].toString());
+            Datos.put("prod_Precio",obj[4].toString());
+            Datos.put("prod_Categoria",obj[5].toString());
+            Datos.put("prod_Cantidad",obj[6].toString());
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+    public List<Map<String,String>> ordenarFavCategoria (String correo){
+        List<Object[]> favoritos = repositorio.sortFavCat(correo);
+        List<Map<String,String>> mostrar = new ArrayList<Map<String, String>>();
+
+        for (Object[] obj : favoritos){
+            Map<String, String> Datos = new HashMap<String,String>();
+            Datos.put("codigo_favoritos",obj[0].toString());
+            Datos.put("codigo_Prod",obj[1].toString());
+            Datos.put("id_Usuario",obj[2].toString());
+            Datos.put("prod_Nombre",obj[3].toString());
+            Datos.put("prod_Precio",obj[4].toString());
+            Datos.put("prod_Categoria",obj[5].toString());
+            Datos.put("prod_Cantidad",obj[6].toString());
+
+
+            mostrar.add(Datos);
+        }
+        return mostrar;
+    }
+
 }

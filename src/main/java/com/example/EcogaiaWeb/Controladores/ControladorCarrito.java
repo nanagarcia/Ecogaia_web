@@ -101,5 +101,18 @@ public class ControladorCarrito {
         return ResponseEntity.status(HttpStatus.OK).body(mostrar);
     }
 
+    @GetMapping("/ordenarCarNombre/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarCarNombre (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.ordenarCarNombre(correo));
+    }
+    @GetMapping("/ordenarCarCantidad/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarCarCantidad (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.ordenarCarCantidad(correo));
+    }
+    @GetMapping("/ordenarCarTotal/{correo}")
+    public ResponseEntity<List<Map<String, String>>> ordenarCarTotal (@PathVariable("correo") String correo) {
+        return ResponseEntity.status(HttpStatus.OK).body(SC.ordenarCarTotal(correo));
+    }
+
 
 }
