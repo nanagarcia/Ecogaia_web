@@ -185,6 +185,7 @@ public class ServicioCarrito {
             Datos.put("id_usuario",obj[4].toString());
             Datos.put("Prod_Nombre",obj[5].toString());
             Datos.put("usu_correo",obj[6].toString());
+            Datos.put("prod_Imagen", obj[7].toString());
 
             mostrar.add(Datos);
         }
@@ -203,6 +204,7 @@ public class ServicioCarrito {
             Datos.put("id_usuario",obj[4].toString());
             Datos.put("Prod_Nombre",obj[5].toString());
             Datos.put("usu_correo",obj[6].toString());
+            Datos.put("prod_Imagen", obj[7].toString());
 
             mostrar.add(Datos);
         }
@@ -221,6 +223,7 @@ public class ServicioCarrito {
             Datos.put("id_usuario",obj[4].toString());
             Datos.put("Prod_Nombre",obj[5].toString());
             Datos.put("usu_correo",obj[6].toString());
+            Datos.put("prod_Imagen", obj[7].toString());
 
             mostrar.add(Datos);
         }

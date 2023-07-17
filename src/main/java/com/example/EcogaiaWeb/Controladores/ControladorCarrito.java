@@ -96,6 +96,7 @@ public class ControladorCarrito {
             datos.put("codigo_prod", element[3].toString());
             datos.put("id_Usuario", element[4].toString());
             datos.put("Prod_Nombre", element[5].toString());
+            datos.put("prod_Imagen", element[6].toString());
             mostrar.add(datos);
         });
 
