@@ -76,7 +76,7 @@ public class ServicioUsuario {
 
     public String actualizar (Usuario u, String correo) {
         String msg = "No se actualizo";
-        if (repositorio.actualizar(u.getUsu_nombre(), u.getUsu_telefono(), u.getUsu_direccion(), u.getUsu_correo(), u.getUsu_contrasenia(), correo) > 0) {
+        if (repositorio.actualizar(u.getUsu_nombre(), u.getUsu_telefono(), u.getUsu_direccion(), u.getUsu_correo(), u.getUsu_contrasenia(), correo, u.getRol()) > 0) {
             msg = "Actualizado correctamente";
         }
         return msg;
@@ -96,7 +96,7 @@ public class ServicioUsuario {
         }
         if (!Objects.equals(user.getRol(), rol)) {
             user.setRol(rol);
-            repositorio.actualizar(user.getUsu_nombre(), user.getUsu_telefono(), user.getUsu_direccion(), user.getUsu_correo(), user.getUsu_contrasenia(), user.getUsu_correo());
+            repositorio.actualizar(user.getUsu_nombre(), user.getUsu_telefono(), user.getUsu_direccion(), user.getUsu_correo(), user.getUsu_contrasenia(), user.getUsu_correo(), user.getRol());
             if (user.getRol().equals("admin")) {
                 Administrador a = new Administrador(user.getUsu_nombre(), user.getUsu_correo(), user.getUsu_telefono(), user);
                 repositorioAdministrador.save(a);
