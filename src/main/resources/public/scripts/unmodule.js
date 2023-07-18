@@ -131,7 +131,9 @@ function sumCar(id, total, nombre, codigo) {
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          mostrarOcultoSuccess(res1);
+          if (res1 == true) {
+            mostrarOcultoSuccess("Se añadio una unidad al carrito");
+          }
         },
       });
     },
@@ -156,7 +158,9 @@ function resCar(id, total, nombre, codigo) {
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          mostrarOcultoWarning(res1);
+          if (res1 == true) {
+                      mostrarOcultoSuccess("Se resto una unidad del carrito");
+          }
         },
       });
     },

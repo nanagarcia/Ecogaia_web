@@ -8,7 +8,7 @@ $(document).ready(() => {
     $(".insertar_blog")[0].style.display = "none"
   }
   
-  if(window.location.pathname == "blog"){
+  if(window.location.pathname == "/blog"){
     const container = document.getElementById("container")
     const listar = ()=> {
     $.ajax({
