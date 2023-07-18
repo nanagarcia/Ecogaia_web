@@ -55,7 +55,7 @@ public class ServicioUsuario {
             if (u.getUsu_correo().equals(email) && u.getUsu_contrasenia().equals(password)){
                 res.put("res", u.getUsu_correo());
                 res.put("rol", u.getRol());
-                res.replace("error", "Usuario o contraseña incorrectos", "Inicio de sesión correcto");
+                res.replace("error", "Usuario o contraseña incorrectos", "null");
             }
         }
         return res;

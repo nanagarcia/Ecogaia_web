@@ -20,7 +20,7 @@ $(document).ready((e) => {
         dataType: "JSON",
         success: (res) => {
           if (res.error != "Usuario o contraseña incorrectos") {
-            mostrarOcultoError(res.error)
+            mostrarOcultoSuccess("Inicio de sesión correcto")
             sessionStorage.setItem("status", res.rol);
             sessionStorage.setItem("user", res.res)
             window.location.href = "/";
