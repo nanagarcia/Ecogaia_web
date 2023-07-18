@@ -1,18 +1,18 @@
 $(document).ready(() => {
   on_session();
-  if (window.location.pathname == "/templates/views/index.html") {
+  if (window.location.pathname == "/") {
     const productos = document.getElementById("productos");
     var user = sessionStorage.getItem("user");
     const listar = () => {
       $.ajax({
-        url: "http://localhost:8080/listarProducto",
+        url: "https://ecogaiaweb-production.up.railway.app/listarProducto",
         type: "GET",
         datatype: "JSON",
         success: (res) => {
           res.forEach((producto) => {
             var favState = "fa-regular";
             $.ajax({
-              url: "http://localhost:8080/favoritosUsuario/" + user,
+              url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
               type: "GET",
               datatype: "JSON",
               success: (response) => {
@@ -40,7 +40,7 @@ $(document).ready(() => {
 
     $(".ordenar").on("click", (e) => {
         $.ajax({
-          url: "http://localhost:8080/ordenarProd" + e.target.textContent,
+          url: "https://ecogaiaweb-production.up.railway.app/ordenarProd" + e.target.textContent,
           type: "GET",
           datatype: "JSON",
           success: (res) => {
@@ -48,7 +48,7 @@ $(document).ready(() => {
             res.forEach((producto) => {
               var favState = "fa-regular";
               $.ajax({
-                url: "http://localhost:8080/favoritosUsuario/" + user,
+                url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
                 type: "GET",
                 datatype: "JSON",
                 success: (response) => {
@@ -82,7 +82,7 @@ $(document).ready(() => {
         listar();
       } else {
         $.ajax({
-          url: "http://localhost:8080/nombreProducto/" + nombre,
+          url: "https://ecogaiaweb-production.up.railway.app/nombreProducto/" + nombre,
           type: "GET",
           datatype: "JSON",
           success: (res) => {
@@ -90,7 +90,7 @@ $(document).ready(() => {
             res.forEach((producto) => {
               var favState = "fa-regular";
               $.ajax({
-                url: "http://localhost:8080/favoritosUsuario/" + user,
+                url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
                 type: "GET",
                 datatype: "JSON",
                 success: (response) => {
@@ -119,10 +119,10 @@ $(document).ready(() => {
   $(".categoria").on("click", function (e) {
     on_session();
     var i = 0;
-    if (window.location.pathname == "/templates/views/index.html") {
+    if (window.location.pathname == "/") {
       const productos = document.getElementById("productos");
       $.ajax({
-        url: "http://localhost:8080/categoriasProducto/" + e.target.alt,
+        url: "https://ecogaiaweb-production.up.railway.app/categoriasProducto/" + e.target.alt,
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -130,7 +130,7 @@ $(document).ready(() => {
           res.forEach((producto) => {
             var favState = "fa-regular";
             $.ajax({
-              url: "http://localhost:8080/favoritosUsuario/" + user,
+              url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
               type: "GET",
               datatype: "JSON",
               success: (response) => {
@@ -159,11 +159,11 @@ $(document).ready(() => {
 $(".ordenar").on("click", (e) => {
   on_session();
 
-  if (window.location.pathname == "/templates/views/index.html") {
+  if (window.location.pathname == "/") {
     const productos = document.getElementById("productos");
     var user = sessionStorage.getItem("user");
     $.ajax({
-      url: "http://localhost:8080/ordenarProd" + e.target.textContent,
+      url: "https://ecogaiaweb-production.up.railway.app/ordenarProd" + e.target.textContent,
       type: "GET",
       datatype: "JSON",
       success: (res) => {
@@ -171,7 +171,7 @@ $(".ordenar").on("click", (e) => {
         res.forEach((producto) => {
           var favState = "fa-regular";
           $.ajax({
-            url: "http://localhost:8080/favoritosUsuario/" + user,
+            url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
             type: "GET",
             datatype: "JSON",
             success: (response) => {
@@ -211,13 +211,13 @@ export const on_session = () => {
   if (sessionStorage.getItem("status") != null) {
     if (sessionStorage.getItem("status") == "usuario") {
       $("#op8")[0].innerHTML = buttons(
-        "./perfil.html",
+        "user",
         "inicio2",
         "user",
         "Perfil"
       );
       $("#op9")[0].innerHTML = buttons(
-        "./index.html",
+        "/",
         "registro",
         "sign-out-alt",
         "Cerrar Sesion"
@@ -228,13 +228,13 @@ export const on_session = () => {
       state = true;
     } else if (sessionStorage.getItem("status") == "admin") {
       $("#op8")[0].innerHTML = buttons(
-        "./perfil.html",
+        "user",
         "inicio2",
         "user",
         "Perfil"
       );
       $("#op9")[0].innerHTML = buttons(
-        "./index.html",
+        "/",
         "registro",
         "sign-out-alt",
         "Cerrar Sesion"
@@ -244,13 +244,13 @@ export const on_session = () => {
       state = true;
     } else if (sessionStorage.getItem("status") == "repartidor") {
       $("#op8")[0].innerHTML = buttons(
-        "./perfil.html",
+        "user",
         "inicio2",
         "user",
         "Perfil"
       );
       $("#op9")[0].innerHTML = buttons(
-        "./index.html",
+        "/",
         "registro",
         "sign-out-alt",
         "Cerrar Sesion"
@@ -292,13 +292,13 @@ export const off_session = () => {
   $("#op6")[0].style.display = "none";
   $("#op7")[0].style.display = "none";
   $("#op8")[0].innerHTML = buttons(
-    "./iniciosesion.html",
+    "login",
     "inicio2",
     "sign-out-alt",
     "Iniciar Sesion"
   );
   $("#op9")[0].innerHTML = buttons(
-    "./registrarse.html",
+    "registrarse",
     "registro",
     "tasks",
     "Registrarse"
@@ -307,7 +307,7 @@ export const off_session = () => {
 
 export function mostrarOcultoSuccess(frase){
   var alerta = document.getElementById("alerta");
-  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_success.png'><span id='mensaje'></span>"
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_success.png'><span id='mensaje'></span>"
   alerta.style.backgroundColor="#198754"
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");
@@ -318,7 +318,7 @@ export function mostrarOcultoSuccess(frase){
   }
   export function mostrarOcultoWarning(frase){
   var alerta = document.getElementById("alerta");
-  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_danger.png'><span id='mensaje'></span>"
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_danger.png'><span id='mensaje'></span>"
   alerta.style.backgroundColor="#ffc107"
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");
@@ -329,7 +329,7 @@ export function mostrarOcultoSuccess(frase){
   }
   export function mostrarOcultoError(frase){
   var alerta = document.getElementById("alerta");
-  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_error.png'><span id='mensaje'></span>"
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_error.png'><span id='mensaje'></span>"
   alerta.style.backgroundColor="#dc3545"
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");

@@ -2,7 +2,7 @@ $("#op4").on("click", function () {
   var user = sessionStorage.getItem("user");
   tablaCarrito.innerHTML = ""
   $.ajax({
-    url: "http://localhost:8080/cotizacionesUsuario/" + user,
+    url: "https://ecogaiaweb-production.up.railway.app/cotizacionesUsuario/" + user,
     type: "GET",
     dataType: "JSON",
     success: function (res) {
@@ -41,13 +41,13 @@ $("#op4").on("click", function () {
 
 $("#comprar").on("click", () => {
   $.ajax({
-    url: "http://localhost:8080/compra/" + sessionStorage.getItem("user"),
+    url: "https://ecogaiaweb-production.up.railway.app/compra/" + sessionStorage.getItem("user"),
     type: "GET",
     datatype: "JSON",
     success: (res) => {
       if (res == "Se registro una compra de sus productos") {
         var alerta = document.getElementById("alerta");
-        alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_success.png'><span id='mensaje'></span>"
+        alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_success.png'><span id='mensaje'></span>"
         alerta.style.backgroundColor="#198754"
         var mensaje = document.getElementById("mensaje");
         alerta.classList.add("mostrar");
@@ -57,7 +57,7 @@ $("#comprar").on("click", () => {
           }, 3000);
       } else {
         var alerta = document.getElementById("alerta");
-        alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_error.png'><span id='mensaje'></span>"
+        alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_error.png'><span id='mensaje'></span>"
         alerta.style.backgroundColor="#dc3545"
         var mensaje = document.getElementById("mensaje");
         alerta.classList.add("mostrar");

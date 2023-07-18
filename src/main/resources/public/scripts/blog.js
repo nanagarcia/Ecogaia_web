@@ -8,11 +8,11 @@ $(document).ready(() => {
     $(".insertar_blog")[0].style.display = "none"
   }
   
-  if(window.location.pathname == "/templates/views/Blog.html"){
+  if(window.location.pathname == "blog"){
     const container = document.getElementById("container")
     const listar = ()=> {
     $.ajax({
-      url: "http://localhost:8080/listarTip",
+      url: "https://ecogaiaweb-production.up.railway.app/listarTip",
       type: "GET",
       datatype: "JSON",
       success: (res) => {
@@ -30,7 +30,7 @@ $(document).ready(() => {
           } else {
             titulo = blog.titulo
           }
-          container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='../../public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
+          container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
         })
       },
     });
@@ -40,7 +40,7 @@ $(document).ready(() => {
 
   $(".ordenar").on("click", (e) => {
       $.ajax({
-        url: "http://localhost:8080/ordenarTip" + e.target.textContent,
+        url: "https://ecogaiaweb-production.up.railway.app/ordenarTip" + e.target.textContent,
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -62,7 +62,7 @@ $(document).ready(() => {
               } else {
                 titulo = blog.titulo
               }
-              container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='../../public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
+              container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
             })
           }
         },
@@ -77,7 +77,7 @@ $(document).ready(() => {
       listar()
     } else {
       $.ajax({
-        url: "http://localhost:8080/tituloTip/" + titulo,
+        url: "https://ecogaiaweb-production.up.railway.app/tituloTip/" + titulo,
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -99,7 +99,7 @@ $(document).ready(() => {
               } else {
                 titulo = blog.titulo
               }
-              container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='../../public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
+              container.innerHTML += "<div class='blog-box' id='tip"+blog.codigo_tip+"'><div class='blog-text2'><span>"+blog.fecha+"</span><p>"+blog.comp_usuario+"</p><img src='public/assets/imgblosgs.jpg' class='blog_in' alt='' /><h2>"+titulo+"</h2><p>"+cuerpo+"</p></div></div>"
             })
           }
         },
@@ -122,14 +122,14 @@ $(document).ready(() => {
   } else {
 
     $.ajax({
-      url: "http://localhost:8080/insertarTip/"+val,
+      url: "https://ecogaiaweb-production.up.railway.app/insertarTip/"+val,
       type: "POST",
       data: blog,
       dataType: "text",
       success: (res) => {
         if(res != "No se agrego el tip"){
           mostrarOcultoError(res)
-          window.location.href = "/templates/views/Blog.html"
+          window.location.href = "blog"
         }else{
           mostrarOcultoSuccess(res)
         }

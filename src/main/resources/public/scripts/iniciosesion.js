@@ -15,7 +15,7 @@ $(document).ready((e) => {
 
     } else {
       $.ajax({
-        url: "http://localhost:8080/validarUsuario/"+email+"/"+pass,
+        url: "https://ecogaiaweb-production.up.railway.app/validarUsuario/"+email+"/"+pass,
         type: "GET",
         dataType: "JSON",
         success: (res) => {
@@ -23,7 +23,7 @@ $(document).ready((e) => {
             mostrarOcultoError(res)
             sessionStorage.setItem("status", res.rol);
             sessionStorage.setItem("user", res.res)
-            window.location.href = "/templates/views/index.html";
+            window.location.href = "/";
           } else {
             mostrarOcultoError(res.error)
           }

@@ -67,7 +67,7 @@ $(document).ready(function () {
   }
 
   $.ajax({
-    url: "http://localhost:8080/listarProducto",
+    url: "https://ecogaiaweb-production.up.railway.app/listarProducto",
     type: "GET",
     dataType: "JSON",
     success: function (respuesta) {
@@ -78,7 +78,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "http://localhost:8080/listarUsuario",
+    url: "https://ecogaiaweb-production.up.railway.app/listarUsuario",
     type: "GET",
     dataType: "JSON",
     success: function (respuesta) {
@@ -86,7 +86,7 @@ $(document).ready(function () {
         carrusel_u.innerHTML +=
         
           '<li class="card-invt">' +
-          '<div class="img"><img src="../../public/assets/persona.jpg" alt="img" draggable="false"></div>' +
+          '<div class="img"><img src="public/assets/persona.jpg" alt="img" draggable="false"></div>' +
           '<h2 class="name">' + invt.usu_nombre + '</h2>' +
           '<span class="rol">' + invt.rol + '</span>' +
           '<span class="direccion">' + invt.usu_direccion + '</span>' +
@@ -118,7 +118,7 @@ $(document).ready(function () {
     };
 
     $.ajax({
-      url: "http://localhost:8080/insertarProducto",
+      url: "https://ecogaiaweb-production.up.railway.app/insertarProducto",
       type: "POST",
       data: newprod,
       datatype: "text/plain",
@@ -126,7 +126,7 @@ $(document).ready(function () {
         if (res != "El producto no se agrego" && res != "El producto ya existe") {
           var formData = new FormData($(this)[0]);
           $.ajax({
-            url: "http://localhost:8080/guardarImagen/" + res,
+            url: "https://ecogaiaweb-production.up.railway.app/guardarImagen/" + res,
             type: "POST",
             data: formData,
             cache: false,
@@ -162,14 +162,14 @@ $("#actProducto").submit(function (event) {
 
   if ($("#actProdImagen").val() == "") {
     $.ajax({
-      url: "http://localhost:8080/nombreProducto/" + newprod.prod_Nombre,
+      url: "https://ecogaiaweb-production.up.railway.app/nombreProducto/" + newprod.prod_Nombre,
       type: "GET",
       datatype: "JSON",
       success: (res) => {
         newprod.prod_Codigo = res[0].prod_Codigo
         newprod.prod_Imagen = res[0].prod_Imagen
         $.ajax({
-          url: "http://localhost:8080/actualizarProducto",
+          url: "https://ecogaiaweb-production.up.railway.app/actualizarProducto",
           type: "PUT",
           data: newprod,
           success: (res) => {
@@ -180,19 +180,19 @@ $("#actProducto").submit(function (event) {
     })
   } else {
     $.ajax({
-      url: "http://localhost:8080/nombreProducto/" + newprod.prod_Nombre,
+      url: "https://ecogaiaweb-production.up.railway.app/nombreProducto/" + newprod.prod_Nombre,
       type: "GET",
       datatype: "JSON",
       success: (res) => {
         newprod.prod_Codigo = res[0].prod_Codigo
         $.ajax({
-          url: "http://localhost:8080/actualizarProducto",
+          url: "https://ecogaiaweb-production.up.railway.app/actualizarProducto",
           type: "PUT",
           data: newprod,
           success: (res2) => {
             var formData = new FormData($(this)[0]);
             $.ajax({
-              url: "http://localhost:8080/guardarImagen/" + res[0].prod_Codigo,
+              url: "https://ecogaiaweb-production.up.railway.app/guardarImagen/" + res[0].prod_Codigo,
               type: "POST",
               data: formData,
               cache: false,
@@ -225,7 +225,7 @@ $("#userAct").submit(function (event) {
   };
 
   $.ajax({
-    url: "http://localhost:8080/actualizarUsuario/" + newuser.usu_correo,
+    url: "https://ecogaiaweb-production.up.railway.app/actualizarUsuario/" + newuser.usu_correo,
     type: "PUT",
     data: newuser,
     datatype: "text/plain",

@@ -12,7 +12,7 @@ $(document).ready(() => {
   var contrasenia = $("#contrasenia");
   var rol = "";
   $.ajax({
-    url: "http://localhost:8080/usuario/" + val,
+    url: "https://ecogaiaweb-production.up.railway.app/usuario/" + val,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
@@ -28,7 +28,7 @@ $(document).ready(() => {
   $("#actualizar").on("click", () => {
     if (contrasenia.val() == $("#con_contrasenia").val()) {
       $.ajax({
-        url: "http://localhost:8080/actualizarUsuario/"+ val,
+        url: "https://ecogaiaweb-production.up.railway.app/actualizarUsuario/"+ val,
         type: "PUT",
         data: {
           id_Usuario: 0,
@@ -41,7 +41,7 @@ $(document).ready(() => {
         },
         success: (res) => {
           mostrarOcultoSuccess(res)
-          window.location.href = "iniciosesion.html"
+          window.location.href = "login"
           sessionStorage.removeItem("user")
           sessionStorage.removeItem("status")
 

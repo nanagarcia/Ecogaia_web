@@ -9,7 +9,7 @@ $(document).ready(() => {
     var fecha = new Date()
     for (let i = 0; i<=3; i++) {
         $.ajax({
-            url: "http://localhost:8080/ventasAnuales/" + (fecha.getFullYear()-i).toString() + "-01-01" + "/"+ (fecha.getFullYear()-i+1).toString() + "-01-01",
+            url: "https://ecogaiaweb-production.up.railway.app/ventasAnuales/" + (fecha.getFullYear()-i).toString() + "-01-01" + "/"+ (fecha.getFullYear()-i+1).toString() + "-01-01",
             type: "GET",
             datatype: "JSON",
             success: (res) => {
@@ -21,7 +21,7 @@ $(document).ready(() => {
     } 
 
     $.ajax({
-        url: "http://localhost:8080/listadoDesc",
+        url: "https://ecogaiaweb-production.up.railway.app/listadoDesc",
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -32,7 +32,7 @@ $(document).ready(() => {
     })
 
     $.ajax({
-        url: "http://localhost:8080/listadoAsc",
+        url: "https://ecogaiaweb-production.up.railway.app/listadoAsc",
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -43,7 +43,7 @@ $(document).ready(() => {
     })
 
     $.ajax({
-        url: "http://localhost:8080/listarUsuario",
+        url: "https://ecogaiaweb-production.up.railway.app/listarUsuario",
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -52,7 +52,7 @@ $(document).ready(() => {
     })
 
     $.ajax({
-        url: "http://localhost:8080/listarVenta",
+        url: "https://ecogaiaweb-production.up.railway.app/listarVenta",
         type: "GET",
         datatype: "JSON",
         success: (res) => {

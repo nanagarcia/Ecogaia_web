@@ -14,7 +14,7 @@ $(document).ready((e) => {
     header.innerHTML =
     '<th scope="col">#</th><th scope="col">Estado</th><th scope="col">Fecha</th><th scope="col">Repartidor</th><th scope="col">Info</th>';
     $.ajax({
-        url: "http://localhost:8080/comprasUsuario/"+user,
+        url: "https://ecogaiaweb-production.up.railway.app/comprasUsuario/"+user,
         type: "GET",
         datatype: "JSON",
         success: (res) => {
@@ -31,7 +31,7 @@ $(document).ready((e) => {
                         vent.venta_fecha +
                         '</p><p class="contenido" >Productos</p><div id="body'+vent.venta_codigo+'" class="body-compra"></div></div></div></div></div></div></div>'
                     $.ajax({
-                      url: "http://localhost:8080/productosCompra/" + user + "/" + vent.venta_codigo,
+                      url: "https://ecogaiaweb-production.up.railway.app/productosCompra/" + user + "/" + vent.venta_codigo,
                       type: "GET",
                       datatype: "JSON",
                       success: (res1) => {
@@ -57,7 +57,7 @@ $(document).ready((e) => {
   })
 
   $.ajax({
-    url: "http://localhost:8080/usuario/" + user,
+    url: "https://ecogaiaweb-production.up.railway.app/usuario/" + user,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
@@ -72,7 +72,7 @@ $(document).ready((e) => {
   });
 
   $.ajax({
-    url: "http://localhost:8080/tipsUsuario/" + user,
+    url: "https://ecogaiaweb-production.up.railway.app/tipsUsuario/" + user,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
@@ -82,12 +82,12 @@ $(document).ready((e) => {
 
   $("#deleteAll").on("click", () => {
     $.ajax({
-      url: "http://localhost:8080/usuario/" + sessionStorage.getItem("user"),
+      url: "https://ecogaiaweb-production.up.railway.app/usuario/" + sessionStorage.getItem("user"),
       type: "GET",
       datatype: "JSON",
       success: (res) => {
         $.ajax({
-          url: "http://localhost:8080/eliminarTodoFavoritos/" + res.id_usuario,
+          url: "https://ecogaiaweb-production.up.railway.app/eliminarTodoFavoritos/" + res.id_usuario,
           type: "DELETE",
           success: (res) => {
             mostrarOcultoSuccess(res);
@@ -103,7 +103,7 @@ function favoritos (user, table) {
     header.innerHTML =
     '<th scope="col">#</th><th scope="col">Imagen</th><th scope="col">Producto</th><th scope="col">Precio</th><th scope="col">Cantidad</th><th scope="col"><i class="fas fa-trash" id="deleteAll"></i></th>';
     $.ajax({
-        url: "http://localhost:8080/favoritosUsuario/"+user,
+        url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/"+user,
         type: "GET",
         datatype: "JSON",
         success: (res) => {

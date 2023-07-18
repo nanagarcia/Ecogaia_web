@@ -15,7 +15,7 @@ $(document).ready((e) => {
       mostrarOcultoWarning("Completar todos los campos")
     } else {
         $.ajax({
-            url: "http://localhost:8080/insertarUsuario",
+            url: "https://ecogaiaweb-production.up.railway.app/insertarUsuario",
             type: "POST",
             data: user,
             dataType: "text",
