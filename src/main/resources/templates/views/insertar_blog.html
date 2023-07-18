@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecogaia</title>
     <!-- CSS-->
-    <link rel="stylesheet" href="public/styles/style.css" />
+    <link rel="stylesheet" href="../../public/styles/style.css" />
     <!-- Tipos de letras -->
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
       rel="stylesheet"
     />
     <!-- JS -->
-    <script type="module" src="public/scripts/index.js"></script>
+    <script type="module" src="../../public/scripts/index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -38,13 +38,13 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="public/scripts/blog.js"></script>
-    <script src="public/scripts/unmodule.js"></script>
+    <script type="module" src="../../public/scripts/blog.js"></script>
+    <script src="../../public/scripts/unmodule.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Icono -->
     <link
       rel="shortcut icon"
-      href="public/assets/hoja.png"
+      href="../../public/assets/hoja.png"
       type="image/x-icon"
     />
   </head>
@@ -65,7 +65,7 @@
 
     <nav class="barra">
       <li id="">
-        <a href="/" class="logo">
+        <a href="../views/index.html" class="logo">
           <img src="public/assets/hoja.png" alt="" />
           <span class="nav-item-nombre">Ecogaia</span>
           <i class="cerrar_barra fas fa-x"></i>
@@ -73,21 +73,21 @@
       </li>
 
       <li id="op1">
-        <a href="/" class="home">
+        <a href="../views/index.html" class="home">
           <i class="fas fa-home"></i>
           <span class="nav-item">Home</span>
         </a>
       </li>
 
       <li id="op2">
-        <a href="/nosotros" class="nosotros">
+        <a href="../views/nosotros.html" class="nosotros">
           <i class="fas fa-users"></i>
           <span class="nav-item">Nosotros</span>
         </a>
       </li>
 
       <li id="op3">
-        <a href="/blog">
+        <a href="../views/Blog.html">
           <i class="fas fa-paper-plane"></i>
           <span class="nav-item">Blog</span>
         </a>
@@ -110,7 +110,7 @@
           aria-labelledby="offcanvasExampleLabel"
         >
           <div class="offcanvas-header">
-            <img src="public/assets/hoja.png" alt="" />
+            <img src="../../public/assets/hoja.png" alt="" />
             <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
             <button
               type="button"
@@ -137,43 +137,44 @@
         </div>
       </li>
       <li id="op5">
-        <a href="/inventario" id="inventario">
+        <a href="../views/inventarioEco.html" id="inventario">
           <i class="fas fa-folder-open"></i>
           <span class="nav-item">Inventario</span>
         </a>
       </li>
 
       <li id="op6">
-        <a href="/estadisticas">
+        <a href="../views/estadisticas.html">
           <i class="fas fa-ranking-star"></i>
           <span class="nav-item">Estadisticas</span>
         </a>
       </li>
 
       <li id="op7">
-        <a href="/distribuciones">
+        <a href="../views/repartidor.html">
           <i class="fas fa-folder-open"></i>
           <span class="nav-item">Repartidor</span>
         </a>
       </li>
 
       <li id="op8">
-        <a href="/registrarse" class="registro">
+        <a href="../views/registrarse.html" class="registro">
           <i class="fas fa-tasks"></i>
           <span class="nav-item">Registrarse</span>
         </a>
       </li>
 
       <li id="op9">
-        <a href="/login" class="inicio2">
+        <a href="../views/iniciosesion.html" class="inicio2">
           <i class="fas fa-sign-out-alt"></i>
           <span class="nav-item">Inicio Sesion</span>
         </a>
       </li>
     </nav>
+
     <div class="login-contenedor">
-      <form id="insert_blog" action="">
-        <img src="public/assets/fotoPerfil.png" class="avatar" alt="" />
+      <form class="formulario" id="insert_blog" action="">
+        <img src="../../public/assets/fotoPerfil.png" class="avatar" alt="" />
 
         <h2>Blog</h2>
 
@@ -221,6 +222,6 @@
       </form>
     </div>
     <div id="alerta" class="oculto"></div>
-    <script src="public/scripts/carrito.js"></script>
+    <script src="../../public/scripts/carrito.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
-import { on_session } from "./index.js";
-import { mostrarOculto } from "./index.js";
+import { mostrarOcultoSuccess, on_session } from "./index.js";
 
 $(document).ready((e) => {
   $(".barra")[0].style.backgroundColor = "#000000";
+  $(".barra-responsive")[0].style.backgroundColor = "#000000";
   var user = sessionStorage.getItem("user");
 
   const header = document.getElementById("header");
@@ -23,9 +23,9 @@ $(document).ready((e) => {
             if (res.length > 0) {
                 res.forEach(vent => {
                     i++
-                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><p>"+vent.venta_estado+"</p></td><td><h5>"+vent.venta_fecha+"</h5></td><td><p>"+vent.rep_nombre+"</p></td><td><button data-bs-toggle='modal'  data-bs-target='#car"+vent.venta_codigo+"'>Mas</button></td></tr>" +
-                      '<!-- Modal --><div  class="modal fade w-25"  id="car'+vent.venta_codigo+'"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body">' +
-                        "<h1 class='text-center text-success'>" +
+                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><p>"+vent.venta_estado+"</p></td><td><h5>"+vent.venta_fecha+"</h5></td><td><p>"+vent.rep_nombre+"</p></td><td><button data-bs-toggle='modal' data-bs-target='#car"+vent.venta_codigo+"' class='botonMas' >Mas</button></td></tr>" +
+                      '<!-- Modal --><div  class="modal fade "  id="car'+vent.venta_codigo+'"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modalCom modal-dialog modal-dialog-centered"><div class=" modal-content"><div class="modal-header2 bg-dark"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body bg-dark">' +
+                        "<h1 class='tituloREP text-center text-success'>" +
                         vent.rep_nombre +
                         "</h1><p class='contenido '>" +
                         vent.venta_fecha +
@@ -90,8 +90,7 @@ $(document).ready((e) => {
           url: "http://localhost:8080/eliminarTodoFavoritos/" + res.id_usuario,
           type: "DELETE",
           success: (res) => {
-            alerta.style.background = "#dc3545";
-            mostrarOculto(res);
+            mostrarOcultoSuccess(res);
             window.location.reload();
           },
         });
@@ -99,15 +98,6 @@ $(document).ready((e) => {
     });
   });
 });
-
-$(".btn-hamburguesa").on("click", () => {
-  $(".barra")[0].style.display = "block";
-});
-
-$(".cerrar_barra").on("click", () => {
-  $(".barra")[0].style.display = "none";
-});
-
 
 function favoritos (user, table) {
     header.innerHTML =
@@ -123,7 +113,7 @@ function favoritos (user, table) {
             if (res.length > 0) {
                 res.forEach(fav => {
                     i++
-                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><img width='20' src='https://frutosalvaje.com/wp-content/uploads/2021/11/Cepillo-de-Bambu_1-1-1536x1536.png' alt='imgProd'></td><td><h5>"+fav.prod_Nombre+"</h5></td><td><p>"+fav.prod_Precio+"</p></td><td><p>"+fav.prod_Cantidad+"</p></td><td><i class='fa fa-trash' onclick='deleteFav("+fav.codigo_favoritos+")'></i></td></tr>"
+                    table.innerHTML +="<tr id='fav"+i+"'><th scope='row'>"+i+"</th><td><img width='50' src='"+fav.prod_Imagen+"' alt='imgProd'></td><td><h5>"+fav.prod_Nombre+"</h5></td><td><p>"+fav.prod_Precio+"</p></td><td><p>"+fav.prod_Cantidad+"</p></td><td><i class='fa fa-trash' onclick='deleteFav("+fav.codigo_favoritos+")'></i></td></tr>"
                 });
             } else {
                 table.innerHTML = "<tr><td colspan='7'><p class='text-center'>No tienes favoritos</p></td></tr>"

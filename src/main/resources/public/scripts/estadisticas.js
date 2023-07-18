@@ -2,6 +2,7 @@ import { on_session } from "./index.js";
 
 $(document).ready(() => {
     $(".barra")[0].style.backgroundColor = "#000000"
+    $(".barra-responsive")[0].style.backgroundColor = "#000000";
     var mas = $("#mas")[0]
     var menos = $("#menos")[0]
     var est = $("#estadisticas-content")[0]
@@ -13,7 +14,7 @@ $(document).ready(() => {
             datatype: "JSON",
             success: (res) => {
                 var porcentaje = parseFloat(res.toString().slice(0,4))
-                est.innerHTML += '<p>'+(fecha.getFullYear()-i).toString()+'</p><div class="barra2 border border-secondary" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div id="barcontenedor" class="progress-bar bg-secondary" style="width: '+porcentaje+'%"><span>&nbsp;</span></div><span class="porcentaje">'+porcentaje+'%</span></div>'
+                est.innerHTML += '<p>'+(fecha.getFullYear()-i).toString()+'</p><div class="barra2 border-bottom" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div id="barcontenedor" class="progress-bar bg-success" style="width: '+porcentaje+'%"><span>&nbsp;</span></div><span class="porcentaje">'+porcentaje+'%</span></div>'
                 
             }
         })
@@ -58,12 +59,4 @@ $(document).ready(() => {
             $("#cant_ventas")[0].innerHTML = "- "+ res.length + " -"
         }
     })
-})
-
-$(".btn-hamburguesa").on("click", () => {
-  $(".barra")[0].style.display = "block"
-})
-
-$(".cerrar_barra").on("click", () => {
-  $(".barra")[0].style.display = "none"
 })

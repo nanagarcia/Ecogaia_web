@@ -1,3 +1,4 @@
+
 function add(codigo, id) {
   $.ajax({
     url: "http://localhost:8080/usuario/" + id,
@@ -14,13 +15,13 @@ function add(codigo, id) {
         success: (res) => {
           if (res) {
             alerta.style.background = "#EBD166";
-            mostrarOculto("El producto se agrego a tus favoritos");
+            mostrarOcultoSuccess("El producto se agrego a tus favoritos");
           } else if (!res) {
             alerta.style.background = "#EBD166";
-            mostrarOculto("El producto se elimino de tus favoritos");
+            mostrarOcultoSuccess("El producto se elimino de tus favoritos");
           } else {
             alerta.style.background = "#EBD166";
-            mostrarOculto("No se puedo agregar el producto a tus favoritos");
+            mostrarOcultoWarning("No se puedo agregar el producto a tus favoritos");
           }
         },
       });
@@ -40,11 +41,11 @@ function addCar(codigo, correo) {
     type: "POST",
     success: (res) => {
       if (res) {
-        alert("El producto se agrego a tu carrito");
+        mostrarOcultoSuccess("El producto se agrego a tu carrito");
       } else if (!res) {
-        alert("El producto se elimino de carrito");
+        mostrarOcultoWarning("El producto se elimino de carrito");
       } else {
-        alert("No se puedo agregar el producto al carrito");
+        mostrarOcultoError("No se puedo agregar el producto al carrito");
       }
     },
   });
@@ -55,7 +56,7 @@ function delProducto(id) {
     url: "http://localhost:8080/eliminarProducto/" + id,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoSuccess(res);
     },
   });
 }
@@ -75,7 +76,7 @@ function insertuser() {
     data: newuser,
     datatype: "text/plain",
     success: (res) => {
-      alert(res);
+      mostrarOcultoSuccess(res)
     },
   });
 }
@@ -85,7 +86,7 @@ function delUsuario(id) {
     url: "http://localhost:8080/eliminarUsuario/" + id,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res)
     },
   });
 }
@@ -95,7 +96,7 @@ function deleteFav(codigo) {
     url: "http://localhost:8080/eliminarFavoritos/" + codigo,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res);
       window.location.reload();
     },
   });
@@ -106,7 +107,7 @@ function deleteCar(codigo) {
     url: "http://localhost:8080/eliminarCarrito/" + codigo,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res);
       window.location.reload();
     },
   });
@@ -130,7 +131,7 @@ function sumCar(id, total, nombre, codigo) {
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          alert(res1);
+          mostrarOcultoSuccess(res1);
         },
       });
     },
@@ -155,24 +156,46 @@ function resCar(id, total, nombre, codigo) {
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          alert(res1);
+          mostrarOcultoWarning(res1);
         },
       });
     },
   });
 }
 
-function mostrarOculto(frase) {
+function mostrarOcultoSuccess(frase){
   var alerta = document.getElementById("alerta");
-
-  alerta.innerHTML ="<img src='public/assets/alert_error.png'><span id='mensaje'></span>";
+  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_success.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#198754"
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");
-  mensaje.innerHTML = frase;
-  setTimeout(function () {
-    alerta.classList.remove("mostrar");
-  }, 3000);
-}
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
+  function mostrarOcultoWarning(frase){
+  var alerta = document.getElementById("alerta");
+  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_danger.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#ffc107"
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
+  function mostrarOcultoError(frase){
+  var alerta = document.getElementById("alerta");
+  alerta.innerHTML= "<img id='img_alert' src='../../public/assets/alert_error.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#dc3545"
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
 
 
 function actProd(codigo) {

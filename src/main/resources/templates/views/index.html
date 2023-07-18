@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="public/assets/hoja.png"
+      href="../../public/assets/hoja.png"
       type="image/x-icon"
     />
     <!-- TIPOS DE LETRAS -->
@@ -45,8 +45,8 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="public/scripts/index.js"></script>
-    <script src="public/scripts/unmodule.js"></script>
+    <script type="module" src="../../public/scripts/index.js"></script>
+    <script src="../../public/scripts/unmodule.js"></script>
     <title>Ecogaia</title>
   </head>
   <body id="body1">
@@ -62,7 +62,6 @@
       </div>
 
       <!-- Barra de busqueda -->
-
       <div class="box">
         <input type="text" id="search_product" placeholder="Search" />
         <i class="fa solid fa-magnifying-glass"></i>
@@ -72,29 +71,29 @@
 
         <nav class="barra">
           <li id="">
-            <a href="/" class="logo">
-              <img src="public/assets/hoja.png" alt="hoja" />
+            <a href="../views/index.html" class="logo">
+              <img src="../../public/assets/hoja.png" alt="hoja" />
               <span class="nav-item-nombre">Ecogaia</span>
               <i class="cerrar_barra fas fa-x"></i>
             </a>
           </li>
 
           <li id="op1">
-            <a href="/" class="home">
+            <a href="../views/index.html" class="home">
               <i class="fas fa-home"></i>
               <span class="nav-item">Inicio</span>
             </a>
           </li>
 
           <li id="op2">
-            <a href="/nosotros" class="nosotros">
+            <a href="../views/nosotros.html" class="nosotros">
               <i class="fas fa-users"></i>
               <span class="nav-item">Nosotros</span>
             </a>
           </li>
 
           <li id="op3">
-            <a href="/blog">
+            <a href="../views/Blog.html">
               <i class="fas fa-paper-plane"></i>
               <span class="nav-item">Blog</span>
             </a>
@@ -117,7 +116,7 @@
               aria-labelledby="offcanvasExampleLabel"
             >
               <div class="offcanvas-header">
-                <img src="public/assets/hoja.png" alt="" />
+                <img src="../../public/assets/hoja.png" alt="" />
                 <h5 class="tituloCarrito" id="offcanvasExampleLabel">
                   CARRITO
                 </h5>
@@ -146,35 +145,35 @@
             </div>
           </li>
           <li id="op5">
-            <a href="/inventario" id="inventario">
+            <a href="../views/inventarioEco.html" id="inventario">
               <i class="fas fa-folder-open"></i>
               <span class="nav-item">Inventario</span>
             </a>
           </li>
 
           <li id="op6">
-            <a href="/estadisticas">
+            <a href="../views/estadisticas.html">
               <i class="fas fa-ranking-star"></i>
               <span class="nav-item">Estadisticas</span>
             </a>
           </li>
 
           <li id="op7">
-            <a href="/distribuciones">
+            <a href="../views/repartidor.html">
               <i class="fas fa-folder-open"></i>
               <span class="nav-item">Repartidor</span>
             </a>
           </li>
 
           <li id="op8">
-            <a href="/registrarse" class="registro">
+            <a href="../views/registrarse.html" class="registro">
               <i class="fas fa-tasks"></i>
               <span class="nav-item">Registrarse</span>
             </a>
           </li>
 
           <li id="op9">
-            <a href="/login" class="inicio2">
+            <a href="../views/iniciosesion.html" class="inicio2">
               <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item">Inicio Sesion</span>
             </a>
@@ -196,7 +195,7 @@
               data-bs-interval="2000"
             >
               <img
-                src="public/assets/promocion3.png"
+                src="../../public/assets/promocion3.png"
                 class="image rounded mx-auto w-75"
                 alt="..."
               />
@@ -205,7 +204,7 @@
             <!-- 2.imagen -->
             <div class="carousel-item text-center" data-bs-interval="2000">
               <img
-                src="public/assets/promocion5.png"
+                src="../../public/assets/promocion5.png"
                 class="image rounded mx-auto d-block w-75"
                 alt="..."
               />
@@ -214,7 +213,7 @@
             <!-- 3.imagen -->
             <div class="carousel-item text-center" data-bs-interval="2000">
               <img
-                src="public/assets/promocion2.png"
+                src="../../public/assets/promocion2.png"
                 class="image rounded mx-auto d-block w-75"
                 alt="..."
               />
@@ -223,7 +222,7 @@
             <!-- 4.imagen -->
             <div class="carousel-item text-center" data-bs-interval="2000">
               <img
-                src="public/assets/promocion1.png"
+                src="../../public/assets/promocion1.png"
                 class="image rounded d-inline-block w-75"
                 alt="..."
               />
@@ -232,7 +231,7 @@
             <!-- 5.imagen -->
             <div class="carousel-item text-center" data-bs-interval="2000">
               <img
-                src="public/assets/promocion4.png"
+                src="../../public/assets/promocion4.png"
                 class="image rounded mx-auto d-block w-75"
                 alt="..."
               />
@@ -273,44 +272,76 @@
           };
         </script>
         <a class="align-content-center button cate" href="#" onclick="todo()"
-          ><img src="public/assets/productos.png" alt=""
-        /></a>
+          ><img src="../../public/assets/productos.png" alt=""
+          /></a>
+          <div class="descripcion">
+            <p>
+              Todos
+            </p>
+          </div>
       </div>
 
       <div class="categoria-contenedor">
         <a class="align-content-center button cate" href="#"
-          ><img class="categoria" src="public/assets/hogar.png" alt="Hogar"
+          ><img class="categoria" src="../../public/assets/hogar.png" alt="Hogar"
         /></a>
+        <div class="descripcion">
+          <p>
+            Hogar
+          </p>
+        </div>
       </div>
 
       <div class="categoria-contenedor">
         <a href="#" class="align-content-center button cate"
           ><img
             class="categoria"
-            src="public/assets/mascotas.png"
+            src="../../public/assets/mascotas.png"
             alt="Mascotas"
         /></a>
+        <div class="descripcion">
+          <p>
+            Mascotas
+          </p>
+        </div>
       </div>
 
       <div class="categoria-contenedor">
         <a href="#" class="align-content-center button cate"
           ><img
             class="categoria"
-            src="public/assets/maquillaje.png"
+            src="../../public/assets/maquillaje.png"
             alt="Maquillaje"
-        /></a>
+          /></a>
+          <div class="descripcion">
+            <p>
+              Maquillaje
+            </p>
+          </div>
       </div>
 
       <div class="categoria-contenedor">
         <a href="#" class="align-content-center button cate"
           ><img
             class="categoria"
-            src="public/assets/higiene.png"
+            src="../../public/assets/higiene.png"
             alt="Personal"
         /></a>
+        <div class="descripcion">
+          <p>
+            Personal
+          </p>
+        </div>
       </div>
     </div>
-
+    <div class="sort">
+      <button class="dropbtn">Ordenar Por</button>
+      <div class="dropdown-content">
+        <button class="ordenar" alt="Nombre">Nombre</button>
+        <button class="ordenar" alt="Precio">Precio</button>
+        <button class="ordenar" alt="Categoria">Categoria</button>
+      </div>
+    </div>
     <!-- Contenido -->
 
     <div
@@ -319,8 +350,14 @@
       style="display: flex; flex-wrap: wrap"
     ></div>
 
+    <div class="redes">
+      <img src="../../public/assets/whatsapp.png" alt="">
+      <img src="../../public/assets/instagram.png" alt="">
+      <img src="../../public/assets/facebook.png" alt="">
+    </div>
+
     <div id="alerta" class="oculto"></div>
-    <script type="module" src="public/scripts/index.js"></script>
-    <script src="public/scripts/carrito.js"></script>
+    <script type="module" src="../../public/scripts/index.js"></script>
+    <script type="module" src="../../public/scripts/carrito.js"></script>
   </body>
 </html>
