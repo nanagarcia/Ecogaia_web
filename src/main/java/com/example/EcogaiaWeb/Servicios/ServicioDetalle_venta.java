@@ -120,7 +120,7 @@ public class ServicioDetalle_venta {
             producto.put("prod_cantidad", objects[4].toString());
             producto.put("id_usuario", objects[5].toString());
             producto.put("venta_codigo", objects[6].toString());
-
+            producto.put("prod_imagen", objects[6].toString());
             mostrar.add(producto);
         }
 
