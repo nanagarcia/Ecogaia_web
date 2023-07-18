@@ -86,7 +86,7 @@ $(document).ready(function () {
         carrusel_u.innerHTML +=
         
           '<li class="card-invt">' +
-          '<div class="img"><img src="public/assets/persona.jpg" alt="img" draggable="false"></div>' +
+          '<div class="img"><img src="public/assets/usuario.png" alt="img" draggable="false"></div>' +
           '<h2 class="name">' + invt.usu_nombre + '</h2>' +
           '<span class="rol">' + invt.rol + '</span>' +
           '<span class="direccion">' + invt.usu_direccion + '</span>' +
