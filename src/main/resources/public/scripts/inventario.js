@@ -133,14 +133,14 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              mostrarOcultoSuccess(res);
+              mostrarOcultoSuccess("El productos se registro correctamente");
             },
             error: function () {
-              mostrarOcultoError("Failed to upload image!");
+              mostrarOcultoError(res);
             },
           });
         } else {
-          mostrarOcultoSuccess(res);
+          mostrarOcultoError(res);
         }
       },
     });

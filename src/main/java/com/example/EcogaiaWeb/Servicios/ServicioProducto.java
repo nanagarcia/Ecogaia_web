@@ -30,13 +30,13 @@ public class ServicioProducto {
         }
 
         if (isIn) {
-            ms = "El producto ya se encuentra registrado";
+            ms = "El producto ya se existe";
         }else {
             repositorio.save(p);
             if (repositorio.findById(p.getProd_Codigo()).isPresent()) {
-                ms = "El producto se registro correctamente";
+                ms = p.getProd_Codigo().toString();
             } else {
-                ms = "El producto  no se registro";
+                ms = "El producto  no se agrego";
             }
         }
 
