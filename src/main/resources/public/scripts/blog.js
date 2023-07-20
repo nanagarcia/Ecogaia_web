@@ -128,10 +128,10 @@ $(document).ready(() => {
       dataType: "text",
       success: (res) => {
         if(res != "No se agrego el tip"){
-          mostrarOcultoError(res)
+          mostrarOcultoSuccess(res)
           window.location.href = "blog"
         }else{
-          mostrarOcultoSuccess(res)
+          mostrarOcultoError(res)
         }
         console.log(res);
       },
