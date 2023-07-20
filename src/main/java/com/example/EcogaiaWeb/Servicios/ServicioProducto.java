@@ -21,16 +21,22 @@ public class ServicioProducto {
     public String insertar(Producto p) {
         ArrayList<Producto> productos = this.listar();
         String ms = "";
+        boolean isIn = false;
         for (Producto producto: productos) {
             if (producto.getProd_Nombre().equals(p.getProd_Nombre())) {
-                ms = "El producto ya existe";
+                isIn = true;
+                break;
+            }
+        }
+
+        if (isIn) {
+            ms = "El producto ya se encuentra registrado";
+        }else {
+            repositorio.save(p);
+            if (repositorio.findById(p.getProd_Codigo()).isPresent()) {
+                ms = "El producto se registro correctamente";
             } else {
-                repositorio.save(p);
-                if(repositorio.findById(p.getProd_Codigo()).isPresent()) {
-                    ms = p.getProd_Codigo().toString();
-                } else {
-                    ms = "El producto no se agrego";
-                }
+                ms = "El producto  no se registro";
             }
         }
 

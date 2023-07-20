@@ -133,7 +133,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              mostrarOcultoSuccess(response);
+              mostrarOcultoSuccess(res);
             },
             error: function () {
               mostrarOcultoError("Failed to upload image!");
