@@ -46,9 +46,15 @@ public class ControladorVenta {
             datos.put("prod_codigo", venta[1].toString());
             datos.put("prod_nombre", venta[2].toString());
             datos.put("prod_precio", venta[3].toString());
+<<<<<<< HEAD
+            datos.put("prod_categoria", venta[4].toString());
+            datos.put("prod_cantidad", venta[5].toString());
+            datos.put("prod_imagen", venta[6].toString());
+=======
             datos.put("prod_imagen", venta[4].toString());
             datos.put("prod_categoria", venta[5].toString());
             datos.put("prod_cantidad", venta[6].toString());
+>>>>>>> 75f95d079d1e2783826b15ce8a67d4b7494ad1c3
 
             mostrar.add(datos);
         });

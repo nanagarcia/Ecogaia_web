@@ -116,12 +116,20 @@ public class ServicioDetalle_venta {
             producto.put("prod_codigo", objects[0].toString());
             producto.put("prod_nombre", objects[1].toString());
             producto.put("prod_precio", objects[2].toString());
+<<<<<<< HEAD
+            producto.put("prod_categoria", objects[3].toString());
+            producto.put("prod_cantidad", objects[4].toString());
+            producto.put("id_usuario", objects[5].toString());
+            producto.put("venta_codigo", objects[6].toString());
+            producto.put("prod_imagen", objects[6].toString());
+=======
             producto.put("prod_imagen", objects[3].toString());
             producto.put("prod_categoria", objects[4].toString());
             producto.put("prod_cantidad", objects[5].toString());
             producto.put("id_usuario", objects[6].toString());
             producto.put("venta_codigo", objects[7].toString());
 
+>>>>>>> 75f95d079d1e2783826b15ce8a67d4b7494ad1c3
             mostrar.add(producto);
         }
 
