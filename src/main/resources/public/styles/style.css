@@ -189,8 +189,7 @@ li a {
 }
 
 .producto img {
-  width: 150px;
-  height: 220px;
+  width: 190px;
   border-radius: 5px;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -280,13 +279,6 @@ p.price {
 
 .modal-body .iconos {
   width: 30px;
-}
-
-.fa-solid {
-  margin-top: 2px;
-  margin-left: 80%;
-  font-size: 30px;
-  color: #609966;
 }
 
 .fa-regular {
@@ -604,6 +596,8 @@ table {
 }
 
 /*nosotros y blogs---------------------------------------------------------------------*/
+
+
 .box {
   margin-top: 2%;
   margin-left: 35%;
@@ -640,7 +634,7 @@ input {
   padding: 30px;
 }
 
-.blogN {
+.nosotros_cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -706,9 +700,21 @@ input {
 }
 
 .blog-textN {
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.nosotros-img img{
+  margin-top: 40px;
+}
+
+.vision img{
+  margin-top: 60px;
+
 }
 
 .blog-text2 {
@@ -777,8 +783,6 @@ input {
   font-size: 25px;
   font-family: "Charm", cursive;
   display: -webkit-box;
-  margin-top: 2%;
-  margin-left: 35%;
 }
 
 .blog h3 {
@@ -804,10 +808,6 @@ input {
   transition: all ease 0.02s;
 }
 
-.blog-img {
-  margin-left: 30%;
-  margin-top: 10%;
-}
 
 /* insertar blog  -----------------------------------------------------------------*/
 .contenido_blog {
@@ -1412,6 +1412,17 @@ h3 {
   cursor: pointer;
 }
 
+
+.barra-navegacion .item:first-of-type::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  top: -1px;
+  left: 0;
+  position: absolute;
+  background-color: white;
+}
+
 .contenedorIn {
   margin-left: 62%;
   margin-top: 3%;
@@ -1444,21 +1455,6 @@ h3 {
 
 
 .oculto {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 280px;
-  position: fixed;
-  top: 2%;
-  left: 80%;
-  transform: translateX(110%);
-  transition: transform 0.3s ease-in-out;
-  padding: 20px 15px;
-  color: white;
-  border-radius: 4px;
-  z-index: 9999;
-
-}.oculto {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -1757,7 +1753,7 @@ h3 {
 
 .actualizar-invt {
   width: 360px;
-  
+
   /* margin-left: 40px; */
 }
 
@@ -1819,6 +1815,10 @@ h3 {
     font-family: "Charm", cursive;
     font-weight: bold;
   }
+
+.blog-textN p{
+  margin-top: 0;
+}
 
 
 
@@ -1925,11 +1925,6 @@ h3 {
     width: 45px;
     right: 10px;
   }
-
-  /*alertas----------------------------------------------------------------------------*/
-   .oculto {
-     left: 25%;
-   }
 
   /*carrusel----------------------------------------------------------------------------*/
   .carousel {
