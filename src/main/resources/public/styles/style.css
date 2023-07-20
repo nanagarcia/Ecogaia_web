@@ -189,7 +189,8 @@ li a {
 }
 
 .producto img {
-  width: 190px;
+  width: 130px;
+  width: 130px;
   border-radius: 5px;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -642,7 +643,7 @@ input {
 }
 
 .blog-heading h3 {
-  margin-top: 25%;
+  margin-top: 4%;
   color: #609966;
   font-size: 40px;
   font-family: "Charm", cursive;
@@ -682,7 +683,7 @@ input {
 .blog-box2 {
   width: 340px;
   background-color: white;
-  margin: 20px;
+  margin: 0 20px;
   border-radius: 10px;
   height: 420px;
   box-shadow: 5px 5px 15px #609966;
@@ -691,6 +692,10 @@ input {
 .blog-box:hover {
   transform: translateY(-15px);
   box-shadow: -1px 7px 25px -3px rgba(96, 153, 102, 0.98);
+}
+
+.blog-img {
+    margin: 50px 0 0 0;
 }
 
 .blog-text {
@@ -1168,7 +1173,8 @@ form h2 {
 }
 
 .producto img {
-  width: 190px;
+  width: 130px;
+  height: 130px;
   border-radius: 5px;
   margin-bottom: 20px;
   margin-top: 15px;
@@ -1888,6 +1894,11 @@ h3 {
 
 
   /*blog/nosotros---------------------------------------------------------*/
+  .blog-img {
+    margin: 100px 0 0 0
+  }
+
+
   .barra {
     display: none;
   }
@@ -1924,6 +1935,11 @@ h3 {
   .insertar_blog img {
     width: 45px;
     right: 10px;
+  }
+
+  /*carrusel----------------------------------------------------------------------------*/
+  .oculto {
+    left: 25%;
   }
 
   /*carrusel----------------------------------------------------------------------------*/
