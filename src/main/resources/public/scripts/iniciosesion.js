@@ -1,5 +1,7 @@
 import { on_session } from "./index.js";
-import { mostrarOculto } from "./index.js";
+import { mostrarOcultoSuccess } from "./index.js";
+import { mostrarOcultoWarning } from "./index.js";
+import { mostrarOcultoError } from "./index.js";
 
 $(document).ready((e) => {
   $("#log_in").on("click", () => {
@@ -8,23 +10,22 @@ $(document).ready((e) => {
     console.log(email + pass);
 
     if (email == "" || pass == "") {
-      alerta.style.background="#E97578"
-      mostrarOculto("Completa todos los campos")
+      mostrarOcultoWarning("Completa todos los campos")
+
+
     } else {
       $.ajax({
-        url: "http://localhost:8080/validarUsuario/"+email+"/"+pass,
+        url: "https://ecogaiaweb-production.up.railway.app/validarUsuario/"+email+"/"+pass,
         type: "GET",
         dataType: "JSON",
         success: (res) => {
           if (res.error != "Usuario o contraseña incorrectos") {
-            alerta.style.background="#dc3545"
-            mostrarOculto(res)
+            mostrarOcultoSuccess("Inicio de sesión correcto")
             sessionStorage.setItem("status", res.rol);
             sessionStorage.setItem("user", res.res)
             window.location.href = "/";
           } else {
-            alerta.style.background="#dc3545"
-            mostrarOculto(res.error)
+            mostrarOcultoError(res.error)
           }
         },
         error: (xhr, status, error) => {
@@ -36,11 +37,3 @@ $(document).ready((e) => {
   });
 });
 
-
-$(".btn-hamburguesa").on("click", () => {
-  $(".barra")[0].style.display = "block"
-})
-
-$(".cerrar_barra").on("click", () => {
-  $(".barra")[0].style.display = "none"
-})

@@ -13,10 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -63,27 +60,15 @@ public class ControladorProducto {
     }
 
     @PostMapping("/guardarImagen/{codigo}")
-    public String guardarImagen(@PathVariable("codigo") Integer codigo, @RequestParam("file") MultipartFile imagen) {
-        if (!imagen.isEmpty()) {
-            Path dir = Paths.get("src//main//resources//uploads");
-            String ruta = dir.toFile().getAbsolutePath();
-            if (SP.productoCodigo(codigo).isPresent()) {
-                Producto p = SP.productoCodigo(codigo).get();
-                try {
-                    byte[] bytesImagen = imagen.getBytes();
-                    Path allPath = Paths.get(ruta + "//Prueba" + imagen.getOriginalFilename());
-                    Files.write(allPath, bytesImagen);
-                    p.setProd_Imagen(p.getProd_Codigo().toString() + "_" + imagen.getOriginalFilename());
-                    SP.actualizar(p);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            } else {
-                return "El productos no existe, no se puede agregar imagen";
-            }
+    public String guardarImagen(@PathVariable("codigo") Integer codigo) {
+        Producto p = SP.productoCodigo(codigo).get();
+        p.setProd_Imagen("https://www.hods.eu/wp-content/uploads/vasopla_hods_web_01.jpg");
+        SP.actualizar(p);
+        if (Objects.equals(SP.productoCodigo(p.getProd_Codigo()).get().getProd_Imagen(), "https://www.hods.eu/wp-content/uploads/vasopla_hods_web_01.jpg")) {
+            return "La imagen se actualizo";
+        } else {
+            return "La imagen no se pudo actualizar";
         }
-
-        return "La imagen se agrego correctamente";
     }
     @GetMapping("/ordenarProdNombre")
     public ResponseEntity<List<Map<String, String>>> ordenarProdNombre () {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -81,14 +81,14 @@
       </li>
 
       <li id="op2">
-        <a href="/nosotros" class="nosotros">
+        <a href="nosotros" class="nosotros">
           <i class="fas fa-users"></i>
           <span class="nav-item">Nosotros</span>
         </a>
       </li>
 
       <li id="op3">
-        <a href="/blog">
+        <a href="blog">
           <i class="fas fa-paper-plane"></i>
           <span class="nav-item">Blog</span>
         </a>
@@ -138,61 +138,72 @@
         </div>
       </li>
       <li id="op5">
-        <a href="/inventario" id="inventario">
+        <a href="inventario" id="inventario">
           <i class="fas fa-folder-open"></i>
           <span class="nav-item">Inventario</span>
         </a>
       </li>
 
       <li id="op6">
-        <a href="/estadisticas">
+        <a href="estadisticas">
           <i class="fas fa-ranking-star"></i>
           <span class="nav-item">Estadisticas</span>
         </a>
       </li>
 
       <li id="op7">
-        <a href="/distribuciones">
+        <a href="distribuciones">
           <i class="fas fa-folder-open"></i>
           <span class="nav-item">Repartidor</span>
         </a>
       </li>
 
       <li id="op8">
-        <a href="/registrarse" class="registro">
+        <a href="registrarse" class="registro">
           <i class="fas fa-tasks"></i>
           <span class="nav-item">Registrarse</span>
         </a>
       </li>
 
       <li id="op9">
-        <a href="/login" class="inicio2">
+        <a href="login" class="inicio2">
           <i class="fas fa-sign-out-alt"></i>
           <span class="nav-item">Inicio Sesion</span>
         </a>
       </li>
     </nav>
 
-    <!--barra de busqueda-------------->
-    <div id="blog-search" class="box">
-      <input type="text" placeholder="Search" />
-      <i class="fa solid fa-magnifying-glass"></i>
-    </div>
 
-    <!--Blog-->
-    <section class="blog">
-      <div class="blog-heading">
-        <h3>Blog</h3>
+     <!-- Barra de busqueda -->
+    
+       <div id="blog-search" class="box">
+         <input type="text" id="search_product" placeholder="Search" />
+         <i class="fa solid fa-magnifying-glass"></i>
+       </div>
+       
+       <div class="sort2">
+        <button class="dropbtn">Ordenar Por</button>
+        <div class="dropdown-content">
+          <button class="ordenar" alt="Usuario">Usuario</button>
+          <button class="ordenar" alt="Fecha">Fecha</button>
+          <button class="ordenar" alt="Az">Az</button>
+        </div>
       </div>
-
-      <!--blog container-->
-      <div id="container" class="blog-container"></div>
-      <div class="insertar_blog">
-        <a id="btn_add_blog" href="post"
-          ><img src="public/assets/mas.png" alt=""
-        /></a>
-      </div>
-    </section>
+       
+        <!--Blog-->
+        <section class="blog">
+          <div class="blog-heading">
+            <h3>Blog</h3>
+          </div>
+          
+          <!--blog container-->
+          <div id="container" class="blog-container"></div>
+          <div class="insertar_blog">
+            <a id="btn_add_blog" href="post"
+              ><img src="public/assets/mas.png" alt=""
+              /></a>
+          </div>
+        </section>
 
     <div id="alerta" class="oculto"></div>
 
