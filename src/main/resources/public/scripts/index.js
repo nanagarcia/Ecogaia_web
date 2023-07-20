@@ -4,6 +4,7 @@ $(document).ready(() => {
     const productos = document.getElementById("productos");
     var user = sessionStorage.getItem("user");
     const listar = () => {
+      productos.innerHTML = "";
       $.ajax({
         url: "https://ecogaiaweb-production.up.railway.app/listarProducto",
         type: "GET",
@@ -86,9 +87,9 @@ $(document).ready(() => {
           type: "GET",
           datatype: "JSON",
           success: (res) => {
-            productos.innerHTML = "";
             res.forEach((producto) => {
               var favState = "fa-regular";
+              productos.innerHTML = "";
               $.ajax({
                 url: "https://ecogaiaweb-production.up.railway.app/favoritosUsuario/" + user,
                 type: "GET",
@@ -101,7 +102,7 @@ $(document).ready(() => {
                   });
                   productos.innerHTML += "<div class='producto mx-4 mb-3' id='producto'><img  src='"+producto.prod_Imagen+"'  alt='producto'  /><h1 class='articulos text-center text-success'>" + producto.prod_Nombre +
                   "</h1><p>$" + producto.prod_Precio + "</p><!-- Button trigger modal --><button type='button' class='btn btn-success mb-2' data-bs-toggle='modal'  data-bs-target='#exampleModal" + producto.prod_Codigo +
-                  "'>Mas información</button>"; 
+                  "'>Mas información</button>";
                   productos.innerHTML += '<!-- Modal --><div  class="modal fade "  id="exampleModal' + producto.prod_Codigo +
                   '"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true"><div class="modal-dialog modal-dialog-centered "><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5 text-success"id="exampleModalLabel">Mas información</h1><button type="button"class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><i onclick="add(\''  + producto.prod_Codigo +
                   "','" + sessionStorage.getItem("user") + "'" + ')" class="' + favState + ' fa-star"></i><img class="producto_img"src="'+producto.prod_Imagen+'"alt=""/><p class="precio">' + producto.prod_Categoria +
