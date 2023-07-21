@@ -1192,7 +1192,6 @@ form h2 {
 }
 
 /*Estadisticas ------------------------------------------------------------------*/
-<<<<<<< HEAD
 .estadisticas{
     display: flex;
     justify-content: center;   
@@ -1207,11 +1206,6 @@ form h2 {
     margin-top: 5%;
     margin-left: 2%;
     background-color: #999; 
-=======
-.estadisticas {
-  display: flex;
-  justify-content: center;
->>>>>>> 232eedc3fc8c2524494c42d3f2564305a99fdba6
 }
 
 .statics {
@@ -1283,7 +1277,6 @@ h3 {
   font-family: 'Charm', cursive;
 }
 
-<<<<<<< HEAD
 .info-container{
     width: 60%;
     display: flex;
@@ -1292,10 +1285,6 @@ h3 {
     justify-content: center;
     color: white;
     font-family: 'Quicksand', sans-serif;
-=======
-.container2 h1 {
-  font-family: 'Charm', cursive;
->>>>>>> 232eedc3fc8c2524494c42d3f2564305a99fdba6
 }
 
 .info-container {
@@ -1432,29 +1421,6 @@ h3 {
   justify-content: space-between;
 }
 
-<<<<<<< HEAD
-.item{
-    
-    text-transform: uppercase;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    color: #609966;
-    position: relative;
-    line-height: 40px;
-    height: 40px;
-}
-
-.barra-navegacion .item:first-of-type::after{
-    content: "";
-    height: 2px;
-    width: 100%;
-    top: -1px;
-    left: 0;
-    position: absolute;
-    background-color: white;
-=======
 .item {
 
   text-transform: uppercase;
@@ -1478,7 +1444,6 @@ h3 {
   left: 0;
   position: absolute;
   background-color: white;
->>>>>>> 232eedc3fc8c2524494c42d3f2564305a99fdba6
 }
 
 .contenedorIn {
@@ -1501,282 +1466,6 @@ h3 {
   color: #609966;
 }
 
-<<<<<<< HEAD
-
-@media screen and (min-width:320px) and (max-width:620px){
-
-    /* Barra */
-
-    .barra-responsive{
-        background-color: #fff;
-        align-items: center;
-        display: flex;
-        z-index: 0;
-        box-shadow: 0 20px 35px rgba(88, 88, 88, 0.1);
-    }
-
-    .barra-responsive .nav-item-nombre-responsive{
-        font-weight: bold;
-        font-size: 25px;
-        font-family: 'Charm', cursive;
-        padding: 15px;
-        text-transform: uppercase;
-        color:#609966;
-    }
-
-    .barra-responsive {
-        display: block;
-        align-items: center;
-        display: flex;
-    }
-
-    .logo .cerrar_barra{
-        display: block;
-    }
-
-    #barra{
-        background: #eee; 
-     }
-     
-    .barra{
-         width: 230px;
-         transition: all 0.5s ease;
-         z-index: 1;
-    }
-
-
-    /*blog/nosotros---------------------------------------------------------*/
-    .barra{
-        display: none;
-    }
-
-    .box{
-        margin: 15px auto;
-        width: 280px;
-        height: 35px;
-    }
-    
-    .blog{
-        display: flex;
-        justify-content: center;
-    }
-    .blog-box{
-        width: 280px;
-        background-color: white;
-        margin: 20px;
-        border-radius: 10px;
-        height: 550px;
-        box-shadow: 5px 5px 15px #609966;
-    }
-    .blog-box2{
-        width: 280px;
-        background-color: white;
-        margin: 20px;
-        border-radius: 10px;
-        height: 450px;
-        box-shadow: 5px 5px 15px #609966;
-    }
-   
-    .insertar_blog img{
-        width: 45px;
-        right: 10px;
-    }
-  /*carrusel----------------------------------------------------------------------------*/
-    .carousel{
-        display: none;
-    }
- /*categorias----------------------------------------------------------------------------*/
-    .categorias{
-        margin-top: 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .categoria a{
-        width: 40px;
-        height: 50px;
-    }
-    .btn-categorias{
-        width: 30%;
-        margin-left: 5%;
-        background-color: white;
-        color: #609966;
-        text-decoration: none;
-    }
-    
-    .categoria-contenedor a {
-      width: 50px;
-      height: 50px;
-      
-    }
-
- /*productos----------------------------------------------------------------------------*/
-    .productos{
-        margin: 10% auto;
-
-        
-    }
-
-    .producto{
-        overflow: hidden;
-        width: 90%;
-    }
-
-    /*perfil*/
-
-    .info-container{
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    .left-side{
-        margin: auto;
-    }
-    
-    .profile-container{
-        width: 100px;
-        height: 100px;
-    }
-    
-    
-    .right-side{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    .container2{
-        justify-content: center;
-        margin-bottom: 1.4rem;
-        margin-top: 5%;
-    }
-    .container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-    
-    .title{
-        font-size: 20px;
-        margin: auto;
-        margin-bottom: 1%;
-    }
-    
-    .edit-profile{
-        margin-right: 1rem;
-        padding: 5px 10px;
-        width: auto;
-        margin:  auto;
-    }
-
-    .info-content span{
-
-        font-weight: 300;
-        margin: auto;
-    }
-    
-    .description-container{
-        align-items: center;
-        font-size: 12px;
-        margin-bottom: 1%;
-    }
-    
-    
-    .barra-navegacion{
-        height: 40px;
-        width: 90%;
-    }
-    
-    
-    .barra-navegacion .item:first-of-type::after{
-        content: "";
-        height: 1px;
-        width: 100%;
-        top: -1px;
-        left: 0;
-        position: absolute;
-        background-color: white;
-    }
-    
-    .table{
-        padding: 3px;
-    }
-    .table th{
-        
-        color: white;
-        font-family: 'Quicksand', sans-serif;
-    }
-    .table tbody{
-        color: #609966;
-    }
-
-    /* Inicio de sesion */
-
-    #body3 {
-        background-image: none;
-        background-color: #fff;
-    }
-
-    .login-contenedor{
-        margin-left: 0%;
-    }
-    
-    .login-contenedor form{
-        margin: auto;
-        width: 290px;
-        margin-top: 40px;
-    }
-
-    .btnForms .ini_ico{
-        display: none;
-    }
-
-    /* registro */
-
-    .btnForms .registro_ico{
-        display: none;
-    }
-
-    .btnForms .actu_ico{
-        display: none;
-    }
-
-    .btnForms .blog_ico{
-        display: none;
-    }
-
-    .btnForms:hover span{
-        margin: 0%;
-    }
-
-    /*Estadisticas ------------------------------------------------------------------*/
-  .estadisticas{ 
-    flex-direction: column; 
-    margin-left: 5%;
-  }
-  
-  .statics2{
-    width: 35%;
-    height: 35%;
-    background-color: #6099664e; 
-  }
-
-  
-
-  .barras{
-    margin: 5% auto;
-    width: 90%;
-    height: 400px;
-    margin-top: 5%;
-    margin-left: 2%;
-    background-color: #6099664e;  
-  }
-  
-          
-=======
 .table {
   padding: 3px;
 }
@@ -2715,5 +2404,4 @@ h3 {
     margin-bottom: 10px;
   }
 
->>>>>>> 232eedc3fc8c2524494c42d3f2564305a99fdba6
 }
