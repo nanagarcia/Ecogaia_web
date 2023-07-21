@@ -1086,7 +1086,7 @@ form h2 {
     height: 10%;
     margin-top: 5%;
     margin-left: 2%;
-    background-color: #6099664e; 
+    background-color: #999; 
 }
 
 .statics2 h3{
@@ -1155,9 +1155,6 @@ h3{
     justify-content: center;
     color: white;
     font-family: 'Quicksand', sans-serif;
-    
-    
-    
 }
 
 .left-side{
@@ -1282,7 +1279,7 @@ h3{
 }
 
 .item{
-    margin-left: 23%;
+    
     text-transform: uppercase;
     font-family: 'Quicksand', sans-serif;
     font-size: 15px;
@@ -1296,7 +1293,7 @@ h3{
 
 .barra-navegacion .item:first-of-type::after{
     content: "";
-    height: 1px;
+    height: 2px;
     width: 100%;
     top: -1px;
     left: 0;
@@ -1312,6 +1309,16 @@ h3{
 .login-contenedor {
   margin-top: 2%;
   margin-left: 62%;
+}
+.table{
+  padding: 3px;
+}
+.table th{
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+.table tbody{
+  color: #609966;
 }
 
 
@@ -1483,9 +1490,7 @@ h3{
         width: auto;
         margin:  auto;
     }
-    
-   
-    
+
     .info-content span{
 
         font-weight: 300;
@@ -1504,9 +1509,6 @@ h3{
         width: 90%;
     }
     
-    .item{
-        margin-left: 30%;
-    }
     
     .barra-navegacion .item:first-of-type::after{
         content: "";
@@ -1593,28 +1595,4 @@ h3{
   }
   
           
-}
-
-@media screen and (min-width:620px) and (max-width:998px){
-  .productos {
-    width: 90%;
-    height: auto;
-    margin: auto;
-    margin-top: 4%;
-    
-  }
-
-  .producto {
-    overflow: hidden;
-    width: 25%;
-    background-color: white;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    transition: all 0.9s;
-    border: #07070718 2px solid;
-  }
 }
