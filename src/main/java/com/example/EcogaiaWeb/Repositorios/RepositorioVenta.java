@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RepositorioVenta extends CrudRepository<Venta, Integer> {
+
     @Query(value = "select venta_codigo, prod_codigo, prod_nombre, prod_precio, prod_imagen, prod_categoria, prod_cantidad from venta as v inner join detalle_venta as dt on codigo_venta = venta_codigo inner join producto as p on codigo_prod = prod_codigo inner join repartidor as r on r.id_rep = v.id_repartidor where rep_nombre =:nombre and venta_estado = \"En distribucion\" and id_usuario =:id ;", nativeQuery = true)
     List<Object[]> ventas (@Param("nombre") String nombre, @Param("id") Integer id);
 

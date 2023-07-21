@@ -1,267 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--css link-------------->
-    <link rel="stylesheet" href="public/styles/style.css" />
-    <!-- CSS bootstrap -->
-    <script
-      src="https://code.jquery.com/jquery-3.7.0.js"
-      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script src="public/scripts/carrito.js"></script>
-    <!--link ajax-------------->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!--fonts-------------->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&family=Tangerine:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <title>Ecogaia</title>
-    <script type="module" src="public/scripts/inventario.js"></script>
-    <link
-      rel="shortcut icon"
-      href="public/assets/hoja.png"
-      type="image/x-icon"
-    />
-  </head>
-  <body id="body2">
+<html lang="es">
 
-    <!-- barra de navegacion responsive -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--css link-------------->
+  <link rel="stylesheet" href="public/styles/style.css" />
+  <!-- CSS bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
 
-    <div class="barra-responsive">
-      <i class="btn-hamburguesa fas fa-bars" aria-hidden="true"></i>
 
-      <span class="nav-item-nombre-responsive .d-block .d-sm-none"
-        >Ecogaia</span
-      >
-    </div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <!--barra navegacion-------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="public/scripts/carrito.js"></script>
+  <!--link ajax-------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!--fonts-------------->
+  <link href="https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&family=Tangerine:wght@700&display=swap"
+    rel="stylesheet" />
 
-    <!-- barra -->
-    <nav class="barra">
-      <li id="">
-        <a href="/" class="logo">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet" />
+
+  <title>Ecogaia</title>
+
+  <link rel="shortcut icon" href="public/assets/hoja.png" type="image/x-icon" />
+
+
+</head>
+
+<body id="body2">
+
+  <!-- barra de navegacion responsive -->
+
+  <div class="barra-responsive">
+    <i class="btn-hamburguesa fas fa-bars" aria-hidden="true"></i>
+
+    <span class="nav-item-nombre-responsive .d-block .d-sm-none">Ecogaia</span>
+  </div>
+
+  <!--barra navegacion-------------->
+
+  <!-- barra -->
+  <nav class="barra z-2">
+    <li>
+      <a href="/" class="logo">
+        <img src="public/assets/hoja.png" alt="" />
+        <span class="nav-item-nombre">Ecogaia</span>
+        <i class="cerrar_barra fas fa-x"></i>
+      </a>
+    </li>
+
+    <li id="op1">
+      <a href="/" class="home">
+        <i class="fas fa-home"></i>
+        <span class="nav-item">Home</span>
+      </a>
+    </li>
+
+    <li id="op2">
+      <a href="nosotros" class="nosotros">
+        <i class="fas fa-users"></i>
+        <span class="nav-item">Nosotros</span>
+      </a>
+    </li>
+
+    <li id="op3">
+      <a href="blog">
+        <i class="fas fa-paper-plane"></i>
+        <span class="nav-item">Blog</span>
+      </a>
+    </li>
+
+    <li id="op4">
+      <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="fas fa-cart-shopping"></i>
+        <span class="nav-item">Carrito</span>
+      </a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
           <img src="public/assets/hoja.png" alt="" />
-          <span class="nav-item-nombre">Ecogaia</span>
-          <i class="cerrar_barra fas fa-x"></i>
-        </a>
-      </li>
-
-      <li id="op1">
-        <a href="/" class="home">
-          <i class="fas fa-home"></i>
-          <span class="nav-item">Home</span>
-        </a>
-      </li>
-
-      <li id="op2">
-        <a href="/nosotros" class="nosotros">
-          <i class="fas fa-users"></i>
-          <span class="nav-item">Nosotros</span>
-        </a>
-      </li>
-
-      <li id="op3">
-        <a href="/blog">
-          <i class="fas fa-paper-plane"></i>
-          <span class="nav-item">Blog</span>
-        </a>
-      </li>
-
-      <li id="op4">
-        <a
-          data-bs-toggle="offcanvas"
-          href="#offcanvasExample"
-          role="button"
-          aria-controls="offcanvasExample"
-        >
-          <i class="fas fa-cart-shopping"></i>
-          <span class="nav-item">Carrito</span>
-        </a>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasExample"
-          aria-labelledby="offcanvasExampleLabel"
-        >
-          <div class="offcanvas-header">
-            <img src="public/assets/hoja.png" alt="" />
-            <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
-            <button
-              type="button"
-              class="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <table class="table table-hover">
-              <thead>
-                <tr class="titCarrito">
-                  <th scope="col">Codigo</th>
-                  <th scope="col">Producto</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Total</th>
-                  <th scope="col"><i class="fas fa-trash"></i></th>
-                </tr>
-              </thead>
-              <tbody id="tablaCarrito"></tbody>
-            </table>
-            <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
-          </div>
+          <h5 class="tituloCarrito" id="offcanvasExampleLabel">CARRITO</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </li>
-      <li id="op5">
-        <a href="/inventario" id="inventario">
-          <i class="fas fa-folder-open"></i>
-          <span class="nav-item">Inventario</span>
-        </a>
-      </li>
-
-      <li id="op6">
-        <a href="/estadisticas">
-          <i class="fas fa-ranking-star"></i>
-          <span class="nav-item">Estadisticas</span>
-        </a>
-      </li>
-
-      <li id="op7">
-        <a href="/distribuciones">
-          <i class="fas fa-folder-open"></i>
-          <span class="nav-item">Repartidor</span>
-        </a>
-      </li>
-
-      <li id="op8">
-        <a href="/registrarse" class="registro">
-          <i class="fas fa-tasks"></i>
-          <span class="nav-item">Registrarse</span>
-        </a>
-      </li>
-
-      <li id="op9">
-        <a href="/login" class="inicio2">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Inicio Sesion</span>
-        </a>
-      </li>
-    </nav>
-
-    <!-- Inventario -->
-
-    <div class="inventarioEco">
-      <img class="logoivt" src="public/assets/logosecundario.png" alt="" />
-
-      <div class="scrollable-table tabla-inventario" id="scroll-products">
-        <table class="table text-center">
-          <thead>
-            <tr class="titulos">
-              <th scope="col">Borrar</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Actualizar</th>
-            </tr>
-          </thead>
-          <tbody class="tabla" id="tabla-productos"></tbody>
-        </table>
+        <div class="offcanvas-body">
+          <table class="table table-hover">
+            <thead>
+              <tr class="titCarrito">
+                <th scope="col">Codigo</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+                <th scope="col"><i class="fas fa-trash"></i></th>
+              </tr>
+            </thead>
+            <tbody id="tablaCarrito"></tbody>
+          </table>
+          <button id="comprar" type="button" class="btn btn-success mb-2">Comprar</button>
+        </div>
       </div>
+    </li>
+    <li id="op5">
+      <a href="inventario" id="inventario">
+        <i class="fas fa-folder-open"></i>
+        <span class="nav-item">Inventario</span>
+      </a>
+    </li>
 
-      <!-- Botones CRUD -->
+    <li id="op6">
+      <a href="estadisticas">
+        <i class="fas fa-ranking-star"></i>
+        <span class="nav-item">Estadisticas</span>
+      </a>
+    </li>
 
-      <div class="btn_crud" id="buttons">
-        <form id="insertProducto" class="addGestion" method="post" enctype="multipart/form-data" >
-          <input type="submit" class="btn-insert" value="Insertar" />
-          <input type="text" class="text-light" id="prod_Nombre" placeholder="Nombre" />
-          <input type="file" name="file" required />
-          <input type="text" id="prod_Categoria" class="text-light" placeholder="Categoria"/>
-          <input type="text" id="prod_Cantidad" class="text-light" placeholder="Cantidad" />
-          <input type="text" id="prod_Precio" class="text-light" placeholder="Precio"/>
+    <li id="op7">
+      <a href="distribuciones">
+        <i class="fas fa-folder-open"></i>
+        <span class="nav-item">Repartidor</span>
+      </a>
+    </li>
+
+    <li id="op8">
+      <a href="registrarse" class="registro">
+        <i class="fas fa-tasks"></i>
+        <span class="nav-item">Registrarse</span>
+      </a>
+    </li>
+
+    <li id="op9">
+      <a href="login" class="inicio2">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="nav-item">Inicio Sesion</span>
+      </a>
+    </li>
+  </nav>
+
+  <!-- Inventario -->
+
+  <div class="inventarioEco">
+    <img class="logoivt" src="public/assets/logosecundario.png" alt="" />
+
+
+    <div class="invt-responsive" id="cartas_producto">
+
+
+
+    </div>
+
+    <div class="scrollable-table tabla-inventario" id="scroll-products">
+      <table class="table text-center">
+        <thead class="titulos">
+          <tr>
+            <th scope="col">Borrar</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Actualizar</th>
+          </tr>
+        </thead>
+        <tbody class="tabla table-dark table-bordered " id="tabla-productos"></tbody>
+      </table>
+    </div>
+
+    <!-- Formularios inventario Empresa -->
+
+    <div class="crud-invt mt-5">
+
+      <!-- Insertar -->
+
+      <div class="actualizar-invt">
+        <form id="insertProducto" method="post" class="formulario-act" action="">
+          <h2 class="mt-5">Agregar</h2>
+
+          <div class="input-ingresar">
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" id="prod_Nombre" placeholder="Nombre Completo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="file" name="file" placeholder="Imagen" id="prod_Imagen" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-solid fa-layer-group"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Categoria" id="prod_Categoria" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-solid fa-calculator"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Cantidad" id="prod_Cantidad" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Precio" id="prod_Precio" />
+              </div>
+            </div>
+          </div>
+
+
+          <!--boton-------------->
+
+          <button class="btn-invt" type="submit" id="actualizar">
+            <span>Agregar</span>
+          </button>
         </form>
       </div>
 
-      <div class="btn_crud" id="buttons">
-        <form id="actProducto" class="addGestion" method="post" enctype="multipart/form-data" >
-          <input type="submit" class="btn-insert" value="Actualizar" />
-          <input type="text" class="text-light" id="actProdNombre" placeholder="Nombre" />
-          <input type="file" name="file" id="actProdImagen"/>
-          <input type="text" id="actProdCategoria" class="text-light" placeholder="Categoria"/>
-          <input type="text" id="actProdCantidad" class="text-light" placeholder="Cantidad" />
-          <input type="text" id="actProdPrecio" class="text-light" placeholder="Precio"/>
+      <!-- Actualizar -->
+
+      <div class="actualizar-invt">
+        <form id="actProducto" class="formulario-act" action="">
+          <h2 class="mt-5">Actualizar</h2>
+
+          <div class="input-ingresar">
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" id="actProdNombre" placeholder="Nombre Completo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="file" name="file" placeholder="Imagen" id="actProdImagen" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-solid fa-layer-group"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Categoria" id="actProdCategoria" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-solid fa-calculator"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Cantidad" id="actProdCantidad" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Precio" id="actProdPrecio" />
+              </div>
+            </div>
+          </div>
+
+          <!--boton-------------->
+
+          <button class="btn-invt" type="submit" id="actualizar">
+            <span>Actualizar</span>
+          </button>
         </form>
       </div>
 
-      <h2>Usuarios</h2>
-      <div class="scrollable-table" id="scroll-users">
-        <table class="table table-hover text-center">
-          <thead>
-            <tr class="titulos">
-              <th scope="col">Borrar</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Rol</th>
-              <th scope="col">Correo</th>
-              <th scope="col">Dirección</th>
-              <th scope="col">Telefono</th>
-              <th scope="col">Actualizar</th>
-            </tr>
-          </thead>
-          <tbody class="tabla" id="tabla-usuarios"></tbody>
-        </table>
-      </div>
+    </div>
 
-      <!-- Botones CRUD -->
+    <h2 class="mb-5 nombre-inventario">Usuarios</h2>
 
-      <div class="btn_crud" id="buttons">
-        <form class="addGestion">
-          <input type="button" class="btn-insert" onclick="insertuser()" value="Insertar"/>
-          <input type="text" class="text-light" placeholder="Nombre" id="usu_nombre" />
-          <input type="text" class="text-light" placeholder="Rol" id="rol" />
-          <input type="text" class="text-light" placeholder="Correo" id="usu_correo"/>
-          <input type="text" class="text-light" placeholder="Dirección" id="usu_direccion" />
-          <input type="text" class="text-light" placeholder="Telefono" id="usu_telefono" />
-          <input type="text" class="text-light" placeholder="Contraseña" id="usu_contrasenia" />
-        </form>
-      </div>
+    <div class="cuerpo-carrusel">
+      <div class="wrapper">
 
-      <div class="btn_crud" id="buttons">
-        <form id="userAct" method="post" class="addGestion">
-          <input type="submit" class="btn-insert" id="actUser" value="Actualizar"/>
-          <input type="text" class="text-light" placeholder="Nombre" id="actUsuNombre" />
-          <input type="text" class="text-light" placeholder="Rol" id="actRol" />
-          <input type="text" class="text-light" placeholder="Correo" id="actUsuCorreo"/>
-          <input type="text" class="text-light" placeholder="Dirección" id="actUsuDireccion" />
-          <input type="text" class="text-light" placeholder="Telefono" id="actUsuTelefono" />
-          <input type="text" class="text-light" placeholder="Contraseña" id="actUsuContrasenia" />
-        </form>
+        <ul class="carousel" id="carrusel_u">
+
+        </ul>
+
       </div>
     </div>
-    <div id="alerta" class="oculto"></div>
+
+    <!-- Formularios inventario usuarios-->
+
+    <div class="crud-invt">
+
+      <!-- Insertar -->
+
+      <div class="actualizar-invt">
+        <form class="formulario-act" action="">
+          <h2>Agregar</h2>
+
+
+          <div class="input-ingresar">
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" id="usu_nombre" placeholder="Nombre Completo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Correo" id="usu_correo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-tent"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Direccion" id="usu_direccion" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-unlock"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="password" placeholder="Contraseña" id="usu_contrasenia" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Telefono" id="usu_telefono" />
+              </div>
+            </div>
+          </div>
+
+          <!--boton-------------->
+
+          <button class="btn-invt" type="button" onclick="insertuser()" id="">
+            <span>Agregar</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Actualizar -->
+
+      <div class="actualizar-invt">
+        <form class="formulario-act" action="" id="userAct" method="post">
+          <h2>Actualizar</h2>
+
+          <div class="input-ingresar">
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" id="actUsuNombre" placeholder="Nombre Completo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Correo" id="actUsuCorreo" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-tent"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Direccion" id="actUsuDireccion" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-unlock"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Rol" id="actRol" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="password" placeholder="Contraseña" id="actUsuContrasenia" />
+              </div>
+            </div>
+            <div class="input-div">
+              <div class="i">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <input class="inputIn" type="text" placeholder="Telefono" id="actUsuTelefono" />
+              </div>
+            </div>
+          </div>
+
+          <!--boton-------------->
+
+          <button class="btn-invt" type="submit" id="userAct">
+            <span>Actualizar</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
     <script src="public/scripts/carrito.js"></script>
     <script src="public/scripts/unmodule.js"></script>
-  </body>
+
+    <script type="module" src="public/scripts/inventario.js" defer></script>
+
+    <div id="alerta" class="oculto"></div>
+</body>
+
 </html>

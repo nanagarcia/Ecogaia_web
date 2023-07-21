@@ -1,12 +1,13 @@
+
 function add(codigo, id) {
   $.ajax({
-    url: "http://localhost:8080/usuario/" + id,
+    url: "https://ecogaiaweb-production.up.railway.app/usuario/" + id,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
       $.ajax({
         url:
-          "http://localhost:8080/insertarFavoritos/" +
+          "https://ecogaiaweb-production.up.railway.app/insertarFavoritos/" +
           codigo +
           "/" +
           res.id_usuario,
@@ -14,13 +15,13 @@ function add(codigo, id) {
         success: (res) => {
           if (res) {
             alerta.style.background = "#EBD166";
-            mostrarOculto("El producto se agrego a tus favoritos");
+            mostrarOcultoSuccess("El producto se agrego a tus favoritos");
           } else if (!res) {
             alerta.style.background = "#EBD166";
-            mostrarOculto("El producto se elimino de tus favoritos");
+            mostrarOcultoSuccess("El producto se elimino de tus favoritos");
           } else {
             alerta.style.background = "#EBD166";
-            mostrarOculto("No se puedo agregar el producto a tus favoritos");
+            mostrarOcultoWarning("No se puedo agregar el producto a tus favoritos");
           }
         },
       });
@@ -31,7 +32,7 @@ function add(codigo, id) {
 function addCar(codigo, correo) {
   $.ajax({
     url:
-      "http://localhost:8080/insertarCarrito/" +
+      "https://ecogaiaweb-production.up.railway.app/insertarCarrito/" +
       correo +
       "/" +
       codigo +
@@ -40,11 +41,11 @@ function addCar(codigo, correo) {
     type: "POST",
     success: (res) => {
       if (res) {
-        alert("El producto se agrego a tu carrito");
+        mostrarOcultoSuccess("El producto se agrego a tu carrito");
       } else if (!res) {
-        alert("El producto se elimino de carrito");
+        mostrarOcultoWarning("El producto se elimino de carrito");
       } else {
-        alert("No se puedo agregar el producto al carrito");
+        mostrarOcultoError("No se puedo agregar el producto al carrito");
       }
     },
   });
@@ -52,10 +53,10 @@ function addCar(codigo, correo) {
 
 function delProducto(id) {
   $.ajax({
-    url: "http://localhost:8080/eliminarProducto/" + id,
+    url: "https://ecogaiaweb-production.up.railway.app/eliminarProducto/" + id,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoSuccess(res);
     },
   });
 }
@@ -70,32 +71,32 @@ function insertuser() {
   };
 
   $.ajax({
-    url: "http://localhost:8080/insertarUsuario",
+    url: "https://ecogaiaweb-production.up.railway.app/insertarUsuario",
     type: "POST",
     data: newuser,
     datatype: "text/plain",
     success: (res) => {
-      alert(res);
+      mostrarOcultoSuccess(res)
     },
   });
 }
 
 function delUsuario(id) {
   $.ajax({
-    url: "http://localhost:8080/eliminarUsuario/" + id,
+    url: "https://ecogaiaweb-production.up.railway.app/eliminarUsuario/" + id,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res)
     },
   });
 }
 
 function deleteFav(codigo) {
   $.ajax({
-    url: "http://localhost:8080/eliminarFavoritos/" + codigo,
+    url: "https://ecogaiaweb-production.up.railway.app/eliminarFavoritos/" + codigo,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res);
       window.location.reload();
     },
   });
@@ -103,10 +104,10 @@ function deleteFav(codigo) {
 
 function deleteCar(codigo) {
   $.ajax({
-    url: "http://localhost:8080/eliminarCarrito/" + codigo,
+    url: "https://ecogaiaweb-production.up.railway.app/eliminarCarrito/" + codigo,
     type: "DELETE",
     success: (res) => {
-      alert(res);
+      mostrarOcultoWarning(res);
       window.location.reload();
     },
   });
@@ -120,17 +121,19 @@ function sumCar(id, total, nombre, codigo) {
   tdcantidad.innerHTML = cantidad + 1;
 
   $.ajax({
-    url: "http://localhost:8080/nombreProducto/" + nombre,
+    url: "https://ecogaiaweb-production.up.railway.app/nombreProducto/" + nombre,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
       tdtotal.innerHTML = sumtotal + res[0].prod_Precio;
       $.ajax({
-        url: "http://localhost:8080/sumarCarrito/" + codigo,
+        url: "https://ecogaiaweb-production.up.railway.app/sumarCarrito/" + codigo,
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          alert(res1);
+          if (res1 == true) {
+            mostrarOcultoSuccess("Se añadio una unidad al carrito");
+          }
         },
       });
     },
@@ -145,39 +148,63 @@ function resCar(id, total, nombre, codigo) {
   tdcantidad.innerHTML = cantidad - 1;
 
   $.ajax({
-    url: "http://localhost:8080/nombreProducto/" + nombre,
+    url: "https://ecogaiaweb-production.up.railway.app/nombreProducto/" + nombre,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
       tdtotal.innerHTML = restotal - res[0].prod_Precio;
       $.ajax({
-        url: "http://localhost:8080/restarCarrito/" + codigo,
+        url: "https://ecogaiaweb-production.up.railway.app/restarCarrito/" + codigo,
         type: "POST",
         datatype: "JSON",
         success: (res1) => {
-          alert(res1);
+          if (res1 == true) {
+                      mostrarOcultoSuccess("Se resto una unidad del carrito");
+          }
         },
       });
     },
   });
 }
 
-function mostrarOculto(frase) {
+function mostrarOcultoSuccess(frase){
   var alerta = document.getElementById("alerta");
-
-  alerta.innerHTML ="<img src='public/assets/alert_error.png'><span id='mensaje'></span>";
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_success.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#198754"
   var mensaje = document.getElementById("mensaje");
   alerta.classList.add("mostrar");
-  mensaje.innerHTML = frase;
-  setTimeout(function () {
-    alerta.classList.remove("mostrar");
-  }, 3000);
-}
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
+  function mostrarOcultoWarning(frase){
+  var alerta = document.getElementById("alerta");
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_danger.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#ffc107"
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
+  function mostrarOcultoError(frase){
+  var alerta = document.getElementById("alerta");
+  alerta.innerHTML= "<img id='img_alert' src='public/assets/alert_error.png'><span id='mensaje'></span>"
+  alerta.style.backgroundColor="#dc3545"
+  var mensaje = document.getElementById("mensaje");
+  alerta.classList.add("mostrar");
+  mensaje.innerHTML=frase
+    setTimeout(function() {
+      alerta.classList.remove("mostrar");
+    }, 3000);
+  }
 
 
 function actProd(codigo) {
   $.ajax({
-    url: "http://localhost:8080/productoCodigo/" + codigo,
+    url: "https://ecogaiaweb-production.up.railway.app/productoCodigo/" + codigo,
     type: "GET",
     datatype: "JSON",
     success: (res) => {
@@ -191,7 +218,7 @@ function actProd(codigo) {
 
 function actUsu(correo) {
   $.ajax({
-    url: "http://localhost:8080/usuario/" + correo,
+    url: "https://ecogaiaweb-production.up.railway.app/usuario/" + correo,
     type: "GET",
     datatype: "JSON",
     success: (res) => {

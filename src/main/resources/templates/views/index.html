@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../../public/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="public/styles/style.css" />
 
     <!-- ICONOS -->
     <link
@@ -62,7 +62,6 @@
       </div>
 
       <!-- Barra de busqueda -->
-
       <div class="box">
         <input type="text" id="search_product" placeholder="Search" />
         <i class="fa solid fa-magnifying-glass"></i>
@@ -87,14 +86,14 @@
           </li>
 
           <li id="op2">
-            <a href="/nosotros" class="nosotros">
+            <a href="nosotros" class="nosotros">
               <i class="fas fa-users"></i>
               <span class="nav-item">Nosotros</span>
             </a>
           </li>
 
           <li id="op3">
-            <a href="/blog">
+            <a href="blog">
               <i class="fas fa-paper-plane"></i>
               <span class="nav-item">Blog</span>
             </a>
@@ -146,35 +145,35 @@
             </div>
           </li>
           <li id="op5">
-            <a href="/inventario" id="inventario">
+            <a href="inventario" id="inventario">
               <i class="fas fa-folder-open"></i>
               <span class="nav-item">Inventario</span>
             </a>
           </li>
 
           <li id="op6">
-            <a href="/estadisticas">
+            <a href="estadisticas">
               <i class="fas fa-ranking-star"></i>
               <span class="nav-item">Estadisticas</span>
             </a>
           </li>
 
           <li id="op7">
-            <a href="/distribuciones">
+            <a href="distribuciones">
               <i class="fas fa-folder-open"></i>
               <span class="nav-item">Repartidor</span>
             </a>
           </li>
 
           <li id="op8">
-            <a href="/registrarse" class="registro">
+            <a href="registrarse" class="registro">
               <i class="fas fa-tasks"></i>
               <span class="nav-item">Registrarse</span>
             </a>
           </li>
 
           <li id="op9">
-            <a href="/login" class="inicio2">
+            <a href="login" class="inicio2">
               <i class="fas fa-sign-out-alt"></i>
               <span class="nav-item">Inicio Sesion</span>
             </a>
@@ -240,7 +239,6 @@
           </div>
         </div>
       </div>
-    </div>
 
     <div class="dropdown dropend">
       <a
@@ -274,13 +272,23 @@
         </script>
         <a class="align-content-center button cate" href="#" onclick="todo()"
           ><img src="public/assets/productos.png" alt=""
-        /></a>
+          /></a>
+          <div class="descripcion">
+            <p>
+              Todos
+            </p>
+          </div>
       </div>
 
       <div class="categoria-contenedor">
         <a class="align-content-center button cate" href="#"
           ><img class="categoria" src="public/assets/hogar.png" alt="Hogar"
         /></a>
+        <div class="descripcion">
+          <p>
+            Hogar
+          </p>
+        </div>
       </div>
 
       <div class="categoria-contenedor">
@@ -290,6 +298,11 @@
             src="public/assets/mascotas.png"
             alt="Mascotas"
         /></a>
+        <div class="descripcion">
+          <p>
+            Mascotas
+          </p>
+        </div>
       </div>
 
       <div class="categoria-contenedor">
@@ -298,7 +311,12 @@
             class="categoria"
             src="public/assets/maquillaje.png"
             alt="Maquillaje"
-        /></a>
+          /></a>
+          <div class="descripcion">
+            <p>
+              Maquillaje
+            </p>
+          </div>
       </div>
 
       <div class="categoria-contenedor">
@@ -308,9 +326,21 @@
             src="public/assets/higiene.png"
             alt="Personal"
         /></a>
+        <div class="descripcion">
+          <p>
+            Personal
+          </p>
+        </div>
       </div>
     </div>
-
+    <div class="sort">
+      <button class="dropbtn">Ordenar Por</button>
+      <div class="dropdown-content">
+        <button class="ordenar" alt="Nombre">Nombre</button>
+        <button class="ordenar" alt="Precio">Precio</button>
+        <button class="ordenar" alt="Categoria">Categoria</button>
+      </div>
+    </div>
     <!-- Contenido -->
 
     <div
@@ -319,8 +349,14 @@
       style="display: flex; flex-wrap: wrap"
     ></div>
 
+    <div class="redes">
+      <img src="public/assets/whatsapp.png" alt="">
+      <img src="public/assets/instagram.png" alt="">
+      <img src="public/assets/facebook.png" alt="">
+    </div>
+
     <div id="alerta" class="oculto"></div>
     <script type="module" src="public/scripts/index.js"></script>
-    <script src="public/scripts/carrito.js"></script>
+    <script type="module" src="public/scripts/carrito.js"></script>
   </body>
 </html>
