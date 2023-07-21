@@ -417,7 +417,7 @@ p.price {
   float: right;
   z-index: 0;
   bottom: 20px;
-  right: -17;
+  right: -17%;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
