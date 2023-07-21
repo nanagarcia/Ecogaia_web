@@ -417,7 +417,7 @@ p.price {
   float: right;
   z-index: 0;
   bottom: 20px;
-  right: 60px;
+  right: -17;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
@@ -2396,12 +2396,12 @@ h3 {
   /* redes */
 
   .redes {
-    right: 10px;
+    right: 22px;
   }
 
-  .redes img {
+  .redes a {
     width: 35px;
-    margin-bottom: 10px;
+    margin-bottom: -4px;
   }
 
 }
